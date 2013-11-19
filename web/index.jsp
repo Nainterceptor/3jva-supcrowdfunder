@@ -3,7 +3,8 @@
 <html>
 <head>
     <title>SupCrowdfunder</title>
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">
