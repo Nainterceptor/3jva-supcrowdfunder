@@ -5,6 +5,6 @@ package com.supinfo.supcrowdfunder.implementable;
  * Date: 19/11/13
  * Time: 15:47
  */
-public interface User {
+public interface IUser {
     public boolean isEqualPassword(String password);
 }
