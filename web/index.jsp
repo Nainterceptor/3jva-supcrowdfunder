@@ -1,37 +1,21 @@
-<%-- Created by IntelliJ IDEA. --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <html>
 <head>
     <title>SupCrowdfunder</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">
-    <div class="navbar-inverse">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand">SupCrowdfunder</a>
-            </div>
-            <nav class="collapse navbar-collapse bs-navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Projets</a>
-                    </li>
-                    <li>
-                        <a href="#">Utilisateurs</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</header>
+
+<%@ include file="/includes/header.jsp"%>
+
 <div class="container bs-docs-container">
     <div class="row">
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>Projet</th>
+                <th colspan="3">Projets</th>
             </tr>
             </thead>
             <tbody>
