@@ -68,7 +68,7 @@ public class User implements IUser {
         this.salt = salt;
     }
 
-    @Column(name = "firstname", nullable = false)
+    @Column(name = "firstname", nullable = true)
     public String getFirstname() {
         return firstname;
     }
@@ -77,7 +77,7 @@ public class User implements IUser {
         this.firstname = firstname;
     }
 
-    @Column(name = "lastname", nullable = false)
+    @Column(name = "lastname", nullable = true)
     public String getLastname() {
         return lastname;
     }
@@ -86,7 +86,7 @@ public class User implements IUser {
         this.lastname = lastname;
     }
 
-    @Column(name = "address", nullable = false)
+    @Column(name = "address", nullable = true)
     public String getAddress() {
         return address;
     }
@@ -95,7 +95,7 @@ public class User implements IUser {
         this.address = address;
     }
 
-    @Column(name = "zipCode", nullable = false)
+    @Column(name = "zipCode", nullable = true)
     public String getZipCode() {
         return zipCode;
     }
@@ -104,7 +104,7 @@ public class User implements IUser {
         this.zipCode = zipCode;
     }
 
-    @Column(name = "city", nullable = false)
+    @Column(name = "city", nullable = true)
     public String getCity() {
         return city;
     }
@@ -113,7 +113,7 @@ public class User implements IUser {
         this.city = city;
     }
 
-    @Column(name = "sex", nullable = false)
+    @Column(name = "sex", nullable = true)
     public Boolean getSex() {
         return sex;
     }

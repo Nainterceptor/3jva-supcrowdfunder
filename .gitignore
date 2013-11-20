@@ -2,11 +2,15 @@
 # IntelliJ IDEA #
 #################
 .idea/workspace.xml
+.idea/dictionaries/*
 .idea/tasks.xml
+.idea/dataSources*
 .iws
 
 ##################
 # External libs  #
 ##################
-web/lib/*
-!web/lib/.gitkeep
+lib/*
+!lib/.gitkeep
+
+src/META-INF/persistence.xml

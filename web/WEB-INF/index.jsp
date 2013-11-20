@@ -3,12 +3,12 @@
 <html>
 <head>
     <title>SupCrowdfunder</title>
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
 
-<%@ include file="/includes/header.jsp"%>
+<%@ include file="/WEB-INF/includes/header.jsp"%>
 
 <div class="container bs-docs-container">
     <div class="row">
