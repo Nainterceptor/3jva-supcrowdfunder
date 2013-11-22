@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
@@ -13,12 +13,12 @@
         <div class="navbar-inverse">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="<%=request.getContextPath()%>/index">SupCrowdfunder</a>
+                    <a class="navbar-brand" href="<%=request.getContextPath()%>/">SupCrowdfunder</a>
                 </div>
                 <nav class="collapse navbar-collapse bs-navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="#">Projets</a>
+                            <a href="<%=request.getContextPath()%>/Project">Projets</a>
                         </li>
                         <li>
                             <a href="#">Utilisateurs</a>
