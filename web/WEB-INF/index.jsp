@@ -1,16 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<html>
-<head>
-    <title>SupCrowdfunder</title>
-    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" href="/css/style.css" />
-</head>
-<body>
-
 <%@ include file="/WEB-INF/includes/header.jsp"%>
-
-<div class="container bs-docs-container">
+<div class="container">
     <div class="row">
         <table class="table table-bordered">
             <thead>
@@ -28,5 +17,4 @@
         </table>
     </div>
 </div>
-</body>
-</html>
+<%@ include file="/WEB-INF/includes/footer.jsp"%>

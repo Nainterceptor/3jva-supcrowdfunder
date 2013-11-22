@@ -20,6 +20,19 @@ public class UserDao extends AbstractDao {
         destroy();
         return users;
     }
-
+    public static void insertOne(User oneUser) {
+        init();
+        em.getTransaction().begin();
+        em.persist(oneUser);
+        em.getTransaction().commit();
+        em.clear();
+        destroy();
+    }
+    public static void insertOne(String email, String password) {
+        User oneUser = new User()
+                .setEmail(email)
+                .setPassword(password);
+        insertOne(oneUser);
+    }
 
 }

@@ -37,8 +37,9 @@ public class User implements IUser {
         return id;
     }
 
-    public void setId(Long id) {
+    public User setId(Long id) {
         this.id = id;
+        return this;
     }
 
     @Column(name = "email", nullable = false)
@@ -46,8 +47,9 @@ public class User implements IUser {
         return email;
     }
 
-    public void setEmail(String email) {
+    public User setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     @Column(name = "password", nullable = false)
@@ -55,8 +57,9 @@ public class User implements IUser {
         return password;
     }
 
-    public void setPassword(String password) {
+    public User setPassword(String password) {
         this.password = password;
+        return this;
     }
 
     @Column(name = "salt", nullable = false)
