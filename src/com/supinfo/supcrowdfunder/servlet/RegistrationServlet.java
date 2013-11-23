@@ -23,15 +23,15 @@ public class RegistrationServlet extends HttpServlet {
         form.validate(request);
         if (form.getResult()) {
             form.persist(request);
+            //Log et redirect
+        } else {
+            request.setAttribute("errors", form.getErrors() );
+            request.setAttribute("result", form.getResult());
         }
-        PrintWriter out = response.getWriter();
-        for (Map.Entry<String, String> e: form.getErrors().entrySet()) {
-            out.println(e.getValue());
-        }
-        //this.getServletContext().getRequestDispatcher("/WEB-INF/registration_/form.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/registration.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/registration_/form.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/registration.jsp").forward(request, response);
     }
 }

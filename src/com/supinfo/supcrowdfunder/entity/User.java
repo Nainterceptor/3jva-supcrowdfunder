@@ -48,7 +48,7 @@ public class User implements IUser {
     }
 
     public User setEmail(String email) {
-        this.email = email;
+        this.email = email.toLowerCase();
         return this;
     }
 
@@ -67,8 +67,9 @@ public class User implements IUser {
         return salt;
     }
 
-    public void setSalt(String salt) {
+    public User setSalt(String salt) {
         this.salt = salt;
+        return this;
     }
 
     @Column(name = "firstname", nullable = true)
@@ -76,8 +77,9 @@ public class User implements IUser {
         return firstname;
     }
 
-    public void setFirstname(String firstname) {
+    public User setFirstname(String firstname) {
         this.firstname = firstname;
+        return this;
     }
 
     @Column(name = "lastname", nullable = true)
@@ -85,8 +87,9 @@ public class User implements IUser {
         return lastname;
     }
 
-    public void setLastname(String lastname) {
+    public User setLastname(String lastname) {
         this.lastname = lastname;
+        return this;
     }
 
     @Column(name = "address", nullable = true)
@@ -94,8 +97,9 @@ public class User implements IUser {
         return address;
     }
 
-    public void setAddress(String address) {
+    public User setAddress(String address) {
         this.address = address;
+        return this;
     }
 
     @Column(name = "zipCode", nullable = true)
@@ -103,8 +107,9 @@ public class User implements IUser {
         return zipCode;
     }
 
-    public void setZipCode(String zipCode) {
+    public User setZipCode(String zipCode) {
         this.zipCode = zipCode;
+        return this;
     }
 
     @Column(name = "city", nullable = true)
@@ -112,8 +117,9 @@ public class User implements IUser {
         return city;
     }
 
-    public void setCity(String city) {
+    public User setCity(String city) {
         this.city = city;
+        return this;
     }
 
     @Column(name = "sex", nullable = true)
@@ -121,7 +127,8 @@ public class User implements IUser {
         return sex;
     }
 
-    public void setSex(Boolean sex) {
+    public User setSex(Boolean sex) {
         this.sex = sex;
+        return this;
     }
 }

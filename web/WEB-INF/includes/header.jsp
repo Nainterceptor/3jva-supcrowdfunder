@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setBundle basename="com.supinfo.supcrowdfunder.lang.Msg" />
+<fmt:setLocale value="fr" scope="session"/>
 <!doctype html>
 <html>
 <head>
     <title>SupCrowdfunder</title>
+    <meta charset="utf-8" />
     <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="/css/style.css" />
 </head>

@@ -1,5 +1,7 @@
 package com.supinfo.supcrowdfunder.validator;
 
+import com.supinfo.supcrowdfunder.dao.UserDao;
+
 /**
  * Author: Gaël Demette
  * Date: 22/11/13
@@ -7,14 +9,21 @@ package com.supinfo.supcrowdfunder.validator;
  */
 public class UserValidator {
     public static void email(String email) throws Exception {
-      //email can't be null, it's a Sting, obliviously.
-      if (email.trim().length() == 0)
-          throw new Exception("validator.user.mail.empty");
-      if (!email.matches("[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}")) //TODO: fix that
-          throw new Exception("validator.user.mail.notMatch");
+        if (email == null || email.trim().length() == 0)
+            throw new Exception("validator.user.mail.empty");
+        if (!email.toLowerCase().matches("[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}"))
+            throw new Exception("validator.user.mail.notMatch");
+        if (UserDao.isMailExist(email))
+            throw new Exception("validator.user.mail.alreadyExist");
     }
     public static void password(String password) throws Exception {
-        if (password.trim().length() == 0)
-                throw new Exception("validator.user.password.empty");
+        if (password == null || password.trim().length() == 0)
+            throw new Exception("validator.user.password.empty");
+    }
+    public static void confirmpassword(String password, String confirm) throws Exception {
+        if (confirm == null || password.trim().length() == 0)
+            throw new Exception("validator.user.confirmPassword.empty");
+        if (!confirm.equals(password))
+            throw new Exception("validator.user.confirmPassword.notEquals");
     }
 }
