@@ -1,7 +1,6 @@
 package com.supinfo.supcrowdfunder.servlet.user;
 
 import com.supinfo.supcrowdfunder.form.LoginType;
-import com.supinfo.supcrowdfunder.form.RegistrationType;
 import com.supinfo.supcrowdfunder.util.FlashBag;
 
 import javax.servlet.ServletException;

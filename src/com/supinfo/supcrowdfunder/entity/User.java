@@ -3,11 +3,7 @@ package com.supinfo.supcrowdfunder.entity;
 import com.supinfo.supcrowdfunder.implementable.IUser;
 import com.supinfo.supcrowdfunder.util.SecurityHelper;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
 
 /**
  * Author: Gaël Demette
