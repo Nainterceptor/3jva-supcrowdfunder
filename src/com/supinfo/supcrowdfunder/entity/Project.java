@@ -73,7 +73,7 @@ public class Project {
         return this;
     }
 
-    @Column(name = "term", nullable = false)
+    @Column(name = "term", nullable = true)
     public Date getTerm() {
         return term;
     }

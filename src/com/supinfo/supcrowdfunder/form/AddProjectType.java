@@ -20,7 +20,6 @@ public class AddProjectType extends AbstractType {
         try {
             ProjectDao.insertOne(request.getParameter("name"),
                     request.getParameter("details"),
-                    Long.parseLong(request.getParameter("actualCredits")),
                     Long.parseLong(request.getParameter("needCredits")),
                     Date.valueOf(request.getParameter("term")));
         } catch (Exception e) {

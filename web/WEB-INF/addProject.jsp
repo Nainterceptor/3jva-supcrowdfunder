@@ -16,7 +16,7 @@
     </c:if>
     <h2 class="form">Création d'un nouveau projet</h2>
 
-    <form class="form-horizontal" action="/addProject">
+    <form class="form" action="<%=request.getContextPath()%>/addProject" method="post">
         </br>
         <div class="form-group<c:if test="${result != null}">${empty errors['name'] ? 'has-success' : 'has-error'}</c:if>">
             <label class="col-sm-3 control-label"><fmt:message key="form.project.name" /></label>
@@ -67,10 +67,8 @@
             <label><fmt:message key="form.project.term" /></label>
             <input type="date"
                    class="form-control"
-                   id="details"
-                   name="details"
-                   required="required"
-                   placeholder="<fmt:message key="form.project.term.placeholder" />"
+                   id="term"
+                   name="term"
                    value="<c:out value="${param.term}"/>"
                    maxlength="255">
             <c:if test="${errors['term'] != null}">

@@ -35,7 +35,7 @@ public class ProjectDao extends AbstractDao {
         destroy();
     }
 
-    public static void insertOne(String name, String details, Long actualCredits, Long needCredits, Date term) throws Exception {
+    public static void insertOne(String name, String details, Long needCredits, Date term) throws Exception {
 
         try {
             Project oneProject = new Project()

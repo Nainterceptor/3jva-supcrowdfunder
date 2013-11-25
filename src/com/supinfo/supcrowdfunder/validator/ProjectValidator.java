@@ -30,7 +30,5 @@ public class ProjectValidator {
     }
 
     public static void term(Date term) throws Exception {
-        if (term == null)
-            throw new Exception("validator.project.term.empty");
     }
 }
