@@ -1,5 +1,8 @@
 package com.supinfo.supcrowdfunder.servlet;
 
+import com.supinfo.supcrowdfunder.form.AddProjectType;
+import com.supinfo.supcrowdfunder.form.RegistrationType;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +20,18 @@ import java.io.IOException;
 
 @WebServlet(name = "AddProjectServlet", urlPatterns = {"/addProject"})
 public class AddProjectServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        AddProjectType form = new AddProjectType();
+        form.validate(request);
+        if(form.getResult()) {
+            form.persist(request);
+        } else {
+            request.setAttribute("errors", form.getErrors());
+            request.setAttribute("result", form.getResult());
+        }
+
+        this.getServletContext().getRequestDispatcher("/WEB-INF/addProject.jsp").forward(request, response);
+    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
