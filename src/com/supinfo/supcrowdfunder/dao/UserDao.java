@@ -3,6 +3,7 @@ package com.supinfo.supcrowdfunder.dao;
 import com.supinfo.supcrowdfunder.entity.User;
 import com.supinfo.supcrowdfunder.util.SecurityHelper;
 
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import java.util.List;
 
@@ -51,6 +52,20 @@ public class UserDao extends AbstractDao {
 
         destroy();
         return result > 0;
+    }
+    public static User findUserByMail(String email) {
+        init();
+
+        Query query = em.createQuery("SELECT u FROM User u WHERE u.email = :email")
+                .setParameter("email", email.toLowerCase());
+        User result;
+        try {
+            result = (User) query.getSingleResult();
+        } catch (NoResultException e) {
+            result = null;
+        }
+        destroy();
+        return result;
     }
     public static void insertOne(String email, String password, String firstname, String lastname) throws Exception {
 

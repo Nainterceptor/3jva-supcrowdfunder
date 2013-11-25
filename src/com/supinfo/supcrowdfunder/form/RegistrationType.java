@@ -32,7 +32,7 @@ public class RegistrationType extends AbstractType {
         }
         //In last, validators with SQL queries
         try {
-            UserValidator.email(request.getParameter("email"));
+            UserValidator.emailRegistration(request.getParameter("email"));
         } catch (Exception e) {
             errors.put("email", e.getMessage());
         }

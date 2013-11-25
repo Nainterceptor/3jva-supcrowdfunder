@@ -1,11 +1,9 @@
 package com.supinfo.supcrowdfunder.entity;
 
 import com.supinfo.supcrowdfunder.implementable.IUser;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
+import com.supinfo.supcrowdfunder.util.SecurityHelper;
+
+import javax.persistence.*;
 
 /**
  * Author: Gaël Demette
@@ -27,7 +25,13 @@ public class User implements IUser {
     protected String city;
     protected Boolean sex;
     public boolean isEqualPassword(String password) {
-        return false;
+        boolean isEqual;
+        try {
+            isEqual = this.password.equals(SecurityHelper.hashPassword(password, this.salt));
+        } catch (Exception e) {
+            isEqual = false;
+        }
+        return isEqual;
     }
 
     @Id

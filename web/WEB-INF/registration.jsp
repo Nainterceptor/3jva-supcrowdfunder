@@ -1,6 +1,6 @@
 <%@ include file="/WEB-INF/includes/header.jsp"%>
-
 <div class="container">
+    <h1><fmt:message key="page.registration.title" /></h1>
     <c:if test="${errors['internal'] != null}">
         <div class="alert alert-danger alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -8,7 +8,7 @@
         </div>
     </c:if>
     <div class="row">
-        <form role="form" action="/registration" method="post">
+        <form role="form" action="<%=request.getContextPath()%>/registration" method="post">
             <div class="form-group <c:if test="${result != null}">${empty errors['firstname'] ? 'has-success' : 'has-error'}</c:if>">
                 <label class="control-label" for="firstname"><fmt:message key="form.registration.firstname" /></label>
                 <input type="text"

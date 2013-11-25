@@ -6,11 +6,17 @@
 .idea/tasks.xml
 .idea/dataSources*
 .iws
+out/
 
 ##################
 # External libs  #
 ##################
 lib/*
 !lib/.gitkeep
+
+############
+# Mac OS X #
+############
+.DS_Store
 
 src/META-INF/persistence.xml

@@ -1,6 +1,9 @@
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.supinfo.supcrowdfunder.util.FlashBag" %>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
          pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <fmt:setBundle basename="com.supinfo.supcrowdfunder.lang.Msg" />
 <fmt:setLocale value="fr" scope="session"/>
@@ -32,3 +35,16 @@
             </div>
         </div>
     </header>
+    <c:if test="${flashbag.hasFlashs()}">
+        <div class="container">
+        <c:forEach var="f" items="${flashbag.getFlashs().entrySet()}">
+            <c:forEach var="m" items="${flashbag.getOnceFlash(f.key)}">
+                <div class="alert alert-<c:out value="${f.key}" /> alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <fmt:message key="${m}" />
+                </div>
+            </c:forEach>
+        </c:forEach>
+        </div>
+    </c:if>
+
