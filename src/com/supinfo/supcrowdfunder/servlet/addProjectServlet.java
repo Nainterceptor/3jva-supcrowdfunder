@@ -15,8 +15,8 @@ import java.io.IOException;
  * To change this template use File | Settings | File Templates.
  */
 
-@WebServlet(name = "addProjectServlet", urlPatterns = {"/addProject"})
-public class addProjectServlet extends HttpServlet {
+@WebServlet(name = "AddProjectServlet", urlPatterns = {"/addProject"})
+public class AddProjectServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
