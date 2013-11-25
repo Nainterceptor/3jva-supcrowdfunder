@@ -9,6 +9,34 @@
     </c:if>
     <div class="row">
         <form role="form" action="/registration" method="post">
+            <div class="form-group <c:if test="${result != null}">${empty errors['firstname'] ? 'has-success' : 'has-error'}</c:if>">
+                <label class="control-label" for="firstname"><fmt:message key="form.registration.firstname" /></label>
+                <input type="text"
+                       class="form-control"
+                       id="firstname"
+                       name="firstname"
+                       required="required"
+                       placeholder="<fmt:message key="form.registration.firstname.placeholder" />"
+                       value="<c:out value="${param.firstname}"/>"
+                       maxlength="255">
+                <c:if test="${errors['firstname'] != null}">
+                    <span class="help-block"><fmt:message key="${errors['firstname']}" /></span>
+                </c:if>
+            </div>
+            <div class="form-group <c:if test="${result != null}">${empty errors['lastname'] ? 'has-success' : 'has-error'}</c:if>">
+                <label class="control-label" for="lastname"><fmt:message key="form.registration.lastname" /></label>
+                <input type="text"
+                       class="form-control"
+                       id="lastname"
+                       name="lastname"
+                       required="required"
+                       placeholder="<fmt:message key="form.registration.lastname.placeholder" />"
+                       value="<c:out value="${param.lastname}"/>"
+                       maxlength="255">
+                <c:if test="${errors['lastname'] != null}">
+                    <span class="help-block"><fmt:message key="${errors['lastname']}" /></span>
+                </c:if>
+            </div>
             <div class="form-group <c:if test="${result != null}">${empty errors['email'] ? 'has-success' : 'has-error'}</c:if>">
                 <label class="control-label" for="email"><fmt:message key="form.registration.email" /></label>
                 <input type="email"

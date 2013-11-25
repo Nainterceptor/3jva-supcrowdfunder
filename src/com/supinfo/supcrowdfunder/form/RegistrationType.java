@@ -14,7 +14,7 @@ public class RegistrationType extends AbstractType {
 
     public void persist(HttpServletRequest request) {
         try {
-            UserDao.insertOne(request.getParameter("email"), request.getParameter("password"));
+            UserDao.insertOne(request.getParameter("email"), request.getParameter("password"), request.getParameter("firstname"), request.getParameter("lastname"));
         } catch (Exception e) {
             errors.put("internal", e.getMessage());
         }
@@ -35,6 +35,16 @@ public class RegistrationType extends AbstractType {
             UserValidator.email(request.getParameter("email"));
         } catch (Exception e) {
             errors.put("email", e.getMessage());
+        }
+        try {
+            UserValidator.firstname(request.getParameter("firstname"));
+        } catch (Exception e) {
+            errors.put("firstname", e.getMessage());
+        }
+        try {
+            UserValidator.firstname(request.getParameter("lastname"));
+        } catch (Exception e) {
+            errors.put("lastname", e.getMessage());
         }
         if (!errors.isEmpty())
             result = false;

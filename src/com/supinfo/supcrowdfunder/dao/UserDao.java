@@ -52,5 +52,21 @@ public class UserDao extends AbstractDao {
         destroy();
         return result > 0;
     }
+    public static void insertOne(String email, String password, String firstname, String lastname) throws Exception {
+
+        String salt = SecurityHelper.generateSalt();
+        try {
+            String hashedPassword = SecurityHelper.hashPassword(password, salt);
+            User oneUser = new User()
+                    .setFirstname(firstname)
+                    .setLastname(lastname)
+                    .setEmail(email)
+                    .setPassword(hashedPassword)
+                    .setSalt(salt);
+            insertOne(oneUser);
+        } catch (Exception e) {
+            throw new Exception("Internal : Can't register user");
+        }
+    }
 
 }
