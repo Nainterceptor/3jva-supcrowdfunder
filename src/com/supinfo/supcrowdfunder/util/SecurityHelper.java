@@ -22,7 +22,8 @@ public class SecurityHelper {
         return salt;
     }
     public static String hashPassword(String clearPassword, String salt) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-        byte[] passwordBytes = clearPassword.getBytes();
+        String password = clearPassword + salt;
+        byte[] passwordBytes = password.getBytes();
         byte[] hashBytes = null;
         hashBytes = MessageDigest.getInstance("SHA-1").digest(passwordBytes);
 

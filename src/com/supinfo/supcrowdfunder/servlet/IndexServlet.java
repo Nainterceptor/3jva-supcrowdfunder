@@ -16,7 +16,6 @@ import java.io.PrintWriter;
 @WebServlet(name = "IndexServlet", urlPatterns = {""}, loadOnStartup = 1)
 public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
     }
 }
