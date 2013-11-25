@@ -1,5 +1,9 @@
 package com.supinfo.supcrowdfunder.servlet;
 
+import com.supinfo.supcrowdfunder.dao.ProjectDao;
+import com.supinfo.supcrowdfunder.form.RegistrationType;
+
+import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,10 +19,15 @@ import java.io.IOException;
  * To change this template use File | Settings | File Templates.
  */
 
-@WebServlet(name = "indexProjectServlet", urlPatterns = {"/Project"})
-public class indexProjectServlet extends HttpServlet {
+@WebServlet(name = "IndexProjectServlet", urlPatterns = {"/Project"})
+public class IndexProjectServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        this.getServletContext().getRequestDispatcher("/WEB-INF/project.jsp").forward(request, response);
+    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("projects", ProjectDao.getAll());
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/project.jsp").forward(request, response);
     }
