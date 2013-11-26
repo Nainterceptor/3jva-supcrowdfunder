@@ -3,4 +3,7 @@
 	<output-test url="file://$MODULE_DIR$/out/test/SupCrowdFunder"/>
 	<exclude-output/>
 	<contentEntry url="file://$MODULE_DIR$"/>
+	<levels>
+		<level name="lib" value="project"/>
+	</levels>
 </component>
