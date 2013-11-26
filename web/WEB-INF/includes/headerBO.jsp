@@ -28,6 +28,9 @@
                             <a href="<%=request.getContextPath()%>/Project">Projets</a>
                         </li>
                         <li>
+                            <a href="<%=request.getContextPath()%>/Categorie">Catégories</a>
+                        </li>
+                        <li>
                             <a href="#">Utilisateurs</a>
                         </li>
                     </ul>
