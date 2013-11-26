@@ -1,8 +1,6 @@
 package com.supinfo.supcrowdfunder.dao;
 
 import com.supinfo.supcrowdfunder.entity.Project;
-import com.supinfo.supcrowdfunder.entity.User;
-import com.supinfo.supcrowdfunder.util.SecurityHelper;
 
 import javax.persistence.Query;
 import java.util.Date;

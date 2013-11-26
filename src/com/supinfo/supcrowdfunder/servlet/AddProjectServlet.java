@@ -1,7 +1,6 @@
 package com.supinfo.supcrowdfunder.servlet;
 
 import com.supinfo.supcrowdfunder.form.AddProjectType;
-import com.supinfo.supcrowdfunder.form.RegistrationType;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

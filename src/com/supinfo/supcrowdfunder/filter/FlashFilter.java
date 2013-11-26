@@ -3,7 +3,6 @@ package com.supinfo.supcrowdfunder.filter;
 import com.supinfo.supcrowdfunder.util.FlashBag;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -13,7 +12,6 @@ import java.io.IOException;
  * Date: 25/11/13
  * Time: 00:51
  */
-@WebFilter(urlPatterns = "/*")
 public class FlashFilter implements Filter {
     public void destroy() {
     }

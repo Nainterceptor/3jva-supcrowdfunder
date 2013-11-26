@@ -1,9 +1,7 @@
 package com.supinfo.supcrowdfunder.servlet;
 
 import com.supinfo.supcrowdfunder.dao.ProjectDao;
-import com.supinfo.supcrowdfunder.form.RegistrationType;
 
-import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

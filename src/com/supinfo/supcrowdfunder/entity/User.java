@@ -24,6 +24,8 @@ public class User implements IUser {
     protected String zipCode;
     protected String city;
     protected Boolean sex;
+    protected Boolean admin;
+
     public boolean isEqualPassword(String password) {
         boolean isEqual;
         try {
@@ -33,7 +35,6 @@ public class User implements IUser {
         }
         return isEqual;
     }
-
     @Id
     @GeneratedValue
     @Column(name = "id")
@@ -135,4 +136,15 @@ public class User implements IUser {
         this.sex = sex;
         return this;
     }
+
+    @Column(name = "admin", nullable = true)
+    public Boolean getAdmin() {
+        return admin;
+    }
+
+    public User setAdmin(Boolean admin) {
+        this.admin = admin;
+        return this;
+    }
+
 }

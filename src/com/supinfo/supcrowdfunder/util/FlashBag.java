@@ -3,8 +3,8 @@ package com.supinfo.supcrowdfunder.util;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Author: Gaël Demette
@@ -12,7 +12,7 @@ import java.util.Map;
  * Time: 00:32
  */
 public class FlashBag {
-    public Map<String, ArrayList<String>> flashs = new HashMap();
+    public Map<String, ArrayList<String>> flashs = new ConcurrentHashMap();
     private HttpSession session;
 
     public FlashBag(HttpSession session) {

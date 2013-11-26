@@ -24,7 +24,12 @@ public class LoginServlet extends HttpServlet {
         if (form.getResult()) {
             flashbag.addFlash("success", "flash.login.success");
             request.getSession().setAttribute("email", request.getParameter("email"));
-            response.sendRedirect("/");
+            String redirectTo = request.getParameter("originURL");
+            if (redirectTo == null && redirectTo.trim().length() == 0)
+                response.sendRedirect("/");
+            else
+                response.sendRedirect(redirectTo);
+
         } else {
             request.setAttribute("errors", form.getErrors() );
             request.setAttribute("result", form.getResult());

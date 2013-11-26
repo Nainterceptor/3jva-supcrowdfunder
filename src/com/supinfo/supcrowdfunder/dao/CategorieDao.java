@@ -1,7 +1,6 @@
 package com.supinfo.supcrowdfunder.dao;
 
 import com.supinfo.supcrowdfunder.entity.Categorie;
-import com.supinfo.supcrowdfunder.util.SecurityHelper;
 
 import javax.persistence.Query;
 import java.util.List;

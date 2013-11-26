@@ -35,6 +35,7 @@
                     <span class="help-block"><fmt:message key="${errors['password']}" /></span>
                 </c:if>
             </div>
+            <input type="hidden" name="originURL" value="${originURL}" />
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
 

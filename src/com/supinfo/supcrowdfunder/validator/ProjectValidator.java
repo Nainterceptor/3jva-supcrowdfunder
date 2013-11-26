@@ -1,7 +1,5 @@
 package com.supinfo.supcrowdfunder.validator;
 
-import com.supinfo.supcrowdfunder.dao.ProjectDao;
-
 import java.util.Date;
 
 /**
