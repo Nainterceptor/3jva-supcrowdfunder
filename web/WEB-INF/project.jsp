@@ -10,6 +10,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2">
+           <a class="btn btn-primary" href="<%=request.getContextPath()%>/addProject">Add a project</a>
            <div class="navbar-default">
                 <ul class="nav">
                     <li>
@@ -31,7 +32,6 @@
             </div>
         </div>
         <div class="col-md-8">
-        <a class="btn btn-primary" href="<%=request.getContextPath()%>/addProject">Add a project</a>
             <c:forEach items="${projects}" var="p">
             <div class="col-md-4">
                 <div class="thumbnail">

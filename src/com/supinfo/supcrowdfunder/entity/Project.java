@@ -28,8 +28,9 @@ public class Project {
         return id;
     }
 
-    public void setId(Long id) {
+    public Project setId(Long id) {
         this.id = id;
+        return this;
     }
 
     @Column(name = "name", nullable = false)
@@ -37,8 +38,9 @@ public class Project {
         return name;
     }
 
-    public void setName(String name) {
+    public Project setName(String name) {
         this.name = name;
+        return this;
     }
 
     @Column(name = "details", nullable = false)
@@ -46,8 +48,9 @@ public class Project {
         return details;
     }
 
-    public void setDetails(String details) {
+    public Project setDetails(String details) {
         this.details = details;
+        return this;
     }
 
     @Column(name = "actualCredits")
@@ -55,8 +58,9 @@ public class Project {
         return actualCredits;
     }
 
-    public void setActualCredits(Long actualCredits) {
+    public Project setActualCredits(Long actualCredits) {
         this.actualCredits = actualCredits;
+        return this;
     }
 
     @Column(name = "needCredits", nullable = false)
@@ -64,16 +68,18 @@ public class Project {
         return needCredits;
     }
 
-    public void setNeedCredits(Long needCredits) {
+    public Project setNeedCredits(Long needCredits) {
         this.needCredits = needCredits;
+        return this;
     }
 
-    @Column(name = "term", nullable = false)
+    @Column(name = "term", nullable = true)
     public Date getTerm() {
         return term;
     }
 
-    public void setTerm(Date term) {
+    public Project setTerm(Date term) {
         this.term = term;
+        return this;
     }
 }

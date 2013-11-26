@@ -78,7 +78,6 @@
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
-
     </div>
 </div>
 <%@ include file="/WEB-INF/includes/footer.jsp"%>
