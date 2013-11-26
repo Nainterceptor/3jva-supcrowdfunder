@@ -1,13 +1,15 @@
+<%@ page language="java" contentType="text/html;charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/includes/headerBO.jsp"%>
 <div class="container">
     <h1><fmt:message key="bo.page.user.list.title" /></h1>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th><fmt:message key="bo.page.user.list.table.head.id" /></th>
-            <th><fmt:message key="bo.page.user.list.table.head.email" /></th>
-            <th><fmt:message key="bo.page.user.list.table.head.firstname" /></th>
-            <th><fmt:message key="bo.page.user.list.table.head.lastname" /></th>
+            <th><fmt:message key="db.id" /></th>
+            <th><fmt:message key="db.user.email" /></th>
+            <th><fmt:message key="db.user.firstname" /></th>
+            <th><fmt:message key="db.user.lastname" /></th>
             <th><fmt:message key="bo.page.user.list.table.head.actions" /></th>
         </tr>
         </thead>

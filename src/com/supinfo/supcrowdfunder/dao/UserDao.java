@@ -83,5 +83,11 @@ public class UserDao extends AbstractDao {
             throw new Exception("Internal : Can't register user");
         }
     }
+    public static User findOne(Long id) {
+        init();
+        User user = em.find(User.class, id);
+        destroy();
+        return user;
+    }
 
 }
