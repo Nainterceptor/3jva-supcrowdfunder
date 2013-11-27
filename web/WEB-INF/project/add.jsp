@@ -17,7 +17,7 @@
     </c:if>
     <h2 class="form">Création d'un nouveau projet</h2>
 
-    <form class="form" action="<%=request.getContextPath()%>/project/add" method="post">
+    <form class="form" action="<%=request.getContextPath()%>/me/project/add" method="post">
         </br>
         <div class="form-group<c:if test="${result != null}">${empty errors['name'] ? 'has-success' : 'has-error'}</c:if>">
             <label class="col-sm-3 control-label"><fmt:message key="form.project.name" /></label>
