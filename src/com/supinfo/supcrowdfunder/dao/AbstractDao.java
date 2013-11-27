@@ -12,6 +12,7 @@ import javax.persistence.Persistence;
 public abstract class AbstractDao {
     protected static EntityManagerFactory emf;
     protected static EntityManager em;
+
     public static void init() {
         emf = Persistence.createEntityManagerFactory("PU");
         em = emf.createEntityManager();

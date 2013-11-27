@@ -11,7 +11,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table (name = "categorie")
+@Table(name = "categorie")
 public class Categorie {
 
     protected Long id;
