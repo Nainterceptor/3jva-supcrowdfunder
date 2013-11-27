@@ -15,7 +15,7 @@ import java.io.IOException;
  * Date: 27/11/13
  * Time: 00:28
  * To change this template use File | Settings | File Templates.
- */
+*/
 @WebServlet(name = "ContributeServlet", urlPatterns="/me/contribute")
 public class ContributeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
