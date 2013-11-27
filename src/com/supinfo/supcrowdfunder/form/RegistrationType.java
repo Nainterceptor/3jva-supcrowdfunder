@@ -42,7 +42,7 @@ public class RegistrationType extends AbstractType {
             errors.put("firstname", e.getMessage());
         }
         try {
-            UserValidator.firstname(request.getParameter("lastname"));
+            UserValidator.lastname(request.getParameter("lastname"));
         } catch (Exception e) {
             errors.put("lastname", e.getMessage());
         }
