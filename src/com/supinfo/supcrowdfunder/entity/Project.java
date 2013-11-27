@@ -28,7 +28,7 @@ public class Project {
         return this;
     }
 
-    @ManyToOne( cascade = {CascadeType.PERSIST}, targetEntity=Categorie.class )
+    @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=Categorie.class )
     @JoinColumn(name="categorie_id")
     public Categorie getCategories() {
         return categories;

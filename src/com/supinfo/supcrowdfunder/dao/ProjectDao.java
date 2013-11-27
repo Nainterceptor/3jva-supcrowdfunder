@@ -39,7 +39,7 @@ public class ProjectDao extends AbstractDao {
     public static void insertOne(Project oneProject) {
         init();
         em.getTransaction().begin();
-        em.persist(oneProject);
+        em.merge(oneProject);
         em.getTransaction().commit();
         em.clear();
         destroy();
