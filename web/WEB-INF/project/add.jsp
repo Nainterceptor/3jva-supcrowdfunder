@@ -16,7 +16,7 @@
     </c:if>
     <h2 class="form">Création d'un nouveau projet</h2>
 
-    <form class="form" action="<%=request.getContextPath()%>/addProject" method="post">
+    <form class="form" action="<%=request.getContextPath()%>/project/add" method="post">
         </br>
         <div class="form-group<c:if test="${result != null}">${empty errors['name'] ? 'has-success' : 'has-error'}</c:if>">
             <label class="col-sm-3 control-label"><fmt:message key="form.project.name" /></label>
@@ -51,20 +51,30 @@
         </div>
         <div class="form-group <c:if test="${result != null}">${empty errors['details'] ? 'has-success' : 'has-error'}</c:if>">
             <label><fmt:message key="form.project.details" /></label>
-            <input type="textarea"
+            <textarea
                    class="form-control"
                    id="details"
                    name="details"
                    required="required"
                    placeholder="<fmt:message key="form.project.details.placeholder" />"
-                   value="<c:out value="${param.details}"/>"
-                   maxlength="255">
+                   maxlength="255"></textarea>
             <c:if test="${errors['details'] != null}">
                 <span class="help-block"><fmt:message key="${errors['details']}" /></span>
             </c:if>
         </div>
+        <div class="form-group <c:if test="${result != null}">${empty errors['categories'] ? 'has-success' : 'has-error'}</c:if>">
+            <label for="categories"><fmt:message key="form.project.categorie" /></label>
+            <select id="categories" name="categories" class="form-control">
+                <c:forEach items="${categories}" var="c">
+                    <option value="<c:out value="${c.id}"/>"><c:out value="${c.name}" /></option>
+                </c:forEach>
+            </select>
+            <c:if test="${errors['categories'] != null}">
+                <span class="help-block"><fmt:message key="${errors['categories']}" /></span>
+            </c:if>
+        </div>
         <div class="form-group <c:if test="${result != null}">${empty errors['term'] ? 'has-success' : 'has-error'}</c:if>">
-            <label><fmt:message key="form.project.term" /></label>
+            <label for="term"><fmt:message key="form.project.term" /></label>
             <input type="date"
                    class="form-control"
                    id="term"

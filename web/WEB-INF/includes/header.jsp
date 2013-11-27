@@ -25,7 +25,7 @@
                 <nav class="collapse navbar-collapse bs-navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="<%=request.getContextPath()%>/Project">Projets</a>
+                            <a href="<%=request.getContextPath()%>/project">Projets</a>
                         </li>
                         <li>
                             <a href="#">Utilisateurs</a>

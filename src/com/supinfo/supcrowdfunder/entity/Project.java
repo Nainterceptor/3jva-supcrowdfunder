@@ -2,6 +2,7 @@ package com.supinfo.supcrowdfunder.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,6 +21,18 @@ public class Project {
     protected Long actualCredits;
     protected Long needCredits;
     protected Date term;
+    private Categorie categories;
+
+    public Project setCategories(Categorie categories) {
+        this.categories = categories;
+        return this;
+    }
+
+    @ManyToOne( cascade = {CascadeType.PERSIST}, targetEntity=Categorie.class )
+    @JoinColumn(name="categorie_id")
+    public Categorie getCategories() {
+        return categories;
+    }
 
     @Id
     @GeneratedValue
