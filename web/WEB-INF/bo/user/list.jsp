@@ -29,7 +29,10 @@
                     <a href="<%=request.getContextPath()%>/bo/user/show?id=<c:out value="${u.id}" />"
                        class="glyphicon glyphicon-eye-open">&nbsp;</a>
                     <a href="<%=request.getContextPath()%>/bo/user/edit?id=<c:out value="${u.id}" />"
-                       class="glyphicon glyphicon-pencil">&nbsp;</a></td>
+                       class="glyphicon glyphicon-pencil">&nbsp;</a>
+                    <a onclick="return confirm('<fmt:message key="bo.page.user.list.actions.removeConfirm" />')" href="<%=request.getContextPath()%>/bo/user/delete?id=<c:out value="${u.id}" />"
+                       class="glyphicon glyphicon-remove-sign">&nbsp;</a>
+                </td>
             </tr>
         </c:forEach>
         </tbody>

@@ -25,7 +25,7 @@ public class UserDao extends AbstractDao {
     public static void persist(User oneUser) {
         init();
         em.getTransaction().begin();
-        if (oneUser.getId() > 0)
+        if (oneUser.getId() != null)
             em.merge(oneUser);
         else
             em.persist(oneUser);
@@ -92,5 +92,13 @@ public class UserDao extends AbstractDao {
         destroy();
         return user;
     }
-
+    public static void removeOne(Long id) {
+        init();
+        em.getTransaction().begin();
+        em.createQuery("DELETE User WHERE id = :userId")
+                .setParameter("userId", id)
+                .executeUpdate();
+        em.getTransaction().commit();
+        destroy();
+    }
 }

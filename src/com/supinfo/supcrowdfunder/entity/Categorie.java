@@ -13,6 +13,7 @@ import java.util.List;
 @Entity
 @Table (name = "categorie")
 public class Categorie {
+
     protected Long id;
     protected String name;
     private List<Project> project;

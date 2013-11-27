@@ -24,7 +24,10 @@ public class AuthFilter implements Filter {
         HttpSession session = request.getSession();
         String email = (String) session.getAttribute("email");
         User currentUser = null;
-        req.setAttribute("originURL", request.getRequestURL().append('?').append(request.getQueryString()));
+        StringBuffer originURL = request.getRequestURL();
+        if (request.getQueryString() != null)
+            originURL.append('?').append(request.getQueryString());
+        req.setAttribute("originURL", originURL);
         if (email != null) {
             currentUser = UserDao.findUserByMail(email.toLowerCase());
         }
