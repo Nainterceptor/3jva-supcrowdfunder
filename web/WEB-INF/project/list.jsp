@@ -9,7 +9,7 @@
 
 <div class="container">
     <div class="col-md-2">
-       <a class="btn btn-primary" href="<%=request.getContextPath()%>/project/add">Add a project</a>
+       <a class="btn btn-primary" href="<%=request.getContextPath()%>/me/project/add">Add a project</a>
        <div class="navbar-default">
             <ul class="nav">
             <c:forEach items="${categories}" var="c">

@@ -20,7 +20,7 @@ import java.io.IOException;
  * To change this template use File | Settings | File Templates.
  */
 
-@WebServlet(name = "AddProjectServlet", urlPatterns = {"/project/add"})
+@WebServlet(name = "AddProjectServlet", urlPatterns = {"/me/project/add"})
 public class AddProjectServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AddProjectType form = new AddProjectType();
