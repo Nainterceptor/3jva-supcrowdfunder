@@ -14,7 +14,7 @@
             <ul class="nav">
             <c:forEach items="${categories}" var="c">
                 <li>
-                    <a href="#${c.name}"><c:out value="${c.name}"/></a>
+                    <a href="<%=request.getContextPath()%>/project?category=<c:out value="${c.id}" />"><c:out value="${c.name}"/></a>
                 </li>
             </c:forEach>
             </ul>

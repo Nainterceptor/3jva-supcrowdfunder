@@ -8,17 +8,25 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
  * User: Fireaxe
  * Date: 25/11/13
  * Time: 11:25
- * To change this template use File | Settings | File Templates.
  */
 public class ProjectDao extends AbstractDao {
     public static List<Project> getAll() {
         init();
 
         Query query = em.createQuery("SELECT p FROM Project p");
+        List<Project> projects = query.getResultList();
+
+        destroy();
+        return projects;
+    }
+    public static List<Project> getAll(Long category) {
+        init();
+
+        Query query = em.createQuery("SELECT p FROM Project p WHERE p.categories = :category")
+                .setParameter("category", em.find(Categorie.class, category));
         List<Project> projects = query.getResultList();
 
         destroy();

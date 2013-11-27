@@ -1,12 +1,10 @@
 package com.supinfo.supcrowdfunder.form;
 
 import com.supinfo.supcrowdfunder.dao.ContributeDao;
-import com.supinfo.supcrowdfunder.entity.Project;
 import com.supinfo.supcrowdfunder.entity.User;
 import com.supinfo.supcrowdfunder.validator.ContributeValidator;
 
 import javax.servlet.http.HttpServletRequest;
-import java.sql.Date;
 
 
 

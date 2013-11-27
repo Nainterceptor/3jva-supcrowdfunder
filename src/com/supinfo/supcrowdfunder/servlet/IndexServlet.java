@@ -15,6 +15,6 @@ import java.io.IOException;
 @WebServlet(name = "IndexServlet", urlPatterns = {""}, loadOnStartup = 1)
 public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/project").forward(request, response);
     }
 }

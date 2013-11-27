@@ -1,6 +1,5 @@
 package com.supinfo.supcrowdfunder.form;
 
-import com.supinfo.supcrowdfunder.dao.UserDao;
 import com.supinfo.supcrowdfunder.validator.UserValidator;
 
 import javax.servlet.http.HttpServletRequest;

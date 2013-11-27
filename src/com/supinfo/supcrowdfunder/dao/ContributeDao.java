@@ -4,7 +4,6 @@ import com.supinfo.supcrowdfunder.entity.Contribute;
 import com.supinfo.supcrowdfunder.entity.Project;
 
 import javax.persistence.Query;
-import java.util.Date;
 import java.util.List;
 
 
