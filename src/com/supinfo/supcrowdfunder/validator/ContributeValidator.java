@@ -19,12 +19,10 @@ public class ContributeValidator {
     }
 
 
-    public static void user(String user) throws Exception {
-        if (user == null || user.trim().length() == 0)
-            throw new Exception("validator.project.name.empty");
-        if (user.trim().length() > 150)
-            throw new Exception("validator.project.name.tooLong");
-    }
+//    public static void userId(Long userId) throws Exception {
+//        if (userId == null)
+//            throw new Exception("validator.project.name.empty");
+//    }
 
     public static void rightNow(Date rightNow) throws Exception {
     }

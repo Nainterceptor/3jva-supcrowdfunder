@@ -2,7 +2,7 @@ package com.supinfo.supcrowdfunder.entity;
 
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,8 +18,8 @@ public class Contribute {
 
     protected Long id;
     protected Long amount;
-    protected String user;
-    protected Date rightNow;
+    protected Long userId;
+    protected java.sql.Date rightNow;
 
     @Id
     @GeneratedValue
@@ -43,13 +43,13 @@ public class Contribute {
         return this;
     }
 
-    @Column(name = "user", nullable = false)
-    public String getUser() {
-        return user;
+    @Column(name = "userId", nullable = false)
+    public Long getUserId() {
+        return userId;
     }
 
-    public Contribute setUser(String user) {
-        this.user = user;
+    public Contribute setUserId(Long userId) {
+        this.userId = userId;
         return this;
     }
 
