@@ -16,7 +16,7 @@
         </div>
     </c:if>
     <div class="row">
-        <form role="form" action="<%=request.getContextPath()%>/bo/addCategorie" method="post">
+        <form role="form" action="<%=request.getContextPath()%>/bo/categorie/add" method="post">
             <div class="form-group <c:if test="${result != null}">${empty errors['name'] ? 'has-success' : 'has-error'}</c:if>">
                 <label class="control-label" for="name"><fmt:message key="form.addCategorie.name" /></label>
                 <input type="text"

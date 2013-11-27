@@ -17,7 +17,7 @@ import java.io.IOException;
  * Time: 14:40
  * To change this template use File | Settings | File Templates.
  */
-@WebServlet(name = "AddCategorieBOServlet", urlPatterns = {"/bo/addCategorie"})
+@WebServlet(name = "AddCategorieBOServlet", urlPatterns = {"/bo/categorie/add"})
 public class AddCategorieBOServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AddCategorieType form = new AddCategorieType();

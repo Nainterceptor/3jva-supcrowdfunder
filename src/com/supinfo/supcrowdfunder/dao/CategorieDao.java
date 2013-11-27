@@ -23,7 +23,17 @@ public class CategorieDao extends AbstractDao {
         destroy();
         return categories;
     }
-
+    public static void persist(Categorie oneCategorie) {
+        init();
+        em.getTransaction().begin();
+        if (oneCategorie.getId() > 0)
+            em.merge(oneCategorie);
+        else
+            em.persist(oneCategorie);
+        em.getTransaction().commit();
+        em.clear();
+        destroy();
+    }
     public static Categorie findOne(Long id) {
         init();
 

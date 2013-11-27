@@ -1,4 +1,4 @@
-package com.supinfo.supcrowdfunder.form;
+/**package com.supinfo.supcrowdfunder.form;
 
 import com.supinfo.supcrowdfunder.dao.ContributeDao;
 import com.supinfo.supcrowdfunder.entity.User;
@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
 
 
-/**
+
  * Created with IntelliJ IDEA.
  * User: Robin
  * Date: 27/11/13
  * Time: 00:13
  * To change this template use File | Settings | File Templates.
-*/
+
 public class ContributeType extends AbstractType {
 
     public void persist(HttpServletRequest request) {
@@ -54,3 +54,4 @@ public class ContributeType extends AbstractType {
     }
 
 }
+ */
