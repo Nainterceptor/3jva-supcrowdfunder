@@ -14,7 +14,7 @@ import java.sql.Date;
  * Date: 27/11/13
  * Time: 00:13
  * To change this template use File | Settings | File Templates.
- */
+*/
 public class ContributeType extends AbstractType {
 
     public void persist(HttpServletRequest request) {
