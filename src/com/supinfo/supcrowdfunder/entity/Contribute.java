@@ -23,7 +23,7 @@ public class Contribute {
     private Project project;
 
     @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=Project.class )
-    @JoinColumn(name="projectId")
+    @JoinColumn(name="projectId", nullable = false)
     public Project getProject() {
         return project;
     }

@@ -38,7 +38,7 @@
         </tbody>
     </table>
     <h2 class="form">Participer au projet</h2>
-    <form class="form" action="<%=request.getContextPath()%>/me/contribute" method="post">
+    <form class="form" action="<%=request.getContextPath()%>/me/contribute" method="get">
         </br>
         <div class="form-group <c:if test="${result != null}">${empty errors['amount'] ? 'has-success' : 'has-error'}</c:if>">
             <label for="amount"><fmt:message key="form.project.needCredits" /></label>
