@@ -21,7 +21,7 @@
         <tbody>
         <c:if test="${categories.isEmpty()}">
             <tr>
-                <td colspan="5"><fmt:message key="bo.page.categorie.list.empty" /></td>
+                <td colspan="5"><fmt:message key="bo.page.categorie.list.table.empty" /></td>
             </tr>
         </c:if>
         <c:forEach items="${categories}" var="u">

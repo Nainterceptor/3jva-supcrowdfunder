@@ -1,7 +1,10 @@
 package com.supinfo.supcrowdfunder.dao;
 
+import com.supinfo.supcrowdfunder.entity.Categorie;
 import com.supinfo.supcrowdfunder.entity.Project;
+import com.supinfo.supcrowdfunder.entity.User;
 
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import java.util.Date;
 import java.util.List;
@@ -24,6 +27,15 @@ public class ProjectDao extends AbstractDao {
         return projects;
     }
 
+    public static Project findProjectById(Long id ) {
+        init();
+
+        Project result = em.find(Project.class, id);
+
+        destroy();
+        return result;
+    }
+
     public static void insertOne(Project oneProject) {
         init();
         em.getTransaction().begin();
@@ -33,12 +45,13 @@ public class ProjectDao extends AbstractDao {
         destroy();
     }
 
-    public static void insertOne(String name, String details, Long needCredits, Date term) throws Exception {
+    public static void insertOne(String name, String details, Categorie categories, Long needCredits, Date term) throws Exception {
 
         try {
             Project oneProject = new Project()
                     .setName(name)
                     .setDetails(details)
+                    .setCategories(categories)
                     .setNeedCredits(needCredits)
                     .setTerm(term);
             insertOne(oneProject);
