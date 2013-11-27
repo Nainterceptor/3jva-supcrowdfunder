@@ -33,12 +33,12 @@ public class ContributeDao extends AbstractDao {
         destroy();
     }
 
-    public static void insertOne(Long amount, String user, Date rightNow) throws Exception {
+    public static void insertOne(Long amount, Long userId, java.sql.Date rightNow) throws Exception {
 
         try {
             Contribute oneContribute = new Contribute()
                     .setAmount(amount)
-                    .setUser(user)
+                    .setUserId(userId)
                     .setRightNow(rightNow);
             insertOne(oneContribute);
         } catch (Exception e) {
