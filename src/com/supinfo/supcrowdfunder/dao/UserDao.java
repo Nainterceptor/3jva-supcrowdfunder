@@ -92,5 +92,13 @@ public class UserDao extends AbstractDao {
         destroy();
         return user;
     }
-
+    public static void removeOne(Long id) {
+        init();
+        em.getTransaction().begin();
+        em.createQuery("DELETE User WHERE id = :userId")
+                .setParameter("userId", id)
+                .executeUpdate();
+        em.getTransaction().commit();
+        destroy();
+    }
 }
