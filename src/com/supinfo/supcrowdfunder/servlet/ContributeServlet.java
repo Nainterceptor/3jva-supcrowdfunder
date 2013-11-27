@@ -19,25 +19,29 @@ import java.io.IOException;
 @WebServlet(name = "ContributeServlet", urlPatterns="/me/contribute")
 public class ContributeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Je suis passé dans le servlet2");
-        ContributeType form = new ContributeType();
-        form.validate(request);
-        System.out.println(form.getResult());
-        if(form.getResult()) {
-            form.persist(request);
-        } else {
-            request.setAttribute("errors", form.getErrors());
-            request.setAttribute("result", form.getResult());
-        }
-
-        this.getServletContext().getRequestDispatcher("/WEB-INF/contribute.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        System.out.println("Je suis passé dans le servlet1");
-        this.getServletContext().getRequestDispatcher("/WEB-INF/contribute.jsp").forward(request, response);
+        if (request.getParameter("ProjectId") == null){
+            response.sendRedirect("/");
+        }
 
+        else if (request.getParameter("amount") == null) {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/contribute.jsp").forward(request, response);
+        }
+        else{
+            ContributeType form = new ContributeType();
+            form.validate(request);
+            if(form.getResult()) {
+                form.persist(request);
+            } else {
+                request.setAttribute("errors", form.getErrors());
+                request.setAttribute("result", form.getResult());
+            }
+
+            this.getServletContext().getRequestDispatcher("/WEB-INF/contribute.jsp").forward(request, response);
+        }
     }
 }
 */

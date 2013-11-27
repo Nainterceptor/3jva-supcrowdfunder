@@ -1,17 +1,13 @@
-/**package com.supinfo.supcrowdfunder.dao;
+package com.supinfo.supcrowdfunder.dao;
 
 import com.supinfo.supcrowdfunder.entity.Contribute;
+import com.supinfo.supcrowdfunder.entity.Project;
 
 import javax.persistence.Query;
 import java.util.Date;
 import java.util.List;
 
 
-* Created with IntelliJ IDEA.
-* User: Robin
-* Date: 26/11/13
-* Time: 15:34
-* To change this template use File | Settings | File Templates.
 
 public class ContributeDao extends AbstractDao {
     public static List<Contribute> getAll() {
@@ -33,17 +29,30 @@ public class ContributeDao extends AbstractDao {
         destroy();
     }
 
-    public static void insertOne(Long amount, Long userId, java.sql.Date rightNow) throws Exception {
+    public static Long sumContributes(Long projectId){
+        init();
+        Query query = em.createQuery("SELECT SUM(c.amount) FROM Contribute c WHERE c.project = :projectId", Long.class)
+                .setParameter("projectId", projectId);
+        Long contributes = (Long) query.getSingleResult();
 
+        destroy();
+        return contributes;
+    }
+
+    public static void insertOne(Long amount, Long userId, java.sql.Date rightNow, Long projectId) throws Exception {
+
+        Project project = ProjectDao.findProjectById(projectId);
         try {
             Contribute oneContribute = new Contribute()
                     .setAmount(amount)
                     .setUserId(userId)
-                    .setRightNow(rightNow);
+                    .setRightNow(rightNow)
+                    .setProject(project);
             insertOne(oneContribute);
         } catch (Exception e) {
             throw new Exception("Internal : Can't create project");
         }
     }
+
 }
-*/
+

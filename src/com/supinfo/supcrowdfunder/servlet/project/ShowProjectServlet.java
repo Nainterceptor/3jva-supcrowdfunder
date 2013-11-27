@@ -1,6 +1,8 @@
 package com.supinfo.supcrowdfunder.servlet.project;
 
+import com.supinfo.supcrowdfunder.dao.ContributeDao;
 import com.supinfo.supcrowdfunder.dao.ProjectDao;
+import com.supinfo.supcrowdfunder.entity.Contribute;
 import com.supinfo.supcrowdfunder.entity.Project;
 import com.supinfo.supcrowdfunder.util.FlashBag;
 
@@ -27,13 +29,16 @@ public class ShowProjectServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long id = request.getParameter("id") != null ? Long.parseLong(request.getParameter("id")) : null;
         Project project = null;
+        //Long sum = null;
         if (id != null && id > 0)
             project = ProjectDao.findProjectById(id);
+            //sum = ContributeDao.sumContributes(id);
         if (project == null) {
             ((FlashBag) request.getAttribute("flashbag")).addFlash("warning", "show.page.project.notExist");
             response.sendRedirect("/project");
         } else {
             request.setAttribute("project", project);
+            //request.setAttribute("actualCredits", sum);
             this.getServletContext().getRequestDispatcher("/WEB-INF/project/show.jsp").forward(request, response);
         }
     }

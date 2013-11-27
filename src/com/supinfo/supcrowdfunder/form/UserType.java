@@ -54,7 +54,6 @@ public class UserType extends AbstractType {
 
         Boolean admin = Boolean.parseBoolean(request.getParameter("admin"));
         user.setAdmin(admin);
-        System.out.println("fill");
         return user;
     }
     public void validate(HttpServletRequest request) {

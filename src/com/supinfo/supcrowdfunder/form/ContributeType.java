@@ -1,6 +1,7 @@
-/**package com.supinfo.supcrowdfunder.form;
+package com.supinfo.supcrowdfunder.form;
 
 import com.supinfo.supcrowdfunder.dao.ContributeDao;
+import com.supinfo.supcrowdfunder.entity.Project;
 import com.supinfo.supcrowdfunder.entity.User;
 import com.supinfo.supcrowdfunder.validator.ContributeValidator;
 
@@ -9,21 +10,15 @@ import java.sql.Date;
 
 
 
- * Created with IntelliJ IDEA.
- * User: Robin
- * Date: 27/11/13
- * Time: 00:13
- * To change this template use File | Settings | File Templates.
-
 public class ContributeType extends AbstractType {
 
     public void persist(HttpServletRequest request) {
 
-        System.out.println(request.getParameter("amount") + ((User) request.getAttribute("currentUser")).getId());
         try {
             ContributeDao.insertOne(Long.parseLong(request.getParameter("amount")),
                     ((User) request.getAttribute("currentUser")).getId(),
-                    new java.sql.Date(System.currentTimeMillis()));
+                    new java.sql.Date(System.currentTimeMillis()),
+                    Long.parseLong(request.getParameter("projectId")));
 
         } catch (Exception e) {
             errors.put("internal", e.getMessage());
@@ -54,4 +49,4 @@ public class ContributeType extends AbstractType {
     }
 
 }
- */
+

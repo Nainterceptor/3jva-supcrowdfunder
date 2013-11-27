@@ -15,7 +15,7 @@ import java.util.Date;
 public class ContributeValidator {
     public static void amount(Long amount) throws Exception {
         if (amount == null)
-            throw new Exception("validator.project.needCredits.empty");
+            throw new Exception("validator.contribute.amount.empty");
     }
 
 
