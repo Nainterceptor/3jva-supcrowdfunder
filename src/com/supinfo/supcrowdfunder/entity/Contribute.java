@@ -20,6 +20,18 @@ public class Contribute {
     protected Long amount;
     protected Long userId;
     protected java.sql.Date rightNow;
+    private Project project;
+
+    @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=Project.class )
+    @JoinColumn(name="projectId")
+    public Project getProject() {
+        return project;
+    }
+
+    public Contribute setProject(Project project) {
+        this.project = project;
+        return this;
+    }
 
     @Id
     @GeneratedValue

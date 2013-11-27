@@ -22,15 +22,29 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="<%=request.getContextPath()%>/">SupCrowdfunder</a>
                 </div>
-                <nav class="collapse navbar-collapse bs-navbar-collapse">
+                <nav class="collapse navbar-collapse" role="navigation">
                     <ul class="nav navbar-nav">
                         <li>
                             <a href="<%=request.getContextPath()%>/project">Projets</a>
                         </li>
+                    </ul>
+                    <c:if test="${sessionScope.email == null}">
+                    <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#">Utilisateurs</a>
+                            <a href="<%=request.getContextPath()%>/login">Login</a>
+                        </li>
+                        <li>
+                            <a href="<%=request.getContextPath()%>/registration">Sign in</a>
                         </li>
                     </ul>
+                    </c:if>
+                    <c:if test="${sessionScope.email != null}">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="<%=request.getContextPath()%>/me/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </c:if>
                 </nav>
             </div>
         </div>

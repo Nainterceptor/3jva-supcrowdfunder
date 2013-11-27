@@ -2,6 +2,7 @@ package com.supinfo.supcrowdfunder.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,6 +22,17 @@ public class Project {
     protected Long needCredits;
     protected Date term;
     private Categorie categories;
+    private List<Contribute> contributes;
+
+    @OneToMany(mappedBy="project")
+    public List<Contribute> getContributes() {
+        return contributes;
+    }
+
+    public Project setContributes(List<Contribute> contributes) {
+        this.contributes = contributes;
+        return this;
+    }
 
     public Project setCategories(Categorie categories) {
         this.categories = categories;

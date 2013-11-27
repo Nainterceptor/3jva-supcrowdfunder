@@ -38,5 +38,27 @@
         </tr>
         </tbody>
     </table>
+
+    <h2 class="form">Participer au projet</h2>
+
+    <form class="form" action="<%=request.getContextPath()%>/me/contribute" method="post">
+        </br>
+        <div class="form-group <c:if test="${result != null}">${empty errors['amount'] ? 'has-success' : 'has-error'}</c:if>">
+            <label><fmt:message key="form.project.needCredits" /></label>
+            <input type="text"
+                   class="form-control"
+                   id="amount"
+                   name="amount"
+                   required="required"
+                   placeholder="<fmt:message key="form.project.needCredits.placeholder" />"
+                   value="<c:out value="${param.amount}"/>"
+                   maxlength="255">
+            <c:if test="${errors['amount'] != null}">
+                <span class="help-block"><fmt:message key="${errors['amount']}" /></span>
+            </c:if>
+            <input class="hidden">
+        </div>
+        <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+    </form>
 </div>
 <%@ include file="/WEB-INF/includes/footer.jsp"%>
