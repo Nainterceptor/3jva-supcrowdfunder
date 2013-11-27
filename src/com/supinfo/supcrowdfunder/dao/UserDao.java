@@ -25,7 +25,7 @@ public class UserDao extends AbstractDao {
     public static void persist(User oneUser) {
         init();
         em.getTransaction().begin();
-        if (oneUser.getId() > 0)
+        if (oneUser.getId() != null)
             em.merge(oneUser);
         else
             em.persist(oneUser);
