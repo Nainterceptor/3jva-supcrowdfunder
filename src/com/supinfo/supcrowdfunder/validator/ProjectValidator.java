@@ -1,5 +1,7 @@
 package com.supinfo.supcrowdfunder.validator;
 
+import com.supinfo.supcrowdfunder.entity.Categorie;
+
 import java.util.Date;
 
 /**
@@ -20,6 +22,11 @@ public class ProjectValidator {
     public static void details(String details) throws Exception {
         if (details == null || details.trim().length() == 0)
             throw new Exception("validator.project.details.empty");
+    }
+
+    public static void categories(Categorie categories) throws Exception {
+        if (categories == null)
+            throw new Exception("validator.project.categorie.empty");
     }
 
     public static void needCredits(Long needCredits) throws Exception {

@@ -1,6 +1,7 @@
 package com.supinfo.supcrowdfunder.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,6 +15,17 @@ import javax.persistence.*;
 public class Categorie {
     protected Long id;
     protected String name;
+    private List<Project> project;
+
+    public Categorie setProject(List<Project> project) {
+        this.project = project;
+        return this;
+    }
+
+    @OneToMany(mappedBy="categories")
+    public List<Project> getProject() {
+        return project;
+    }
 
     public void setId(Long id) {
         this.id = id;

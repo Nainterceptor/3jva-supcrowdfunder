@@ -1,6 +1,7 @@
 package com.supinfo.supcrowdfunder.dao;
 
 import com.supinfo.supcrowdfunder.entity.Categorie;
+import com.supinfo.supcrowdfunder.entity.Project;
 
 import javax.persistence.Query;
 import java.util.List;
@@ -23,6 +24,16 @@ public class CategorieDao extends AbstractDao {
         destroy();
         return categories;
     }
+
+    public static Categorie findOne(Long id) {
+        init();
+
+        Categorie result = em.find(Categorie.class, id);
+
+        destroy();
+        return result;
+    }
+
     public static void insertOne(Categorie oneCategorie) {
         init();
         em.getTransaction().begin();
