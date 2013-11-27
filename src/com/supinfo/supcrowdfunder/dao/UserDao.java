@@ -22,10 +22,13 @@ public class UserDao extends AbstractDao {
         destroy();
         return users;
     }
-    public static void insertOne(User oneUser) {
+    public static void persist(User oneUser) {
         init();
         em.getTransaction().begin();
-        em.persist(oneUser);
+        if (oneUser.getId() > 0)
+            em.merge(oneUser);
+        else
+            em.persist(oneUser);
         em.getTransaction().commit();
         em.clear();
         destroy();
@@ -39,7 +42,23 @@ public class UserDao extends AbstractDao {
                     .setEmail(email)
                     .setPassword(hashedPassword)
                     .setSalt(salt);
-            insertOne(oneUser);
+            persist(oneUser);
+        } catch (Exception e) {
+            throw new Exception("Internal : Can't register user");
+        }
+    }
+    public static void insertOne(String email, String password, String firstname, String lastname) throws Exception {
+
+        String salt = SecurityHelper.generateSalt();
+        try {
+            String hashedPassword = SecurityHelper.hashPassword(password, salt);
+            User oneUser = new User()
+                    .setFirstname(firstname)
+                    .setLastname(lastname)
+                    .setEmail(email)
+                    .setPassword(hashedPassword)
+                    .setSalt(salt);
+            persist(oneUser);
         } catch (Exception e) {
             throw new Exception("Internal : Can't register user");
         }
@@ -66,22 +85,6 @@ public class UserDao extends AbstractDao {
         }
         destroy();
         return result;
-    }
-    public static void insertOne(String email, String password, String firstname, String lastname) throws Exception {
-
-        String salt = SecurityHelper.generateSalt();
-        try {
-            String hashedPassword = SecurityHelper.hashPassword(password, salt);
-            User oneUser = new User()
-                    .setFirstname(firstname)
-                    .setLastname(lastname)
-                    .setEmail(email)
-                    .setPassword(hashedPassword)
-                    .setSalt(salt);
-            insertOne(oneUser);
-        } catch (Exception e) {
-            throw new Exception("Internal : Can't register user");
-        }
     }
     public static User findOne(Long id) {
         init();

@@ -55,4 +55,16 @@ public class UserValidator {
         if (lastname.trim().length() > 255)
             throw new Exception("validator.user.lastname.tooLong");
     }
+    public static void city(String city) throws Exception {
+        if (city != null && city.trim().length() > 255)
+            throw new Exception("validator.user.city.tooLong");
+    }
+    public static void zipCode(String zipCode) throws Exception {
+        if (zipCode != null && zipCode.trim().length() > 255)
+            throw new Exception("validator.user.zipcode.tooLong");
+    }
+    public static void address(String address) throws Exception {
+        if (address != null && address.trim().length() > 255)
+            throw new Exception("validator.user.address.tooLong");
+    }
 }

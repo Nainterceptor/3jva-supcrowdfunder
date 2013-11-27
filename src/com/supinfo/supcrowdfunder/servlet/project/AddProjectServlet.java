@@ -1,7 +1,6 @@
 package com.supinfo.supcrowdfunder.servlet.project;
 
 import com.supinfo.supcrowdfunder.dao.CategorieDao;
-import com.supinfo.supcrowdfunder.entity.Categorie;
 import com.supinfo.supcrowdfunder.form.AddProjectType;
 import com.supinfo.supcrowdfunder.util.FlashBag;
 

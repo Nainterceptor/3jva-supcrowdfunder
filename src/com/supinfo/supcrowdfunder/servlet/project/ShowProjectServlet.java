@@ -1,9 +1,7 @@
 package com.supinfo.supcrowdfunder.servlet.project;
 
 import com.supinfo.supcrowdfunder.dao.ProjectDao;
-import com.supinfo.supcrowdfunder.dao.UserDao;
 import com.supinfo.supcrowdfunder.entity.Project;
-import com.supinfo.supcrowdfunder.entity.User;
 import com.supinfo.supcrowdfunder.util.FlashBag;
 
 import javax.servlet.ServletException;

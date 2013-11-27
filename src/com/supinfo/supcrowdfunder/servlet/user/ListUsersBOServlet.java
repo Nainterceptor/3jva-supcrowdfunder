@@ -18,10 +18,6 @@ import java.util.List;
  */
 @WebServlet(name = "ListUsersBOServlet", urlPatterns = {"/bo/user"})
 public class ListUsersBOServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> users = UserDao.getAll();
         request.setAttribute("users", users);
