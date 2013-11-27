@@ -1,4 +1,4 @@
-package com.supinfo.supcrowdfunder.servlet;
+/**package com.supinfo.supcrowdfunder.servlet;
 
 import com.supinfo.supcrowdfunder.form.ContributeType;
 
@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
+
  * Created with IntelliJ IDEA.
  * User: Robin
  * Date: 27/11/13
  * Time: 00:28
  * To change this template use File | Settings | File Templates.
-*/
+
 @WebServlet(name = "ContributeServlet", urlPatterns="/me/contribute")
 public class ContributeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,3 +40,4 @@ public class ContributeServlet extends HttpServlet {
 
     }
 }
+*/

@@ -1,4 +1,4 @@
-package com.supinfo.supcrowdfunder.dao;
+/**package com.supinfo.supcrowdfunder.dao;
 
 import com.supinfo.supcrowdfunder.entity.Contribute;
 
@@ -6,13 +6,13 @@ import javax.persistence.Query;
 import java.util.Date;
 import java.util.List;
 
-/**
+
 * Created with IntelliJ IDEA.
 * User: Robin
 * Date: 26/11/13
 * Time: 15:34
 * To change this template use File | Settings | File Templates.
-*/
+
 public class ContributeDao extends AbstractDao {
     public static List<Contribute> getAll() {
         init();
@@ -46,3 +46,4 @@ public class ContributeDao extends AbstractDao {
         }
     }
 }
+*/
