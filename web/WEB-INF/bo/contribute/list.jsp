@@ -32,7 +32,7 @@
                 <td><c:out value="${c.id}" /></td>
                 <td><c:out value="${c.amount}" /> €</td>
                 <td><c:out value="${c.rightNow}" /></td>
-                <td><c:out value="${c.user.id}" /> <em>(${c.user.email})</em></td>
+                <td><c:out value="${c.user.id}" /> <em><a href="<%=request.getContextPath()%>/bo/user/edit?id=<c:out value="${c.user.id}" />">(${c.user.email})</a></em></td>
                 <td><c:out value="${c.project.id}" /> <em>(${c.project.name})</em></td>
                 <td>
                     <a href="<%=request.getContextPath()%>/bo/contribute/edit?id=<c:out value="${c.id}" />"
