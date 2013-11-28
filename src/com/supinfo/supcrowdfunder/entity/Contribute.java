@@ -20,15 +20,13 @@ public class Contribute {
 
     protected Long id;
     protected Long amount;
-    protected Long userId;
+    protected User user;
     protected Timestamp rightNow;
     private Project project;
 
 
     @Id
     @GeneratedValue
-
-
 
     @Column(name = "id")
     public Long getId() {
@@ -50,13 +48,14 @@ public class Contribute {
         return this;
     }
 
-    @Column(name = "userId", nullable = false)
-    public Long getUserId() {
-        return userId;
+    @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=User.class )
+    @JoinColumn(name="userId", nullable = false)
+    public User getUser() {
+        return user;
     }
 
-    public Contribute setUserId(Long userId) {
-        this.userId = userId;
+    public Contribute setUser(User user) {
+        this.user = user;
         return this;
     }
 

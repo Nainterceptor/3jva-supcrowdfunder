@@ -2,6 +2,7 @@ package com.supinfo.supcrowdfunder.dao;
 
 import com.supinfo.supcrowdfunder.entity.Contribute;
 import com.supinfo.supcrowdfunder.entity.Project;
+import com.supinfo.supcrowdfunder.entity.User;
 
 import javax.persistence.Query;
 import java.sql.Timestamp;
@@ -42,10 +43,11 @@ public class ContributeDao extends AbstractDao {
     public static void insertOne(Long amount, Long userId, Timestamp rightNow, Long projectId) throws Exception {
 
         Project project = ProjectDao.findProjectById(projectId);
+        User user = UserDao.findOne(userId);
         try {
             Contribute oneContribute = new Contribute()
                     .setAmount(amount)
-                    .setUserId(userId)
+                    .setUser(user)
                     .setRightNow(rightNow)
                     .setProject(project);
             insertOne(oneContribute);

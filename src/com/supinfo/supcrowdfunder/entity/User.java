@@ -4,6 +4,7 @@ import com.supinfo.supcrowdfunder.implementable.IUser;
 import com.supinfo.supcrowdfunder.util.SecurityHelper;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Author: Gaël Demette
@@ -25,6 +26,9 @@ public class User implements IUser {
     protected String city;
     protected Boolean sex;
     protected Boolean admin;
+    protected List<Contribute> contributes;
+
+
 
     public boolean isEqualPassword(String password) {
         boolean isEqual;
@@ -35,8 +39,20 @@ public class User implements IUser {
         }
         return isEqual;
     }
+    @OneToMany(mappedBy="user")
+    public List<Contribute> getContributes() {
+        return contributes;
+    }
+
+    public User setContributes(List<Contribute> contributes) {
+        this.contributes = contributes;
+        return this;
+    }
+
     @Id
     @GeneratedValue
+
+
     @Column(name = "id")
     public Long getId() {
         return id;
@@ -146,5 +162,6 @@ public class User implements IUser {
         this.admin = admin;
         return this;
     }
+
 
 }
