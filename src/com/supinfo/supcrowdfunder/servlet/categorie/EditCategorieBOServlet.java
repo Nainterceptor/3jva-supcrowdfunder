@@ -38,11 +38,11 @@
 //            if (form.getResult()) {
 //
 //                form.persist(categorie);
-//                flashbag.addFlash("success", "flash.bo.categorie.edit.success");
+//                flashbag.addFlash("success", "bo.flash.categorie.edit.success");
 //            } else {
 //                request.setAttribute("errors", form.getErrors() );
 //                request.setAttribute("result", form.getResult());
-//                flashbag.addFlash("danger", "flash.bo.categorie.edit.error");
+//                flashbag.addFlash("danger", "bo.flash.categorie.edit.error");
 //            }
 //            request.setAttribute("categorie", categorie);
 //            this.getServletContext().getRequestDispatcher("/WEB-INF/bo/categorie/edit.jsp").forward(request, response);

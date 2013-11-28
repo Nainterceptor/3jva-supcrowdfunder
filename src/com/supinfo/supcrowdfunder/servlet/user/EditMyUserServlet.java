@@ -26,11 +26,11 @@ public class EditMyUserServlet extends HttpServlet {
         user = form.fill(user, request);
         if (form.getResult()) {
             form.persist(user);
-            flashbag.addFlash("success", "flash.bo.user.edit.success");
+            flashbag.addFlash("success", "bo.flash.user.edit.success");
         } else {
             request.setAttribute("errors", form.getErrors() );
             request.setAttribute("result", form.getResult());
-            flashbag.addFlash("danger", "flash.bo.user.edit.error");
+            flashbag.addFlash("danger", "bo.flash.user.edit.error");
         }
         request.setAttribute("user", user);
         this.getServletContext().getRequestDispatcher("/WEB-INF/user/edit.jsp").forward(request, response);
