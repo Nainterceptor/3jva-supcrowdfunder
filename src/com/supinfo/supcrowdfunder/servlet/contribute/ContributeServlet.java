@@ -1,6 +1,9 @@
-package com.supinfo.supcrowdfunder.servlet;
+package com.supinfo.supcrowdfunder.servlet.contribute;
 
+import com.supinfo.supcrowdfunder.dao.ProjectDao;
+import com.supinfo.supcrowdfunder.entity.Project;
 import com.supinfo.supcrowdfunder.form.ContributeType;
+import com.supinfo.supcrowdfunder.util.FlashBag;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,28 +25,28 @@ public class ContributeServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Je suis dans le servlet" + request.getParameter("projectId"));
         if (request.getParameter("projectId") == null){
             response.sendRedirect("/project");
         }
 
         else if (request.getParameter("amount") == null) {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/contribute.jsp").forward(request, response);
-            System.out.println("Je suis dans le amount null");
+            this.getServletContext().getRequestDispatcher("/WEB-INF/contribute/contribute.jsp").forward(request, response);
         }
         else{
-            System.out.println("Je suis passé, project id vaut : " + request.getParameter("projectId") + " et amount vaut : " + request.getParameter("amount"));
             ContributeType form = new ContributeType();
             form.validate(request);
-            System.out.println("Voici le result : " + form.getResult());
+            FlashBag flashbag = (FlashBag) request.getAttribute("flashbag");
+            request.setAttribute("projectName", ProjectDao.findProjectById(Long.parseLong(request.getParameter("projectId"))).getName());
             if(form.getResult()) {
                 form.persist(request);
+                flashbag.addFlash("success", "flash.contribute.success");
             } else {
                 request.setAttribute("errors", form.getErrors());
                 request.setAttribute("result", form.getResult());
+                flashbag.addFlash("success", "flash.contribute.success");
             }
 
-            this.getServletContext().getRequestDispatcher("/WEB-INF/contribute.jsp").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/contribute/thanks.jsp").forward(request, response);
         }
     }
 }

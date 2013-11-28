@@ -4,6 +4,7 @@ import com.supinfo.supcrowdfunder.entity.Contribute;
 import com.supinfo.supcrowdfunder.entity.Project;
 
 import javax.persistence.Query;
+import java.sql.Timestamp;
 import java.util.List;
 
 
@@ -38,7 +39,7 @@ public class ContributeDao extends AbstractDao {
         return contributes;
     }
 
-    public static void insertOne(Long amount, Long userId, java.sql.Date rightNow, Long projectId) throws Exception {
+    public static void insertOne(Long amount, Long userId, Timestamp rightNow, Long projectId) throws Exception {
 
         Project project = ProjectDao.findProjectById(projectId);
         try {

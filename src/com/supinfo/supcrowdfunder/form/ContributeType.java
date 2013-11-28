@@ -2,10 +2,11 @@ package com.supinfo.supcrowdfunder.form;
 
 import com.supinfo.supcrowdfunder.dao.ContributeDao;
 import com.supinfo.supcrowdfunder.entity.User;
+import com.supinfo.supcrowdfunder.util.FlashBag;
 import com.supinfo.supcrowdfunder.validator.ContributeValidator;
 
 import javax.servlet.http.HttpServletRequest;
-
+import java.sql.Timestamp;
 
 
 public class ContributeType extends AbstractType {
@@ -15,7 +16,7 @@ public class ContributeType extends AbstractType {
         try {
             ContributeDao.insertOne(Long.parseLong(request.getParameter("amount")),
                     ((User) request.getAttribute("currentUser")).getId(),
-                    new java.sql.Date(System.currentTimeMillis()),
+                    new Timestamp(System.currentTimeMillis()),
                     Long.parseLong(request.getParameter("projectId")));
 
         } catch (Exception e) {
@@ -28,20 +29,10 @@ public class ContributeType extends AbstractType {
         try {
             ContributeValidator.amount(Long.parseLong(request.getParameter("amount")));
         } catch (Exception e) {
-            errors.put("amount", e.getMessage());
+            errors.put("amount", "Le champs du montant n'a pas été bien remplie");
+            FlashBag flashbag = (FlashBag) request.getAttribute("flashbag");
+            flashbag.addFlash("danger", "flash Le champs du montant n'a pas été bien remplie");
         }
-
-//        try {
-//            ContributeValidator.userId(((User) request.getAttribute("currentUser")).getId());
-//        } catch (Exception e) {
-//            errors.put("user", e.getMessage());
-//        }
-
-//        try {
-//            ContributeValidator.rightNow(Date.valueOf(request.getParameter("rightNow")));
-//        } catch (Exception e) {
-//            errors.put("rightNow", e.getMessage());
-//        }
         if (!errors.isEmpty())
             result = false;
     }

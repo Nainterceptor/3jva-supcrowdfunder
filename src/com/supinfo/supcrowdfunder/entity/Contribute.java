@@ -3,6 +3,8 @@ package com.supinfo.supcrowdfunder.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.sql.Time;
+import java.sql.Timestamp;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,22 +21,15 @@ public class Contribute {
     protected Long id;
     protected Long amount;
     protected Long userId;
-    protected java.sql.Date rightNow;
+    protected Timestamp rightNow;
     private Project project;
 
-    @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=Project.class )
-    @JoinColumn(name="projectId", nullable = false)
-    public Project getProject() {
-        return project;
-    }
-
-    public Contribute setProject(Project project) {
-        this.project = project;
-        return this;
-    }
 
     @Id
     @GeneratedValue
+
+
+
     @Column(name = "id")
     public Long getId() {
         return id;
@@ -66,12 +61,23 @@ public class Contribute {
     }
 
     @Column(name = "rightNow", nullable = false)
-    public Date getRightNow() {
+    public Timestamp getRightNow() {
         return rightNow;
     }
 
-    public Contribute setRightNow(Date rightNow) {
+    public Contribute setRightNow(Timestamp rightNow) {
         this.rightNow = rightNow;
+        return this;
+    }
+
+    @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=Project.class )
+    @JoinColumn(name="projectId", nullable = false)
+    public Project getProject() {
+        return project;
+    }
+
+    public Contribute setProject(Project project) {
+        this.project = project;
         return this;
     }
 }
