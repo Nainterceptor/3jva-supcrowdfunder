@@ -22,7 +22,7 @@ public class ContributeDao extends AbstractDao {
     public static void insertOne(Contribute oneContribute) {
         init();
         em.getTransaction().begin();
-        em.persist(oneContribute);
+        em.merge(oneContribute);
         em.getTransaction().commit();
         em.clear();
         destroy();
