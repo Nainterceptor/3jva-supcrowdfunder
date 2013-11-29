@@ -32,12 +32,26 @@ public class ContributeDao extends AbstractDao {
 
     public static Long sumContributes(Long projectId){
         init();
-        Query query = em.createQuery("SELECT SUM(c.amount) FROM Contribute c WHERE c.project = :projectId", Long.class)
+        Query query = em.createQuery("SELECT SUM(c.amount) FROM Contribute c WHERE c.project.id = :projectId", Long.class)
                 .setParameter("projectId", projectId);
         Long contributes = (Long) query.getSingleResult();
 
         destroy();
         return contributes;
+    }
+
+    public static User userExist (Long userId){
+        init();
+        User result = em.find(User.class, userId);
+        destroy();
+        return result;
+    }
+
+    public static Project projectExist (Long projectId){
+        init();
+        Project result = em.find(Project.class, projectId);
+        destroy();
+        return result;
     }
 
     public static void insertOne(Long amount, Long userId, Timestamp rightNow, Long projectId) throws Exception {

@@ -2,7 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/includes/headerBO.jsp"%>
 <div class="container">
-    <h1><fmt:message key="bo.page.user.edit.title" /></h1>
+    <h1><fmt:message key="bo.page.contribute.edit.title" /></h1>
     <c:if test="${errors['internal'] != null}">
         <div class="alert alert-danger alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -18,7 +18,7 @@
                        id="amount"
                        name="amount"
                        required="required"
-                       value="<c:out value="${contribute.amount}"/>"
+                       value="<c:out value="${param.amount}"/>"
                        maxlength="255">
                 <c:if test="${errors['amount'] != null}">
                     <span class="help-block"><fmt:message key="${errors['amount']}" /></span>
@@ -31,7 +31,7 @@
                        id="userId"
                        name="userId"
                        required="required"
-                       value="<c:out value="${contribute.user.id}"/>"
+                       value="<c:out value="${param.userId}"/>"
                        maxlength="255">
                 <c:if test="${errors['userId'] != null}">
                     <span class="help-block"><fmt:message key="${errors['userId']}" /></span>
@@ -44,7 +44,7 @@
                        id="projectId"
                        name="projectId"
                        required="required"
-                       value="<c:out value="${contribute.project.id}"/>">
+                       value="<c:out value="${param.projectId}"/>">
                 <c:if test="${errors['projectId'] != null}">
                     <span class="help-block"><fmt:message key="${errors['projectId']}" /></span>
                 </c:if>
@@ -55,7 +55,7 @@
                        class="form-control"
                        id="rightNow"
                        name="rightNow"
-                       value="<c:out value="${contribute.rightNow}"/>">
+                       value="<c:out value="${param.rightNow}"/>">
                 <c:if test="${errors['rightNow'] != null}">
                     <span class="help-block"><fmt:message key="${errors['rightNow']}" /></span>
                 </c:if>

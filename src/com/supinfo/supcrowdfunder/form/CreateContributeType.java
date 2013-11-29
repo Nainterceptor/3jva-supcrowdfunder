@@ -34,25 +34,25 @@ public class CreateContributeType extends ContributeType {
         try {
             ContributeValidator.amount(Long.parseLong(request.getParameter("amount")));
         } catch (Exception e) {
-            errors.put("amount", "validator.contribute.amount.fail");
+            errors.put("amount", "validator.contribute.amount.empty");
         }
 
         try {
             ContributeValidator.userId(Long.parseLong(request.getParameter("userId")));
         } catch (Exception e) {
-            errors.put("userId", e.getMessage());
+            errors.put("userId", "validator.contribute.userId.empty");
         }
 
         try {
             ContributeValidator.projectId(Long.parseLong(request.getParameter("projectId")));
         } catch (Exception e) {
-            errors.put("projectId", e.getMessage());
+            errors.put("projectId", "validator.contribute.projectId.empty");
         }
 
         try {
             ContributeValidator.rightNow(convertion.conversionDate(request.getParameter("rightNow")));
         } catch (Exception e) {
-            errors.put("rightNow", e.getMessage());
+            errors.put("rightNow", "validator.contribute.date.empty");
         }
 
         if (!errors.isEmpty())

@@ -29,7 +29,7 @@ public class ContributeType extends AbstractType {
         try {
             ContributeValidator.amount(Long.parseLong(request.getParameter("amount")));
         } catch (Exception e) {
-            errors.put("amount", "validator.contribute.amount.fail");
+            errors.put("amount", "validator.contribute.amount.empty");
         }
 
         if (!errors.isEmpty())

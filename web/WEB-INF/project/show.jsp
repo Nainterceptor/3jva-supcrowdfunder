@@ -25,7 +25,7 @@
         </tr>
         <tr>
             <th><fmt:message key="db.project.actualCredits" /></th>
-            <td><c:out value="${project.actualCredits}" /></td>
+            <td><c:out value="${actualCredits}" /></td>
         </tr>
         <tr>
             <th><fmt:message key="db.project.details" /></th>
@@ -41,13 +41,13 @@
     <form class="form" action="<%=request.getContextPath()%>/me/contribute" method="get">
         </br>
         <div class="form-group <c:if test="${result != null}">${empty errors['amount'] ? 'has-success' : 'has-error'}</c:if>">
-            <label for="amount"><fmt:message key="form.project.needCredits" /></label>
+            <label for="amount"><fmt:message key="form.contribute.amount" /></label>
             <input type="text"
                    class="form-control"
                    id="amount"
                    name="amount"
                    required="required"
-                   placeholder="<fmt:message key="form.project.needCredits.placeholder" />"
+                   placeholder="<fmt:message key="form.contribute.amount.placeholder" />"
                    value="<c:out value="${param.amount}"/>"
                    maxlength="255">
             <c:if test="${errors['amount'] != null}">

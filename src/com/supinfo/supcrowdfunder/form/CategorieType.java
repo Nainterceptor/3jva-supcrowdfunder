@@ -24,6 +24,8 @@ public class CategorieType extends AbstractType {
 
     public void validate(HttpServletRequest request) {
 
+
+
         if (!errors.isEmpty())
             result = false;
     }
