@@ -22,6 +22,6 @@
         Nous vous remercions pour votre participation de <strong>${param.amount}€</strong> au projet : <strong>${projectName}</strong>
     </p>
 
-    <p><a href="<%=request.getContextPath()%>/project" class="btn btn-primary">Retour à l'accueil</a></p>
+    <p><a href="<%=request.getContextPath()%>/project/show?id=<c:out value="${param.projectId}" />" class="btn btn-primary">Retour au projet</a></p>
 </div>
 <%@ include file="/WEB-INF/includes/footer.jsp"%>

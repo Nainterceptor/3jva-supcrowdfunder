@@ -29,10 +29,9 @@ public class ContributeType extends AbstractType {
         try {
             ContributeValidator.amount(Long.parseLong(request.getParameter("amount")));
         } catch (Exception e) {
-            errors.put("amount", "Le champs du montant n'a pas été bien remplie");
-            FlashBag flashbag = (FlashBag) request.getAttribute("flashbag");
-            flashbag.addFlash("danger", "flash Le champs du montant n'a pas été bien remplie");
+            errors.put("amount", "validator.contribute.amount.fail");
         }
+
         if (!errors.isEmpty())
             result = false;
     }

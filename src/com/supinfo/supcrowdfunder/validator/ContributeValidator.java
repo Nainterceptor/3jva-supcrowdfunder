@@ -1,6 +1,6 @@
 package com.supinfo.supcrowdfunder.validator;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,21 +10,25 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 
-//Attention il faudra remplacer les validot.x.x et le rajouter dans le .properties
-
 public class ContributeValidator {
     public static void amount(Long amount) throws Exception {
         if (amount == null)
             throw new Exception("validator.contribute.amount.empty");
     }
 
+    public static void userId(Long userId) throws Exception {
+        if (userId == null)
+            throw new Exception("validator.contribute.userId.empty");
+    }
 
-//    public static void userId(Long userId) throws Exception {
-//        if (userId == null)
-//            throw new Exception("validator.project.name.empty");
-//    }
+    public static void projectId(Long projectId) throws Exception {
+        if (projectId == null)
+            throw new Exception("validator.contribute.projectId.empty");
+    }
 
-    public static void rightNow(Date rightNow) throws Exception {
+    public static void rightNow(Timestamp rightNow) throws Exception {
+        if (rightNow == null)
+            throw new Exception("validator.contribute.date.empty");
     }
 }
 

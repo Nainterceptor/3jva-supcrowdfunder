@@ -25,28 +25,26 @@ public class ContributeServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        FlashBag flashbag = (FlashBag) request.getAttribute("flashbag");
         if (request.getParameter("projectId") == null){
             response.sendRedirect("/project");
-        }
-
-        else if (request.getParameter("amount") == null) {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/contribute/contribute.jsp").forward(request, response);
+            flashbag.addFlash("danger", "flash.contribute.projectId.fail");
         }
         else{
             ContributeType form = new ContributeType();
             form.validate(request);
-            FlashBag flashbag = (FlashBag) request.getAttribute("flashbag");
             request.setAttribute("projectName", ProjectDao.findProjectById(Long.parseLong(request.getParameter("projectId"))).getName());
             if(form.getResult()) {
                 form.persist(request);
                 flashbag.addFlash("success", "flash.contribute.success");
+                this.getServletContext().getRequestDispatcher("/WEB-INF/contribute/thanks.jsp").forward(request, response);
             } else {
                 request.setAttribute("errors", form.getErrors());
                 request.setAttribute("result", form.getResult());
-                flashbag.addFlash("success", "flash.contribute.success");
+                flashbag.addFlash("danger", "flash.contribute.error");
+                String path = ("/project/show?id="+(request.getParameter("projectId")));
+                this.getServletContext().getRequestDispatcher(path).forward(request, response);
             }
-
-            this.getServletContext().getRequestDispatcher("/WEB-INF/contribute/thanks.jsp").forward(request, response);
         }
     }
 }
