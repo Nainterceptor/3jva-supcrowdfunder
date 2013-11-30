@@ -29,10 +29,12 @@
                 <td><c:out value="${c.id}" /></td>
                 <td><c:out value="${c.name}" /></td>
                 <td>
+                    <a href="<%=request.getContextPath()%>/bo/categorie/show?id=<c:out value="${c.id}" />"
+                       class="glyphicon glyphicon-eye-open">&nbsp;</a>
                     <a href="<%=request.getContextPath()%>/bo/categorie/edit?id=<c:out value="${c.id}" />"
                        class="glyphicon glyphicon-pencil">&nbsp;</a>
                     <a href="<%=request.getContextPath()%>/bo/categorie/delete?id=<c:out value="${c.id}" />"
-                       class="glyphicon glyphicon-cross">&nbsp;</a>
+                       class="glyphicon glyphicon-remove-sign">&nbsp;</a>
                </td>
             </tr>
         </c:forEach>

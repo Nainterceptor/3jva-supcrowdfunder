@@ -26,7 +26,7 @@ public class CategorieDao extends AbstractDao {
     public static void persist(Categorie oneCategorie) {
         init();
         em.getTransaction().begin();
-        if (oneCategorie.getId() > 0)
+        if (oneCategorie.getId() != null)
             em.merge(oneCategorie);
         else
             em.persist(oneCategorie);

@@ -1,6 +1,8 @@
 package com.supinfo.supcrowdfunder.form;
 
 import com.supinfo.supcrowdfunder.dao.CategorieDao;
+import com.supinfo.supcrowdfunder.entity.Categorie;
+import com.supinfo.supcrowdfunder.util.SecurityHelper;
 import com.supinfo.supcrowdfunder.validator.CategorieValidator;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +21,18 @@ public class AddCategorieType extends AbstractType {
         } catch (Exception e) {
             errors.put("internal", e.getMessage());
         }
+    }
+    public void persistEdit(Categorie categorie) {
+        try {
+            CategorieDao.persist(categorie);
+        } catch (Exception e) {
+            errors.put("internal", e.getMessage());
+        }
+    }
+    public Categorie fill(Categorie categorie, HttpServletRequest request) {
+        String name = request.getParameter("name");
+        categorie.setName(name);
+        return categorie;
     }
     public void validate(HttpServletRequest request) {
         try {

@@ -20,10 +20,6 @@ import java.util.List;
  */
 @WebServlet(name = "ListCategorieBOServlet", urlPatterns = {"/bo/categorie"})
 public class ListCategorieBOServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Categorie> categories = CategorieDao.getAll();
         request.setAttribute("categories", categories);
