@@ -2,6 +2,7 @@ package com.supinfo.supcrowdfunder.dao;
 
 import com.supinfo.supcrowdfunder.entity.Categorie;
 import com.supinfo.supcrowdfunder.entity.Project;
+import com.supinfo.supcrowdfunder.util.Statistic;
 
 import javax.persistence.Query;
 import java.util.Date;
@@ -32,6 +33,7 @@ public class ProjectDao extends AbstractDao {
         destroy();
         return projects;
     }
+
 
     public static Project findProjectById(Long id ) {
         init();

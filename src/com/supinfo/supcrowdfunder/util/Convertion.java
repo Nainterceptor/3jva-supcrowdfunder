@@ -11,10 +11,10 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 public class Convertion {
-    protected String dateformat;
-    protected Date hours = new Date(System.currentTimeMillis());;
-    public Timestamp conversionDate (String date){
 
+    public static Timestamp conversionDate (String date){
+        String dateformat;
+        Date hours = new Date(System.currentTimeMillis());
         dateformat=date+" "+hours.toString().substring(hours.toString().indexOf(":")-2,hours.toString().lastIndexOf(":")+3);
         return Timestamp.valueOf(dateformat);
 

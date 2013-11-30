@@ -1,5 +1,8 @@
 package com.supinfo.supcrowdfunder.entity;
 
+import com.supinfo.supcrowdfunder.dao.ContributeDao;
+import com.supinfo.supcrowdfunder.util.Statistic;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -23,6 +26,10 @@ public class Project {
     protected Date term;
     private Categorie categories;
     private List<Contribute> contributes;
+
+    public Short percentage(){
+        return Statistic.percentage(ContributeDao.sumContributes(id), this.needCredits);
+    }
 
     @OneToMany(mappedBy="project")
     public List<Contribute> getContributes() {

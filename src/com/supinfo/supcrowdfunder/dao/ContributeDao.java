@@ -21,6 +21,15 @@ public class ContributeDao extends AbstractDao {
         return contributes;
     }
 
+    public static void persist(Contribute contribute) {
+        init();
+        em.getTransaction().begin();
+        em.merge(contribute);
+        em.getTransaction().commit();
+        em.clear();
+        destroy();
+    }
+
     public static void insertOne(Contribute oneContribute) {
         init();
         em.getTransaction().begin();
@@ -35,7 +44,8 @@ public class ContributeDao extends AbstractDao {
         Query query = em.createQuery("SELECT SUM(c.amount) FROM Contribute c WHERE c.project.id = :projectId", Long.class)
                 .setParameter("projectId", projectId);
         Long contributes = (Long) query.getSingleResult();
-
+        if (contributes == null)
+            contributes=0L;
         destroy();
         return contributes;
     }
@@ -54,6 +64,13 @@ public class ContributeDao extends AbstractDao {
         return result;
     }
 
+    public static Contribute findOne(Long id) {
+        init();
+        Contribute contribute = em.find(Contribute.class, id);
+        destroy();
+        return contribute;
+    }
+
     public static void insertOne(Long amount, Long userId, Timestamp rightNow, Long projectId) throws Exception {
 
         Project project = ProjectDao.findProjectById(projectId);
@@ -68,6 +85,16 @@ public class ContributeDao extends AbstractDao {
         } catch (Exception e) {
             throw new Exception("Internal : Can't create project");
         }
+    }
+
+    public static void removeOne(Long id) {
+        init();
+        em.getTransaction().begin();
+        em.createQuery("DELETE Contribute WHERE id = :contributeId")
+                .setParameter("contributeId", id)
+                .executeUpdate();
+        em.getTransaction().commit();
+        destroy();
     }
 
 }

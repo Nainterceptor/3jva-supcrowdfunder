@@ -23,7 +23,6 @@ import java.io.IOException;
 public class CreateContributeBOServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         FlashBag flashbag = (FlashBag) request.getAttribute("flashbag");
-        Contribute contribute = new Contribute();
         CreateContributeType form = new CreateContributeType();
         form.validate(request);
         if (form.getResult()) {
@@ -34,12 +33,11 @@ public class CreateContributeBOServlet extends HttpServlet {
             request.setAttribute("result", form.getResult());
             flashbag.addFlash("danger", "bo.flash.contribute.edit.error");
         }
-        request.setAttribute("contribute", contribute);
-        this.getServletContext().getRequestDispatcher("/WEB-INF/bo/contribute/edit.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/bo/contribute/create.jsp").forward(request, response);
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/bo/contribute/edit.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/bo/contribute/create.jsp").forward(request, response);
     }
 }
