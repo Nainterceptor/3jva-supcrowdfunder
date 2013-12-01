@@ -70,4 +70,13 @@ public class CategorieDao extends AbstractDao {
         destroy();
         return result > 0;
     }
+    public static void removeOne(Long id) {
+        init();
+        em.getTransaction().begin();
+        em.createQuery("DELETE Categorie WHERE id = :categorieId")
+                .setParameter("categorieId", id)
+                .executeUpdate();
+        em.getTransaction().commit();
+        destroy();
+    }
 }

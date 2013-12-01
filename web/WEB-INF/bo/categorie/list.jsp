@@ -33,7 +33,7 @@
                        class="glyphicon glyphicon-eye-open">&nbsp;</a>
                     <a href="<%=request.getContextPath()%>/bo/categorie/edit?id=<c:out value="${c.id}" />"
                        class="glyphicon glyphicon-pencil">&nbsp;</a>
-                    <a href="<%=request.getContextPath()%>/bo/categorie/delete?id=<c:out value="${c.id}" />"
+                    <a onclick="return confirm('<fmt:message key="bo.page.categorie.list.actions.removeConfirm" />')" href="<%=request.getContextPath()%>/bo/categorie/delete?id=<c:out value="${c.id}" />"
                        class="glyphicon glyphicon-remove-sign">&nbsp;</a>
                </td>
             </tr>
