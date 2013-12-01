@@ -22,7 +22,7 @@ public class Contribute {
     protected Long amount;
     protected User user;
     protected Timestamp rightNow;
-    private Project project;
+    protected Project project;
 
 
     @Id

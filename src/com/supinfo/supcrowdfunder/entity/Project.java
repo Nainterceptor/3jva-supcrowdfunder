@@ -4,6 +4,7 @@ import com.supinfo.supcrowdfunder.dao.ContributeDao;
 import com.supinfo.supcrowdfunder.util.Statistic;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -21,15 +22,15 @@ public class Project {
     protected Long id;
     protected String name;
     protected String details;
-    protected Long actualCredits;
+    protected User user;
     protected Long needCredits;
-    protected Date term;
+    protected Timestamp term;
     private Categorie categories;
     private List<Contribute> contributes;
 
-    public Short percentage(){
-        return Statistic.percentage(ContributeDao.sumContributes(id), this.needCredits);
-    }
+//    public Short percentage(){
+//        return Statistic.percentage(ContributeDao.sumContributes(id), this.needCredits);
+//    }
 
     @OneToMany(mappedBy="project")
     public List<Contribute> getContributes() {
@@ -84,16 +85,6 @@ public class Project {
         return this;
     }
 
-    @Column(name = "actualCredits")
-    public Long getActualCredits() {
-        return actualCredits;
-    }
-
-    public Project setActualCredits(Long actualCredits) {
-        this.actualCredits = actualCredits;
-        return this;
-    }
-
     @Column(name = "needCredits", nullable = false)
     public Long getNeedCredits() {
         return needCredits;
@@ -105,12 +96,23 @@ public class Project {
     }
 
     @Column(name = "term", nullable = true)
-    public Date getTerm() {
+    public Timestamp getTerm() {
         return term;
     }
 
-    public Project setTerm(Date term) {
+    public Project setTerm(Timestamp term) {
         this.term = term;
+        return this;
+    }
+
+    @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=User.class )
+    @JoinColumn(name="userId", nullable = false)
+    public User getUser() {
+        return user;
+    }
+
+    public Project setUser(User user) {
+        this.user = user;
         return this;
     }
 }

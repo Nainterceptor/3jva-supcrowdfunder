@@ -2,6 +2,8 @@ package com.supinfo.supcrowdfunder.form;
 
 import com.supinfo.supcrowdfunder.dao.CategorieDao;
 import com.supinfo.supcrowdfunder.dao.ProjectDao;
+import com.supinfo.supcrowdfunder.entity.User;
+import com.supinfo.supcrowdfunder.util.Convertion;
 import com.supinfo.supcrowdfunder.validator.ProjectValidator;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +25,8 @@ public class AddProjectType extends AbstractType {
                     request.getParameter("details"),
                     CategorieDao.findOne(Long.parseLong(request.getParameter("categories"))),
                     Long.parseLong(request.getParameter("needCredits")),
-                    Date.valueOf(request.getParameter("term")));
+                    Convertion.conversionDate(request.getParameter("term")),
+                    ((User) request.getAttribute("currentUser")).getId());
         } catch (Exception e) {
             errors.put("internal", e.getMessage());
         }

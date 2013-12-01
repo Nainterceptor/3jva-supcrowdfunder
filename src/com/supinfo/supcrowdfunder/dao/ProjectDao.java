@@ -2,9 +2,11 @@ package com.supinfo.supcrowdfunder.dao;
 
 import com.supinfo.supcrowdfunder.entity.Categorie;
 import com.supinfo.supcrowdfunder.entity.Project;
+import com.supinfo.supcrowdfunder.entity.User;
 import com.supinfo.supcrowdfunder.util.Statistic;
 
 import javax.persistence.Query;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -53,15 +55,16 @@ public class ProjectDao extends AbstractDao {
         destroy();
     }
 
-    public static void insertOne(String name, String details, Categorie categories, Long needCredits, Date term) throws Exception {
-
+    public static void insertOne(String name, String details, Categorie categories, Long needCredits, Timestamp term, Long userId) throws Exception {
+        User user = UserDao.findOne(userId);
         try {
             Project oneProject = new Project()
                     .setName(name)
                     .setDetails(details)
                     .setCategories(categories)
                     .setNeedCredits(needCredits)
-                    .setTerm(term);
+                    .setTerm(term)
+                    .setUser(user);
             insertOne(oneProject);
         } catch (Exception e) {
             throw new Exception("Internal : Can't create project");

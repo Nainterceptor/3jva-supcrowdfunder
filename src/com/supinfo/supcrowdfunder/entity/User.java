@@ -27,6 +27,7 @@ public class User implements IUser {
     protected Boolean sex;
     protected Boolean admin;
     protected List<Contribute> contributes;
+    protected List<Project> projects;
 
 
 
@@ -46,6 +47,16 @@ public class User implements IUser {
 
     public User setContributes(List<Contribute> contributes) {
         this.contributes = contributes;
+        return this;
+    }
+
+    @OneToMany(mappedBy="user")
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public User setProjects(List<Project> projects) {
+        this.projects = projects;
         return this;
     }
 
