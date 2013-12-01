@@ -21,14 +21,6 @@ public class ContributeDao extends AbstractDao {
         return contributes;
     }
 
-    public static void persist(Contribute contribute) {
-        init();
-        em.getTransaction().begin();
-        em.merge(contribute);
-        em.getTransaction().commit();
-        em.clear();
-        destroy();
-    }
 
     public static void insertOne(Contribute oneContribute) {
         init();

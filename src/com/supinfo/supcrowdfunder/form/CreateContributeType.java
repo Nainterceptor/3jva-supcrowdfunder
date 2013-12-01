@@ -41,7 +41,7 @@ public class CreateContributeType extends ContributeType {
                 .setRightNow(Convertion.conversionDate(request.getParameter("rightNow")))
                 .setProject(project);
         try {
-            ContributeDao.persist(contribute);
+            ContributeDao.insertOne(contribute);
         } catch (Exception e) {
             errors.put("internal", e.getMessage());
             result = false;

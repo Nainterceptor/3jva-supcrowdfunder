@@ -1,7 +1,9 @@
 package com.supinfo.supcrowdfunder.validator;
 
+import com.supinfo.supcrowdfunder.dao.ProjectDao;
 import com.supinfo.supcrowdfunder.entity.Categorie;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -34,6 +36,13 @@ public class ProjectValidator {
             throw new Exception("validator.project.needCredits.empty");
     }
 
-    public static void term(Date term) throws Exception {
+    public static void userId(Long userId) throws Exception {
+        if (userId == null || ProjectDao.userExist(userId) == null)
+            throw new Exception("validator.project.userId.empty");
+    }
+
+    public static void term(Timestamp term) throws Exception {
+        if (term == null)
+            throw new Exception("validator.contribute.date.empty");
     }
 }

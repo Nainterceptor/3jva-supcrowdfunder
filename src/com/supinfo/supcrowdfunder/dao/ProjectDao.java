@@ -36,6 +36,13 @@ public class ProjectDao extends AbstractDao {
         return projects;
     }
 
+    public static User userExist (Long userId){
+        init();
+        User result = em.find(User.class, userId);
+        destroy();
+        return result;
+    }
+
 
     public static Project findProjectById(Long id ) {
         init();
@@ -69,5 +76,14 @@ public class ProjectDao extends AbstractDao {
         } catch (Exception e) {
             throw new Exception("Internal : Can't create project");
         }
+    }
+    public static void removeOne(Long id) {
+        init();
+        em.getTransaction().begin();
+        em.createQuery("DELETE Project WHERE id = :projectId")
+                .setParameter("projectId", id)
+                .executeUpdate();
+        em.getTransaction().commit();
+        destroy();
     }
 }
