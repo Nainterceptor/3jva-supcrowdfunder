@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ include file="/WEB-INF/includes/header.jsp"%>
+<%@taglib uri="/WEB-INF/tags/functions.tld" prefix="func" %>
 
 <div class="container">
     <div class="col-md-2">
@@ -29,24 +30,24 @@
                         <h3><c:out value="${p.name}"/></h3>
                         <p><c:out value="${p.details}"/></p>
                         <p><b><fmt:message key="page.list.project.cash" /></b> <c:out value="${p.needCredits}"/></p>
-                        <%--<p>--%>
-                            <%--<c:if test="${p.percentage() < 100}">--%>
-                                <%--<div class="progress">--%>
-                                    <%--<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<c:out value="${p.percentage()}"/>" aria-valuemin="0" aria-valuemax="100" style="width: <c:out value="${p.percentage()}"/>%">--%>
-                                        <%--&lt;%&ndash;<span class="sr-only"><c:out value="${p.percentage()}"/>% Complete</span>&ndash;%&gt;--%>
-                                        <%--<c:out value="${p.percentage()}"/>% Complete--%>
-                                    <%--</div>--%>
-                                <%--</div>--%>
-                            <%--</c:if>--%>
-                            <%--<c:if test="${p.percentage() >= 100}">--%>
-                                <%--<div class="progress progress-striped"">--%>
-                                    <%--<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<c:out value="${10000/p.percentage()}"/>" aria-valuemin="0" aria-valuemax="<c:out value="${p.percentage()}"/>" style="width: <c:out value="${10000/p.percentage()}"/>%"><c:out value="${p.percentage()}"/>% Complete--%>
-                                    <%--</div>--%>
-                                    <%--<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<c:out value="${p.percentage()-100}"/>" aria-valuemin="0" aria-valuemax="<c:out value="${p.percentage()}"/>" style="width: <c:out value="${100-(10000/p.percentage())}"/>%"/>--%>
-                                    <%--</div>--%>
-                                <%--</div>--%>
-                            <%--</c:if>--%>
-                        <%--</p>--%>
+                        <p>
+                            <c:if test="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits) < 100}">
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>" aria-valuemin="0" aria-valuemax="100" style="width: <c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>%">
+                                        <%--<span class="sr-only"><c:out value="${func.percentage()}"/>% Complete</span>--%>
+                                        <c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>% Complete
+                                    </div>
+                                </div>
+                            </c:if>
+                            <c:if test="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits) >= 100}">
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<c:out value="${10000/func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>" aria-valuemin="0" aria-valuemax="<c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>" style="width: <c:out value="${10000/func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>%"><c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>% Complete
+                                    </div>
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)-100}"/>" aria-valuemin="0" aria-valuemax="<c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>" style="width: <c:out value="${100-(10000/func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits))}"/>%"/>
+                                    </div>
+                                </div>
+                            </c:if>
+                        </p>
                         <p><a href="<%=request.getContextPath()%>/project/show?id=<c:out value="${p.id}" />" class="btn btn-primary">See</a></p>
                     </div>
                 </div>

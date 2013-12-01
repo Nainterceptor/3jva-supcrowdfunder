@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <display-name>Custom Functions</display-name>
+    <tlib-version>1.0</tlib-version>
+    <short-name>func</short-name>
+    <uri>/WEB_INF/tags/functions.tld</uri>
+
+    <function>
+        <name>calculateSumContibutes</name>
+        <function-class>com.supinfo.supcrowdfunder.dao.StatisticDao</function-class>
+        <function-signature>java.lang.Long sumContributes(java.lang.Long)</function-signature>
+    </function>
+
+    <function>
+        <name>calculatePercentage</name>
+        <function-class>com.supinfo.supcrowdfunder.dao.StatisticDao</function-class>
+        <function-signature>java.lang.Short percentage(java.lang.Long,java.lang.Long)</function-signature>
+    </function>
+</taglib>

@@ -2,6 +2,7 @@ package com.supinfo.supcrowdfunder.servlet.project;
 
 import com.supinfo.supcrowdfunder.dao.ContributeDao;
 import com.supinfo.supcrowdfunder.dao.ProjectDao;
+import com.supinfo.supcrowdfunder.dao.StatisticDao;
 import com.supinfo.supcrowdfunder.entity.Project;
 import com.supinfo.supcrowdfunder.util.FlashBag;
 
@@ -31,7 +32,7 @@ public class ShowProjectServlet extends HttpServlet {
         Long actualCredit = null;
         if (id != null && id > 0){
             project = ProjectDao.findProjectById(id);
-            actualCredit = ContributeDao.sumContributes(id);
+            actualCredit = StatisticDao.sumContributes(id);
             request.setAttribute("actualCredits", actualCredit);
         }
         if (project == null) {

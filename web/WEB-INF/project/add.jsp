@@ -58,7 +58,7 @@
                    name="details"
                    required="required"
                    placeholder="<fmt:message key="form.project.details.placeholder" />"
-                   maxlength="255"></textarea>
+                   maxlength="255"><c:out value="${param.needCredits}"/></textarea>
             <c:if test="${errors['details'] != null}">
                 <span class="help-block"><fmt:message key="${errors['details']}" /></span>
             </c:if>
@@ -80,7 +80,8 @@
                    class="form-control"
                    id="term"
                    name="term"
-                   value="<c:out value="${param.term}"/>"
+                   <%--value="<c:out value="${param.term}"/>"--%>
+                    value="2013-12-01"
                    maxlength="255">
             <c:if test="${errors['term'] != null}">
                 <span class="help-block"><fmt:message key="${errors['term']}" /></span>

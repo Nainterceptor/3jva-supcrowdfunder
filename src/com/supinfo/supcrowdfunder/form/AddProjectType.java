@@ -54,7 +54,7 @@ public class AddProjectType extends AbstractType {
             errors.put("needCredits", e.getMessage());
         }
         try {
-            ProjectValidator.term(Convertion.conversionDate(request.getParameter("rightNow")));
+            ProjectValidator.term(Convertion.conversionDate(request.getParameter("term")));
         } catch (Exception e) {
             errors.put("term", e.getMessage());
         }
