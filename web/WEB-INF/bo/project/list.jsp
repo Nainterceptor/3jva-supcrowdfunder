@@ -40,6 +40,9 @@
                 </td>
             </tr>
         </c:forEach>
+            <tr>
+                <td colspan="7" class="text-center"><a href="<%=request.getContextPath()%>/bo/project/create"><fmt:message key="bo.page.project.list.button.new" /></a></td>
+            </tr>
         </tbody>
     </table>
 </div>

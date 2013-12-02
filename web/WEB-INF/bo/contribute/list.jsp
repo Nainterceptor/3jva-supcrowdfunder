@@ -43,6 +43,9 @@
                 </td>
             </tr>
         </c:forEach>
+            <tr>
+                <td colspan="6" class="text-center"><a href="<%=request.getContextPath()%>/bo/contribute/create"><fmt:message key="bo.page.contribute.list.button.new" /></a></td>
+            </tr>
         </tbody>
     </table>
 </div>
