@@ -38,6 +38,9 @@
                </td>
             </tr>
         </c:forEach>
+            <tr>
+                <td colspan="5" class="text-center"><a href="<%=request.getContextPath()%>/bo/categorie/add"><fmt:message key="bo.page.categorie.list.button.new" /></a></td>
+            </tr>
         </tbody>
     </table>
 </div>
