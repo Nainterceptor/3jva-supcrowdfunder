@@ -10,7 +10,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>SupCrowdfunder</title>
+    <title><fmt:message key="fo.title" /></title>
     <meta charset="utf-8" />
     <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" />
@@ -20,45 +20,33 @@
         <div class="navbar-inverse">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="<%=request.getContextPath()%>/">SupCrowdfunder</a>
+                    <a class="navbar-brand" href="<%=request.getContextPath()%>/"><fmt:message key="fo.title" /></a>
                 </div>
                 <nav class="collapse navbar-collapse" role="navigation">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="<%=request.getContextPath()%>/project">Projets</a>
+                            <a href="<%=request.getContextPath()%>/project"><fmt:message key="fo.menu.projects" /></a>
                         </li>
                     </ul>
-                    <c:if test="${sessionScope.email == null}">
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="<%=request.getContextPath()%>/login">Login</a>
-                        </li>
-                        <li>
-                            <a href="<%=request.getContextPath()%>/registration">Sign in</a>
-                        </li>
+                        <c:choose>
+                            <c:when test="${sessionScope.email != null}">
+                                <li>
+                                    <a href="<%=request.getContextPath()%>/me/logout"><fmt:message key="menu.logout" /></a>
+                                </li>
+                            </c:when>
+                            <c:otherwise>
+                                <li>
+                                    <a href="<%=request.getContextPath()%>/login"><fmt:message key="fo.menu.login" /></a>
+                                </li>
+                                <li>
+                                    <a href="<%=request.getContextPath()%>/registration"><fmt:message key="fo.menu.registration" /></a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
                     </ul>
-                    </c:if>
-                    <c:if test="${sessionScope.email != null}">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="<%=request.getContextPath()%>/me/logout">Logout</a>
-                            </li>
-                        </ul>
-                    </c:if>
                 </nav>
             </div>
         </div>
     </header>
-    <c:if test="${flashbag != null && flashbag.hasFlashs()}">
-        <div class="container">
-        <c:forEach var="f" items="${flashbag.getFlashs().entrySet()}">
-            <c:forEach var="m" items="${flashbag.getOnceFlash(f.key)}">
-                <div class="alert alert-<c:out value="${f.key}" /> alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <fmt:message key="${m}" />
-                </div>
-            </c:forEach>
-        </c:forEach>
-        </div>
-    </c:if>
-
+<%@ include file="/WEB-INF/includes/flashbag.jsp"%>

@@ -10,7 +10,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>SupCrowdfunder</title>
+    <title><fmt:message key="bo.title" /></title>
     <meta charset="utf-8" />
     <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" />
@@ -20,34 +20,33 @@
         <div class="navbar-inverse">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="<%=request.getContextPath()%>/">SupCrowdfunder</a>
+                    <a class="navbar-brand" href="<%=request.getContextPath()%>/bo/"><fmt:message key="bo.title" /></a>
                 </div>
                 <nav class="collapse navbar-collapse bs-navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="<%=request.getContextPath()%>/project">Projets</a>
+                            <a href="<%=request.getContextPath()%>/bo/project"><fmt:message key="bo.menu.projects" /></a>
                         </li>
                         <li>
-                            <a href="<%=request.getContextPath()%>/bo/categorie">Catégories</a>
+                            <a href="<%=request.getContextPath()%>/bo/categorie"><fmt:message key="bo.menu.categories" /></a>
                         </li>
                         <li>
-                            <a href="<%=request.getContextPath()%>/bo/user">Utilisateurs</a>
+                            <a href="<%=request.getContextPath()%>/bo/user"><fmt:message key="bo.menu.users" /></a>
+                        </li>
+                        <li>
+                            <a href="<%=request.getContextPath()%>/bo/contribute"><fmt:message key="bo.menu.contributes" /></a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="<%=request.getContextPath()%>/"><fmt:message key="bo.menu.backToSite" /></a>
+                        </li>
+                        <li>
+                            <a href="<%=request.getContextPath()%>/me/logout"><fmt:message key="menu.logout" /></a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
-    <c:if test="${flashbag != null && flashbag.hasFlashs()}">
-        <div class="container">
-        <c:forEach var="f" items="${flashbag.getFlashs().entrySet()}">
-            <c:forEach var="m" items="${flashbag.getOnceFlash(f.key)}">
-                <div class="alert alert-<c:out value="${f.key}" /> alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <fmt:message key="${m}" />
-                </div>
-            </c:forEach>
-        </c:forEach>
-        </div>
-    </c:if>
-
+    <%@ include file="/WEB-INF/includes/flashbag.jsp"%>
