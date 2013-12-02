@@ -15,7 +15,7 @@ import java.util.Map;
  * Date: 28/11/13
  * Time: 19:50
  */
-@WebServlet(name = "IndexBOServlet", urlPatterns = {"/foo/"})
+@WebServlet(name = "IndexBOServlet", urlPatterns = {"/bo/", "/bo"})
 public class IndexBOServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, Long> statsGlobal = StatisticDao.findGlobalStats();
