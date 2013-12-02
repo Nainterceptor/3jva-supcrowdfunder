@@ -4,7 +4,6 @@ import com.supinfo.supcrowdfunder.dao.ProjectDao;
 import com.supinfo.supcrowdfunder.entity.Categorie;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.

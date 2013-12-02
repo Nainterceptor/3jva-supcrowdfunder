@@ -1,11 +1,7 @@
 package com.supinfo.supcrowdfunder.entity;
 
-import com.supinfo.supcrowdfunder.dao.ContributeDao;
-import com.supinfo.supcrowdfunder.util.Statistic;
-
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 /**

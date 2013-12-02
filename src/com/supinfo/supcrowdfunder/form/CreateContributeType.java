@@ -10,7 +10,6 @@ import com.supinfo.supcrowdfunder.util.Convertion;
 import com.supinfo.supcrowdfunder.validator.ContributeValidator;
 
 import javax.servlet.http.HttpServletRequest;
-import java.sql.Timestamp;
 
 /**
  * Created with IntelliJ IDEA.

@@ -1,7 +1,5 @@
 package com.supinfo.supcrowdfunder.servlet.contribute;
 
-import com.supinfo.supcrowdfunder.entity.Contribute;
-import com.supinfo.supcrowdfunder.form.ContributeType;
 import com.supinfo.supcrowdfunder.form.CreateContributeType;
 import com.supinfo.supcrowdfunder.util.FlashBag;
 

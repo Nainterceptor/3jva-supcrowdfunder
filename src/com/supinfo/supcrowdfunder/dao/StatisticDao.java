@@ -1,8 +1,6 @@
 package com.supinfo.supcrowdfunder.dao;
 
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
-import java.util.HashMap;
 import java.util.Map;
 
 /**

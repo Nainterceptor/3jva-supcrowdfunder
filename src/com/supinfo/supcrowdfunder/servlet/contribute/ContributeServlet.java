@@ -1,7 +1,6 @@
 package com.supinfo.supcrowdfunder.servlet.contribute;
 
 import com.supinfo.supcrowdfunder.dao.ProjectDao;
-import com.supinfo.supcrowdfunder.entity.Project;
 import com.supinfo.supcrowdfunder.form.ContributeType;
 import com.supinfo.supcrowdfunder.util.FlashBag;
 

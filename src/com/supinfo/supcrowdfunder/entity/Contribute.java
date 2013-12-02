@@ -2,8 +2,6 @@ package com.supinfo.supcrowdfunder.entity;
 
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.sql.Time;
 import java.sql.Timestamp;
 
 /**

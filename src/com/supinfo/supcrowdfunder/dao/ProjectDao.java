@@ -3,11 +3,9 @@ package com.supinfo.supcrowdfunder.dao;
 import com.supinfo.supcrowdfunder.entity.Categorie;
 import com.supinfo.supcrowdfunder.entity.Project;
 import com.supinfo.supcrowdfunder.entity.User;
-import com.supinfo.supcrowdfunder.util.Statistic;
 
 import javax.persistence.Query;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 /**

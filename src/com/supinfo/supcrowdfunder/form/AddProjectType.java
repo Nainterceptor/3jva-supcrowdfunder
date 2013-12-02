@@ -7,7 +7,6 @@ import com.supinfo.supcrowdfunder.util.Convertion;
 import com.supinfo.supcrowdfunder.validator.ProjectValidator;
 
 import javax.servlet.http.HttpServletRequest;
-import java.sql.Date;
 
 /**
  * Created with IntelliJ IDEA.

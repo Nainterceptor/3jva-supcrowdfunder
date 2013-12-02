@@ -1,6 +1,5 @@
 package com.supinfo.supcrowdfunder.servlet.project;
 
-import com.supinfo.supcrowdfunder.dao.ContributeDao;
 import com.supinfo.supcrowdfunder.dao.ProjectDao;
 import com.supinfo.supcrowdfunder.dao.StatisticDao;
 import com.supinfo.supcrowdfunder.entity.Project;

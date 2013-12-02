@@ -1,9 +1,7 @@
 package com.supinfo.supcrowdfunder.form;
 
 import com.supinfo.supcrowdfunder.dao.ContributeDao;
-import com.supinfo.supcrowdfunder.entity.Contribute;
 import com.supinfo.supcrowdfunder.entity.User;
-import com.supinfo.supcrowdfunder.util.FlashBag;
 import com.supinfo.supcrowdfunder.validator.ContributeValidator;
 
 import javax.servlet.http.HttpServletRequest;

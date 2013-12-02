@@ -2,7 +2,6 @@ package com.supinfo.supcrowdfunder.form;
 
 import com.supinfo.supcrowdfunder.dao.CategorieDao;
 import com.supinfo.supcrowdfunder.entity.Categorie;
-import com.supinfo.supcrowdfunder.util.SecurityHelper;
 import com.supinfo.supcrowdfunder.validator.CategorieValidator;
 
 import javax.servlet.http.HttpServletRequest;
