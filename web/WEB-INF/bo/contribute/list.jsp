@@ -33,9 +33,15 @@
                 <td><c:out value="${c.id}" /></td>
                 <td><c:out value="${c.amount}" /> €</td>
                 <td><c:out value="${func:dateToStringVue(c.rightNow)}" /></td>
-                <td><c:out value="${c.user.id}" /> <em><a href="<%=request.getContextPath()%>/bo/user/edit?id=<c:out value="${c.user.id}" />">(${c.user.email})</a></em></td>
-                <td><c:out value="${c.project.id}" /> <em>(${c.project.name})</em></td>
+                <td><c:out value="${c.user.id}" /> <em>
+                    <a href="<%=request.getContextPath()%>/bo/user/show?id=<c:out value="${c.user.id}" />">
+                        (${c.user.email})</a></em></td>
+                <td><c:out value="${c.project.id}" /> <em>
+                    <a href="<%=request.getContextPath()%>/bo/project/show?id=<c:out value="${c.project.id}" />">
+                        (${c.project.name})</a></em></td>
                 <td>
+                    <a href="<%=request.getContextPath()%>/bo/contribute/show?id=<c:out value="${c.id}" />"
+                       class="glyphicon glyphicon-eye-open">&nbsp;</a>
                     <a href="<%=request.getContextPath()%>/bo/contribute/edit?id=<c:out value="${c.id}" />"
                     class="glyphicon glyphicon-pencil">&nbsp;</a>
                     <a onclick="return confirm('<fmt:message key="bo.page.contribute.list.actions.removeConfirm" />')" href="<%=request.getContextPath()%>/bo/contribute/delete?id=<c:out value="${c.id}" />"
@@ -43,6 +49,9 @@
                 </td>
             </tr>
         </c:forEach>
+        <tr>
+            <td colspan="6" class="text-center"><a href="<%=request.getContextPath()%>/bo/contribute/create"><fmt:message key="bo.page.contribute.list.button.new" /></a></td>
+        </tr>
         </tbody>
     </table>
 </div>
