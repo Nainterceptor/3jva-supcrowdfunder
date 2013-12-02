@@ -8,6 +8,7 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/includes/headerBO.jsp"%>
+<%@taglib uri="/WEB-INF/tags/functions.tld" prefix="func" %>
 <div class="container">
     <h1><fmt:message key="bo.page.contribute.list.title" /></h1>
     <table class="table table-striped">
@@ -31,7 +32,7 @@
             <tr>
                 <td><c:out value="${c.id}" /></td>
                 <td><c:out value="${c.amount}" /> €</td>
-                <td><c:out value="${c.rightNow}" /></td>
+                <td><c:out value="${func:dateToStringVue(c.rightNow)}" /></td>
                 <td><c:out value="${c.user.id}" /> <em><a href="<%=request.getContextPath()%>/bo/user/edit?id=<c:out value="${c.user.id}" />">(${c.user.email})</a></em></td>
                 <td><c:out value="${c.project.id}" /> <em>(${c.project.name})</em></td>
                 <td>

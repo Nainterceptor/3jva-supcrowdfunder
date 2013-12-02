@@ -8,6 +8,7 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/includes/header.jsp"%>
+<%@taglib uri="/WEB-INF/tags/functions.tld" prefix="func" %>
 <div class="container" style="width: 50%">
     <c:if test="${errors['internal'] != null}">
         <div class="alert alert-danger alert-dismissable">
@@ -80,8 +81,7 @@
                    class="form-control"
                    id="term"
                    name="term"
-                   <%--value="<c:out value="${param.term}"/>"--%>
-                    value="2013-12-01"
+                   value="<c:out value="${func:dateDefault()}"/>"
                    maxlength="255">
             <c:if test="${errors['term'] != null}">
                 <span class="help-block"><fmt:message key="${errors['term']}" /></span>

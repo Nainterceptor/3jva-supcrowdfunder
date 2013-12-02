@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/includes/headerBO.jsp"%>
+<%@taglib uri="/WEB-INF/tags/functions.tld" prefix="func" %>
 <div class="container">
     <h1><fmt:message key="bo.page.project.list.title" /></h1>
     <table class="table table-striped">
@@ -27,8 +28,8 @@
                 <td><c:out value="${p.name}" /></td>
                 <td><c:out value="${p.categories.name}" /></td>
                 <td><c:out value="${p.needCredits}" /></td>
-                <td>fonction utilisable plus tard</td>
-                <td><c:out value="${p.term}" /></td>
+                <td><c:out value="${func:calculateSumContibutes(p.id)}" /></td>
+                <td><c:out value="${func:dateToStringVue(p.term)}" /></td>
                 <td>
                     <a href="<%=request.getContextPath()%>/bo/project/show?id=<c:out value="${p.id}" />"
                     class="glyphicon glyphicon-eye-open">&nbsp;</a>

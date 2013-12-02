@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/includes/headerBO.jsp"%>
+<%@taglib uri="/WEB-INF/tags/functions.tld" prefix="func" %>
 <div class="container">
     <h1><fmt:message key="bo.page.contribute.edit.title" /></h1>
     <c:if test="${errors['internal'] != null}">
@@ -55,7 +56,7 @@
                        class="form-control"
                        id="rightNow"
                        name="rightNow"
-                       value="<c:out value="${contribute.rightNow}"/>">
+                       value="<c:out value="${func:dateToString(contribute.rightNow)}"/>">
                 <c:if test="${errors['rightNow'] != null}">
                     <span class="help-block"><fmt:message key="${errors['rightNow']}" /></span>
                 </c:if>

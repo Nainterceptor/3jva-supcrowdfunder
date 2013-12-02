@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ include file="/WEB-INF/includes/header.jsp"%>
+<%@taglib uri="/WEB-INF/tags/functions.tld" prefix="func" %>
 
 <div class="container">
     <h1><fmt:message key="page.project.show.title" /></h1>
@@ -29,7 +30,7 @@
         </tr>
         <tr>
             <th><fmt:message key="db.project.actualCredits" /></th>
-            <td>Fonction non dispo</td>
+            <td><c:out value="${func:calculateSumContibutes(p.id)}" /></td>
         </tr>
         <tr>
             <th><fmt:message key="db.project.details" /></th>
@@ -37,7 +38,7 @@
         </tr>
         <tr>
             <th><fmt:message key="db.project.term" /></th>
-            <td><c:out value="${project.term}" /></td>
+            <td><c:out value="${func:dateToStringVue(project.term)}" /></td>
         </tr>
         </tbody>
     </table>

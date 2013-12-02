@@ -19,4 +19,17 @@ public class Convertion {
         return Timestamp.valueOf(dateformat);
 
     }
+
+    public static String conversionDateString (Timestamp date){
+        return date.toString().substring(8,10)+date.toString().substring(4,8)+date.toString().substring(0,4);
+    }
+
+    public static String dateString (Timestamp date){
+        return date.toString().substring(0,10);
+    }
+
+
+    public static String dateDefault (){
+        return new Timestamp(System.currentTimeMillis()+5184000000L).toString().substring(0,10);
+    }
 }

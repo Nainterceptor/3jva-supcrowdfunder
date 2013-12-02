@@ -21,4 +21,22 @@
         <function-class>com.supinfo.supcrowdfunder.dao.StatisticDao</function-class>
         <function-signature>java.lang.Short percentage(java.lang.Long,java.lang.Long)</function-signature>
     </function>
+
+    <function>
+        <name>dateToStringVue</name>
+        <function-class>com.supinfo.supcrowdfunder.util.Convertion</function-class>
+        <function-signature>java.lang.String conversionDateString(java.sql.Timestamp)</function-signature>
+    </function>
+
+    <function>
+        <name>dateToString</name>
+        <function-class>com.supinfo.supcrowdfunder.util.Convertion</function-class>
+        <function-signature>java.lang.String dateString(java.sql.Timestamp)</function-signature>
+    </function>
+
+    <function>
+        <name>dateDefault</name>
+        <function-class>com.supinfo.supcrowdfunder.util.Convertion</function-class>
+        <function-signature>java.lang.String dateDefault()</function-signature>
+    </function>
 </taglib>
