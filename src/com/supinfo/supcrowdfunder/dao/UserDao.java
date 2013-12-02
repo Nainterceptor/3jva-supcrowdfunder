@@ -5,6 +5,7 @@ import com.supinfo.supcrowdfunder.util.SecurityHelper;
 
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -27,8 +28,10 @@ public class UserDao extends AbstractDao {
         em.getTransaction().begin();
         if (oneUser.getId() != null)
             em.merge(oneUser);
-        else
+        else {
+            oneUser.setCreatedAt(new Timestamp(System.currentTimeMillis()));
             em.persist(oneUser);
+        }
         em.getTransaction().commit();
         em.clear();
         destroy();

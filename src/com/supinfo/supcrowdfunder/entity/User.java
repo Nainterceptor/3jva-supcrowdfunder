@@ -4,6 +4,7 @@ import com.supinfo.supcrowdfunder.implementable.IUser;
 import com.supinfo.supcrowdfunder.util.SecurityHelper;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -28,6 +29,7 @@ public class User implements IUser {
     protected Boolean admin;
     protected List<Contribute> contributes;
     protected List<Project> projects;
+    protected Timestamp createdAt;
 
 
 
@@ -174,5 +176,12 @@ public class User implements IUser {
         return this;
     }
 
+    @Column(name = "createdAt", nullable = false)
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
 
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
 }
