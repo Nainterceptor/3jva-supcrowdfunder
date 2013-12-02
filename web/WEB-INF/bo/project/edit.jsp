@@ -92,7 +92,7 @@
                 <span class="help-block"><fmt:message key="${errors['userId']}" /></span>
             </c:if>
         </div>
-        <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+        <button class="btn btn-lg btn-primary" type="submit"><fmt:message key="submit" /></button>
     </form>
 </div>
 <%@ include file="/WEB-INF/includes/footer.jsp"%>

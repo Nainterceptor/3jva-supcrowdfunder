@@ -124,7 +124,7 @@
                     <span class="help-block"><fmt:message key="${errors['sex']}" /></span>
                 </c:if>
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" class="btn btn-default"><fmt:message key="submit" /></button>
         </form>
     </div>
 </div>

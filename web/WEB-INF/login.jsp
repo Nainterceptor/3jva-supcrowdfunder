@@ -36,7 +36,7 @@
                 </c:if>
             </div>
             <input type="hidden" name="originURL" value="${originURL}" />
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" class="btn btn-default"><fmt:message key="submit" /></button>
         </form>
 
     </div>
