@@ -61,7 +61,7 @@
                    required="required"
                    value="<c:out value="${project.id}" />">
         </div>
-        <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+        <button class="btn btn-lg btn-primary" type="submit"><fmt:message key="submit" /></button>
     </form>
 </div>
 
