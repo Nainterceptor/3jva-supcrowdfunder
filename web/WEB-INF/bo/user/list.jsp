@@ -35,6 +35,9 @@
                 </td>
             </tr>
         </c:forEach>
+            <tr>
+                <td colspan="5" class="text-center"><a href="<%=request.getContextPath()%>/bo/user/create"><fmt:message key="bo.page.user.list.button.new" /></a></td>
+            </tr>
         </tbody>
     </table>
 </div>
