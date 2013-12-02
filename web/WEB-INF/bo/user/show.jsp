@@ -57,5 +57,6 @@
             </tr>
         </tbody>
     </table>
+    <p><a href="<%=request.getContextPath()%>/bo/user/edit?id=<c:out value="${user.id}" />" class="btn btn-primary">Editer</a></p>
 </div>
 <%@ include file="/WEB-INF/includes/footer.jsp"%>
