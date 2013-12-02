@@ -10,6 +10,7 @@
             <th><fmt:message key="db.id" /></th>
             <th><fmt:message key="db.project.name" /></th>
             <th><fmt:message key="db.project.categorie" /></th>
+            <th><fmt:message key="db.project.userId" /></th>
             <th><fmt:message key="db.project.needCredits" /></th>
             <th><fmt:message key="db.project.actualCredits" /></th>
             <th><fmt:message key="db.project.term" /></th>
@@ -26,7 +27,12 @@
             <tr>
                 <td><c:out value="${p.id}" /></td>
                 <td><c:out value="${p.name}" /></td>
-                <td><c:out value="${p.categories.name}" /></td>
+                <td><c:out value="${p.categories.id}" /> <em>
+                    <a href="<%=request.getContextPath()%>/bo/categorie/show?id=<c:out value="${p.categories.id}" />">
+                        (${p.categories.name})</a></em></td>
+                <td><c:out value="${p.user.id}" /> <em>
+                    <a href="<%=request.getContextPath()%>/bo/categorie/user?id=<c:out value="${p.user.id}" />">
+                        (${p.user.email})</a></em></td>
                 <td><c:out value="${p.needCredits}" /></td>
                 <td><c:out value="${func:calculateSumContibutes(p.id)}" /></td>
                 <td><c:out value="${func:dateToStringVue(p.term)}" /></td>
@@ -40,9 +46,9 @@
                 </td>
             </tr>
         </c:forEach>
-            <tr>
-                <td colspan="7" class="text-center"><a href="<%=request.getContextPath()%>/bo/project/create"><fmt:message key="bo.page.project.list.button.new" /></a></td>
-            </tr>
+        <tr>
+            <td colspan="8" class="text-center"><a href="<%=request.getContextPath()%>/bo/project/create"><fmt:message key="bo.page.project.list.button.new" /></a></td>
+        </tr>
         </tbody>
     </table>
 </div>

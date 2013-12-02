@@ -22,7 +22,15 @@
         </tr>
         <tr>
             <th><fmt:message key="db.project.categorie" /></th>
-            <td><c:out value="${project.categories.name}" /></td>
+            <td><c:out value="${project.categories.id}" /> <em>
+                <a href="<%=request.getContextPath()%>/bo/categorie/show?id=<c:out value="${project.categories.id}" />">
+                    (${project.categories.name})</a></em></td>
+        </tr>
+        <tr>
+            <th><fmt:message key="db.project.userId" /></th>
+            <td><c:out value="${project.user.id}" /> <em>
+                <a href="<%=request.getContextPath()%>/bo/categorie/user?id=<c:out value="${project.user.id}" />">
+                    (${project.user.email})</a></em></td>
         </tr>
         <tr>
             <th><fmt:message key="db.project.needCredits" /></th>
@@ -30,7 +38,7 @@
         </tr>
         <tr>
             <th><fmt:message key="db.project.actualCredits" /></th>
-            <td><c:out value="${func:calculateSumContibutes(p.id)}" /></td>
+            <td><c:out value="${func:calculateSumContibutes(project.id)}" /></td>
         </tr>
         <tr>
             <th><fmt:message key="db.project.details" /></th>
@@ -42,5 +50,6 @@
         </tr>
         </tbody>
     </table>
+    <p><a href="<%=request.getContextPath()%>/bo/project/edit?id=<c:out value="${project.id}" />" class="btn btn-primary">Editer</a></p>
 </div>
 <%@ include file="/WEB-INF/includes/footer.jsp"%>
