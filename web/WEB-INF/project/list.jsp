@@ -7,7 +7,14 @@
 --%>
 <%@ include file="/WEB-INF/includes/header.jsp"%>
 <%@taglib uri="/WEB-INF/tags/functions.tld" prefix="func" %>
-
+<c:if test="${sessionScope.email == null}">
+    <div class="page-header">
+        <div class="container">
+            <h2><fmt:message key="page.index.welcome.title" /></h2>
+            <p><fmt:message key="page.index.welcome.content" /></p>
+        </div>
+    </div>
+</c:if>
 <div class="container">
     <div class="col-md-2">
        <a class="btn btn-primary" href="<%=request.getContextPath()%>/me/project/add">Add a project</a>

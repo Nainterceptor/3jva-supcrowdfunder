@@ -29,6 +29,15 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Langages <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Français</a></li>
+                                <li><a href="#">English</a></li>
+                                <li><a href="#">Spain</a></li>
+                                <li><a href="#">Deutsch</a></li>
+                            </ul>
+                        </li>
                         <c:choose>
                             <c:when test="${sessionScope.email != null}">
                                 <li>
