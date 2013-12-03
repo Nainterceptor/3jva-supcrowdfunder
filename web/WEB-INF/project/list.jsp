@@ -13,6 +13,9 @@
        <a class="btn btn-primary" href="<%=request.getContextPath()%>/me/project/add">Add a project</a>
        <div class="navbar-default">
             <ul class="nav">
+                <li>
+                    <a href="<%=request.getContextPath()%>/project">Tous</a>
+                </li>
             <c:forEach items="${categories}" var="c">
                 <li>
                     <a href="<%=request.getContextPath()%>/project?category=<c:out value="${c.id}" />"><c:out value="${c.name}"/></a>
@@ -21,7 +24,7 @@
             </ul>
         </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-10">
         <div class="row">
             <c:forEach items="${projects}" var="p">
             <div class="col-sm-6 col-md-4">
@@ -33,7 +36,10 @@
                         <p>
                             <c:if test="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits) < 100}">
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>" aria-valuemin="0" aria-valuemax="100" style="width: <c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>%">
+                                    <div class="progress-bar progress-bar-info"
+                                         role="progressbar"
+                                         aria-valuenow="<c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: <c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>%">
                                         <%--<span class="sr-only"><c:out value="${func.percentage()}"/>% Complete</span>--%>
                                         <c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>% Complete
                                     </div>
@@ -41,9 +47,19 @@
                             </c:if>
                             <c:if test="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits) >= 100}">
                                 <div class="progress progress-striped">
-                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<c:out value="${10000/func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>" aria-valuemin="0" aria-valuemax="<c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>" style="width: <c:out value="${10000/func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>%"><c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>% Complete
+                                    <div class="progress-bar progress-bar-success" role="progressbar"
+                                         aria-valuenow="<c:out value="${10000/func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>"
+                                         aria-valuemin="0"
+                                         aria-valuemax="<c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>"
+                                         style="width: <c:out value="${10000/func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>%">
+                                        <c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>% Complete
                                     </div>
-                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)-100}"/>" aria-valuemin="0" aria-valuemax="<c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>" style="width: <c:out value="${100-(10000/func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits))}"/>%"/>
+                                    <div class="progress-bar progress-bar-info"
+                                         role="progressbar"
+                                         aria-valuenow="<c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)-100}"/>"
+                                         aria-valuemin="0"
+                                         aria-valuemax="<c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>"
+                                         style="width: <c:out value="${100-(10000/func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits))}"/>%"/>
                                     </div>
                                 </div>
                             </c:if>

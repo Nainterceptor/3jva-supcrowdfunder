@@ -31,10 +31,10 @@
                     <a href="<%=request.getContextPath()%>/bo/categorie/show?id=<c:out value="${p.categories.id}" />">
                         (${p.categories.name})</a></em></td>
                 <td><c:out value="${p.user.id}" /> <em>
-                    <a href="<%=request.getContextPath()%>/bo/categorie/user?id=<c:out value="${p.user.id}" />">
+                    <a href="<%=request.getContextPath()%>/bo/user/show?id=<c:out value="${p.user.id}" />">
                         (${p.user.email})</a></em></td>
-                <td><c:out value="${p.needCredits}" /></td>
-                <td><c:out value="${func:calculateSumContibutes(p.id)}" /></td>
+                <td><c:out value="${p.needCredits}" /> €</td>
+                <td><c:out value="${func:calculateSumContibutes(p.id)}" /> €</td>
                 <td><c:out value="${func:dateToStringVue(p.term)}" /></td>
                 <td>
                     <a href="<%=request.getContextPath()%>/bo/project/show?id=<c:out value="${p.id}" />"

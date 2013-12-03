@@ -60,7 +60,7 @@
             <label for="categories"><fmt:message key="form.project.categorie" /></label>
             <select id="categories" name="categories" class="form-control">
                 <c:forEach items="${categories}" var="c">
-                    <option value="<c:out value="${project.categories.id}"/>"><c:out value="${c.name}" /></option>
+                    <option ${project.categories.id == c.id ? 'selected="selected"' : ''} value="<c:out value="${c.id}"/>"><c:out value="${c.name}" /></option>
                 </c:forEach>
             </select>
             <c:if test="${errors['categories'] != null}">
