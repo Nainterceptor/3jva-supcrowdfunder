@@ -1,6 +1,6 @@
 package com.supinfo.supcrowdfunder.validator;
 
-import com.supinfo.supcrowdfunder.dao.ProjectDao;
+import com.supinfo.supcrowdfunder.dao.UserDao;
 import com.supinfo.supcrowdfunder.entity.Categorie;
 
 import java.sql.Timestamp;
@@ -36,7 +36,7 @@ public class ProjectValidator {
     }
 
     public static void userId(Long userId) throws Exception {
-        if (userId == null || ProjectDao.userExist(userId) == null)
+        if (userId == null || UserDao.findOne(userId) == null)
             throw new Exception("validator.project.userId.empty");
     }
 

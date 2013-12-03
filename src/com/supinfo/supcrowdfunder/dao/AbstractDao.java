@@ -1,8 +1,6 @@
 package com.supinfo.supcrowdfunder.dao;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 /**
  * Author: Gaël Demette
@@ -10,15 +8,15 @@ import javax.persistence.Persistence;
  * Time: 15:23
  */
 public abstract class AbstractDao {
-    protected static EntityManagerFactory emf;
-    protected static EntityManager em;
-
-    public static void init() {
-        emf = Persistence.createEntityManagerFactory("PU");
-        em = emf.createEntityManager();
-    }
-    public static void destroy() {
-        em.close();
-        emf.close();
+    public static <T> void persist(T one) {
+        EntityManager em = DaoRessource.getEm();
+        try {
+            em.getTransaction().begin();
+            em.persist(one);
+            em.getTransaction().commit();
+            em.clear();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
