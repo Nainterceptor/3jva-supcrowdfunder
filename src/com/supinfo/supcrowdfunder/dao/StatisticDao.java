@@ -34,7 +34,8 @@ public class StatisticDao extends AbstractDao {
                 "(SELECT COUNT(co) FROM Contribute co) as nbrContributes, \n" +
                 "(SELECT COUNT(p) FROM Project p) as nbrProjects, \n" +
                 "(SELECT COUNT(ca) FROM Categorie ca) as nbrCategories, \n" +
-                "(SELECT SUM(co1.amount) FROM Contribute co1) as sumContributes \n" +
+                "(SELECT SUM(co1.amount) FROM Contribute co1) as sumContributes, \n" +
+                "(SELECT SUM(p1.needCredits) FROM Project p1) as sumNeeded \n" +
                 ") FROM User u";
         Query query = em.createQuery(queryString, Map.class).setMaxResults(1);
         Map<String, Long> result = (Map<String, Long>) query.getSingleResult();
