@@ -71,11 +71,11 @@ public class CreateProjectType extends AddProjectType{
         } catch (Exception e) {
             errors.put("needCredits", e.getMessage());
         }
-        try {
-            ProjectValidator.term(Convertion.conversionDate(request.getParameter("term")));
-        } catch (Exception e) {
-            errors.put("term", e.getMessage());
-        }
+//        try {
+//            ProjectValidator.term(Convertion.conversionDate(request.getParameter("term")));
+//        } catch (Exception e) {
+//            errors.put("term", e.getMessage());
+//        }
         try {
             ProjectValidator.userId(Long.parseLong(request.getParameter("userId")));
         } catch (Exception e) {

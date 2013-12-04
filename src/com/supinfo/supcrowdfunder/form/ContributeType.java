@@ -2,6 +2,7 @@ package com.supinfo.supcrowdfunder.form;
 
 import com.supinfo.supcrowdfunder.dao.ContributeDao;
 import com.supinfo.supcrowdfunder.entity.User;
+import com.supinfo.supcrowdfunder.util.Convertion;
 import com.supinfo.supcrowdfunder.validator.ContributeValidator;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,9 +29,19 @@ public class ContributeType extends AbstractType {
     public void validate(HttpServletRequest request) {
 
         try {
+            Long.parseLong(request.getParameter("amount"));
             ContributeValidator.amount(Long.parseLong(request.getParameter("amount")));
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             errors.put("amount", "validator.contribute.amount.empty");
+        } catch (Exception e) {
+            errors.put("amount", e.getMessage());
+        }
+
+
+        try {
+            ContributeValidator.rightNow(new Timestamp(System.currentTimeMillis()), Long.parseLong(request.getParameter("projectId")));
+        } catch (Exception e) {
+            errors.put("rightNow", e.getMessage());
         }
 
         if (!errors.isEmpty())

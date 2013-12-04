@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <th><fmt:message key="db.project.term" /></th>
-            <td><c:out value="${func:dateToString(project.term)}" /></td>
+            <td><c:out value="${func:dateToStringVue(project.term)}" /></td>
         </tr>
         </tbody>
     </table>

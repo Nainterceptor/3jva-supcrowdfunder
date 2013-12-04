@@ -1,5 +1,7 @@
 package com.supinfo.supcrowdfunder.entity;
 
+import com.supinfo.supcrowdfunder.util.TextHelper;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
@@ -24,9 +26,13 @@ public class Project {
     private Categorie categories;
     private List<Contribute> contributes;
 
-//    public Short percentage(){
-//        return Statistic.percentage(ContributeDao.sumContributes(id), this.needCredits);
-//    }
+    public String shortDescribe(){
+        return (TextHelper.truncateAfterWords(50,details)+" ...");
+    }
+
+    public String shortDescribe(int n){
+        return (TextHelper.truncateAfterWords(n,details)+" ...");
+    }
 
     @OneToMany(mappedBy="project")
     public List<Contribute> getContributes() {

@@ -22,6 +22,26 @@ public class Contribute {
     protected Timestamp rightNow;
     protected Project project;
 
+    @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=User.class )
+    @JoinColumn(name="userId", nullable = false)
+    public User getUser() {
+        return user;
+    }
+    public Contribute setUser(User user) {
+        this.user = user;
+        return this;
+    }
+
+    @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=Project.class )
+    @JoinColumn(name="projectId", nullable = false)
+    public Project getProject() {
+        return project;
+    }
+
+    public Contribute setProject(Project project) {
+        this.project = project;
+        return this;
+    }
 
     @Id
     @GeneratedValue
@@ -46,16 +66,9 @@ public class Contribute {
         return this;
     }
 
-    @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=User.class )
-    @JoinColumn(name="userId", nullable = false)
-    public User getUser() {
-        return user;
-    }
 
-    public Contribute setUser(User user) {
-        this.user = user;
-        return this;
-    }
+
+
 
     @Column(name = "rightNow", nullable = false)
     public Timestamp getRightNow() {
@@ -67,14 +80,5 @@ public class Contribute {
         return this;
     }
 
-    @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=Project.class )
-    @JoinColumn(name="projectId", nullable = false)
-    public Project getProject() {
-        return project;
-    }
 
-    public Contribute setProject(Project project) {
-        this.project = project;
-        return this;
-    }
 }

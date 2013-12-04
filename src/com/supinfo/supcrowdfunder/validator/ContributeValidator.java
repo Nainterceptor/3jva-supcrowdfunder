@@ -2,6 +2,7 @@ package com.supinfo.supcrowdfunder.validator;
 
 import com.supinfo.supcrowdfunder.dao.ProjectDao;
 import com.supinfo.supcrowdfunder.dao.UserDao;
+import com.supinfo.supcrowdfunder.entity.Project;
 
 import java.sql.Timestamp;
 
@@ -15,11 +16,7 @@ import java.sql.Timestamp;
 
 public class ContributeValidator {
     public static void amount(Long amount) throws Exception {
-        if (amount instanceof Long){
-            if (amount == null)
-                throw new Exception("validator.contribute.amount.empty");
-        }
-        else
+         if (amount == null || amount <= 0)
             throw new Exception("validator.contribute.amount.empty");
     }
 
@@ -33,9 +30,10 @@ public class ContributeValidator {
             throw new Exception("validator.contribute.projectId.empty");
     }
 
-    public static void rightNow(Timestamp rightNow) throws Exception {
-        if (rightNow == null)
-            throw new Exception("validator.contribute.date.empty");
+    public static void rightNow(Timestamp rightNow, Long projectId) throws Exception {
+        Project project = ProjectDao.findProjectById(projectId);
+        if (rightNow == null || rightNow.after(project.getTerm()))
+            throw new Exception("validator.contribute.date.late");
     }
 }
 

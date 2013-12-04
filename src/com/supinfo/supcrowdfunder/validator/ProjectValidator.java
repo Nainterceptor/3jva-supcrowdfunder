@@ -43,5 +43,7 @@ public class ProjectValidator {
     public static void term(Timestamp term) throws Exception {
         if (term == null)
             throw new Exception("validator.contribute.date.empty");
+        if (term.before(new Timestamp(System.currentTimeMillis()-60000)))
+            throw new Exception("validator.contribute.date.empty");
     }
 }

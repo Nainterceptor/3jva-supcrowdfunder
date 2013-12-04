@@ -49,27 +49,39 @@ public class CreateContributeType extends ContributeType {
     public void validate(HttpServletRequest request) {
 
         try {
+            Long.parseLong(request.getParameter("amount"));
             ContributeValidator.amount(Long.parseLong(request.getParameter("amount")));
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             errors.put("amount", "validator.contribute.amount.empty");
+        } catch (Exception e) {
+            errors.put("amount", e.getMessage());
         }
 
         try {
+            Long.parseLong(request.getParameter("userId"));
             ContributeValidator.userId(Long.parseLong(request.getParameter("userId")));
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             errors.put("userId", "validator.contribute.userId.empty");
+        } catch (Exception e) {
+            errors.put("userId", e.getMessage());
         }
 
         try {
+            Long.parseLong(request.getParameter("projectId"));
             ContributeValidator.projectId(Long.parseLong(request.getParameter("projectId")));
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             errors.put("projectId", "validator.contribute.projectId.empty");
+        } catch (Exception e) {
+        errors.put("projectId", e.getMessage());
         }
 
         try {
-            ContributeValidator.rightNow(Convertion.conversionDate(request.getParameter("rightNow")));
+            Convertion.conversionDate(request.getParameter("rightNow"));
+            ContributeValidator.rightNow(Convertion.conversionDate(request.getParameter("rightNow")), Long.parseLong(request.getParameter("projectId")));
+        } catch (IllegalArgumentException e) {
+            errors.put("rightNow", "validator.contribute.date.format");
         } catch (Exception e) {
-            errors.put("rightNow", "validator.contribute.date.empty");
+            errors.put("rightNow", e.getMessage());
         }
 
         if (!errors.isEmpty())

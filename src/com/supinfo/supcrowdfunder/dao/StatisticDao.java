@@ -30,6 +30,8 @@ public class StatisticDao extends AbstractDao {
         return contributes;
     }
 
+
+
     public static Map<String, Long> findGlobalStats() {
         String queryString = "SELECT new map(\n" +
                 "(SELECT COUNT(u) FROM User u) as nbrUsers, \n" +
