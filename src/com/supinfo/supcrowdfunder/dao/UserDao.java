@@ -6,6 +6,7 @@ import com.supinfo.supcrowdfunder.util.SecurityHelper;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -32,6 +33,7 @@ public class UserDao extends AbstractDao {
                     .setEmail(email)
                     .setPassword(hashedPassword)
                     .setSalt(salt);
+            oneUser.setCreatedAt(new Timestamp(System.currentTimeMillis()));
             persist(oneUser);
         } catch (Exception e) {
             throw new Exception("Internal : Can't register user");
