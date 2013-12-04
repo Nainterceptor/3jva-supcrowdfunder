@@ -1,6 +1,9 @@
 package com.supinfo.supcrowdfunder.servlet;
 
 import com.supinfo.supcrowdfunder.dao.StatisticDao;
+import com.supinfo.supcrowdfunder.form.IndexBoType;
+import com.supinfo.supcrowdfunder.util.FlashBag;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +20,18 @@ import java.util.Map;
 @WebServlet(name = "IndexBOServlet", urlPatterns = {"/bo/", "/bo"})
 public class IndexBOServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Map<String, Long> statsGlobal = StatisticDao.findGlobalStats();
+        IndexBoType form = new IndexBoType();
+        form.validate(request);
+        FlashBag flashbag = (FlashBag) request.getAttribute("flashbag");
+        Map<String, Long> statsGlobal;
+        if (form.getResult()) {
+            statsGlobal = form.chooseMethodDao();
+        } else {
+            request.setAttribute("errors", form.getErrors() );
+            request.setAttribute("result", form.getResult());
+            flashbag.addFlash("danger", "bo.flash.index.search.error");
+            statsGlobal = StatisticDao.findGlobalStats();
+        }
         request.setAttribute("statsGlobal", statsGlobal);
         this.getServletContext().getRequestDispatcher("/WEB-INF/bo/index.jsp").forward(request, response);
     }
