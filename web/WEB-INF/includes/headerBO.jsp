@@ -36,6 +36,9 @@
                         <li>
                             <a href="<%=request.getContextPath()%>/bo/contribute"><fmt:message key="bo.menu.contributes" /></a>
                         </li>
+                        <li>
+                            <a href="<%=request.getContextPath()%>/me/edit"><fmt:message key="bo.menu.profil" /></a>
+                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>

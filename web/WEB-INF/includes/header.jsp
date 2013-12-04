@@ -27,6 +27,9 @@
                         <li>
                             <a href="<%=request.getContextPath()%>/project"><fmt:message key="fo.menu.projects" /></a>
                         </li>
+                        <li>
+                            <a href="<%=request.getContextPath()%>/me/edit"><fmt:message key="fo.menu.profil" /></a>
+                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
