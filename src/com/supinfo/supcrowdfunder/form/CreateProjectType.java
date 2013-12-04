@@ -62,24 +62,33 @@ public class CreateProjectType extends AddProjectType{
             errors.put("details", e.getMessage());
         }
         try {
+            Long.parseLong(request.getParameter("categories"));
             ProjectValidator.categories(CategorieDao.findOne(Long.parseLong(request.getParameter("categories"))));
+        } catch (NumberFormatException e) {
+            errors.put("categories", "validator.project.categorie.empty");
         } catch (Exception e) {
             errors.put("categories", e.getMessage());
         }
         try {
+            Long.parseLong(request.getParameter("needCredits"));
             ProjectValidator.needCredits(Long.parseLong(request.getParameter("needCredits")));
+        } catch (NumberFormatException e) {
+            errors.put("needCredits", "validator.project.needCredits.empty");
         } catch (Exception e) {
             errors.put("needCredits", e.getMessage());
         }
-//        try {
-//            ProjectValidator.term(Convertion.conversionDate(request.getParameter("term")));
-//        } catch (Exception e) {
-//            errors.put("term", e.getMessage());
-//        }
         try {
+            Convertion.conversionDate(request.getParameter("term"));
+        } catch (IllegalArgumentException e) {
+            errors.put("term", "validator.term.date.format");
+        }
+        try {
+            Long.parseLong(request.getParameter("userId"));
             ProjectValidator.userId(Long.parseLong(request.getParameter("userId")));
+        } catch (NumberFormatException e) {
+            errors.put("userId", "validator.project.userId.empty");
         } catch (Exception e) {
-            errors.put("userId", "validator.contribute.userId.empty");
+            errors.put("userId", e.getMessage());
         }
         if (!errors.isEmpty())
             result = false;

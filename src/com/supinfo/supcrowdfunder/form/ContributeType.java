@@ -36,7 +36,6 @@ public class ContributeType extends AbstractType {
             errors.put("amount", e.getMessage());
         }
 
-
         try {
             ContributeValidator.rightNow(new Timestamp(System.currentTimeMillis()), Long.parseLong(request.getParameter("projectId")));
         } catch (Exception e) {

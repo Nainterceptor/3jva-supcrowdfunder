@@ -43,17 +43,26 @@ public class AddProjectType extends AbstractType {
             errors.put("details", e.getMessage());
         }
         try {
+            Long.parseLong(request.getParameter("categories"));
             ProjectValidator.categories(CategorieDao.findOne(Long.parseLong(request.getParameter("categories"))));
+        } catch (NumberFormatException e) {
+            errors.put("categories", "validator.project.categorie.empty");
         } catch (Exception e) {
             errors.put("categories", e.getMessage());
         }
         try {
+            Long.parseLong(request.getParameter("needCredits"));
             ProjectValidator.needCredits(Long.parseLong(request.getParameter("needCredits")));
+        } catch (NumberFormatException e) {
+            errors.put("needCredits", "validator.project.needCredits.empty");
         } catch (Exception e) {
             errors.put("needCredits", e.getMessage());
         }
         try {
+            Convertion.conversionDate(request.getParameter("term"));
             ProjectValidator.term(Convertion.conversionDate(request.getParameter("term")));
+        } catch (IllegalArgumentException e) {
+            errors.put("term", "validator.term.date.format");
         } catch (Exception e) {
             errors.put("term", e.getMessage());
         }

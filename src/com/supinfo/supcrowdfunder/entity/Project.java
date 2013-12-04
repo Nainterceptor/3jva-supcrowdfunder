@@ -28,11 +28,11 @@ public class Project {
     protected Timestamp createdAt;
 
     public String shortDescribe(){
-        return (TextHelper.truncateAfterWords(50,details)+" ...");
+        return this.shortDescribe(50);
     }
 
     public String shortDescribe(int n){
-        return (TextHelper.truncateAfterWords(n,details)+" ...");
+        return (TextHelper.truncateAfterWords(n,details));
     }
 
     @OneToMany(mappedBy="project")

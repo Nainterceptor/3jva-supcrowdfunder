@@ -31,7 +31,7 @@ public class ProjectValidator {
     }
 
     public static void needCredits(Long needCredits) throws Exception {
-        if (needCredits == null)
+        if (needCredits == null || needCredits <=0)
             throw new Exception("validator.project.needCredits.empty");
     }
 
@@ -42,8 +42,8 @@ public class ProjectValidator {
 
     public static void term(Timestamp term) throws Exception {
         if (term == null)
-            throw new Exception("validator.contribute.date.empty");
+            throw new Exception("validator.project.date.empty");
         if (term.before(new Timestamp(System.currentTimeMillis()-60000)))
-            throw new Exception("validator.contribute.date.empty");
+            throw new Exception("validator.project.date.late");
     }
 }

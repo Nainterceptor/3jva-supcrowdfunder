@@ -59,7 +59,7 @@
                    name="details"
                    required="required"
                    placeholder="<fmt:message key="form.project.details.placeholder" />"
-                   maxlength="255"><c:out value="${param.needCredits}"/></textarea>
+                   maxlength="255"><c:out value="${param.details}"/></textarea>
             <c:if test="${errors['details'] != null}">
                 <span class="help-block"><fmt:message key="${errors['details']}" /></span>
             </c:if>
