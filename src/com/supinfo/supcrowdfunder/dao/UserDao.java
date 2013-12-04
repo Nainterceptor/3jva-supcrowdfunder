@@ -43,9 +43,31 @@ public class UserDao extends AbstractDao {
             throw new Exception("Internal : Can't register user");
         }
     }
+    public static void insertOne(String email, String password, String firstname, String lastname, Boolean admin) throws Exception {
+
+        String salt = SecurityHelper.generateSalt();
+        try {
+            String hashedPassword = SecurityHelper.hashPassword(password, salt);
+            User oneUser = new User()
+                    .setFirstname(firstname)
+                    .setLastname(lastname)
+                    .setEmail(email)
+                    .setPassword(hashedPassword)
+                    .setSalt(salt)
+                    .setAdmin(admin);
+            persist(oneUser);
+        } catch (Exception e) {
+            throw new Exception("Internal : Can't register user");
+        }
+    }
     public static boolean isMailExist(String email) {
         Query query = DaoRessource.getEm().createQuery("SELECT COUNT(u) as count FROM User u WHERE u.email = :email", Long.class)
             .setParameter("email", email);
+        long result = (Long) query.getSingleResult();
+        return result > 0;
+    }
+    public static boolean hasUser(){
+        Query query = DaoRessource.getEm().createQuery("SELECT COUNT(u.id) FROM User u", Long.class);
         long result = (Long) query.getSingleResult();
         return result > 0;
     }

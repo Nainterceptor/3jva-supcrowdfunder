@@ -1,9 +1,11 @@
 package com.supinfo.supcrowdfunder.form;
 
 import com.supinfo.supcrowdfunder.dao.UserDao;
+import com.supinfo.supcrowdfunder.util.FlashBag;
 import com.supinfo.supcrowdfunder.validator.UserValidator;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * Author: Gaël Demette
@@ -13,10 +15,19 @@ import javax.servlet.http.HttpServletRequest;
 public class RegistrationType extends AbstractType {
 
     public void persist(HttpServletRequest request) {
-        try {
-            UserDao.insertOne(request.getParameter("email"), request.getParameter("password"), request.getParameter("firstname"), request.getParameter("lastname"));
-        } catch (Exception e) {
-            errors.put("internal", e.getMessage());
+        if (((FlashBag) request.getAttribute("flashbag")).getFlash("info") == null){
+            try {
+                UserDao.insertOne(request.getParameter("email"), request.getParameter("password"), request.getParameter("firstname"), request.getParameter("lastname"));
+            } catch (Exception e) {
+                errors.put("internal", e.getMessage());
+            }
+
+        } else {
+            try {
+                UserDao.insertOne(request.getParameter("email"), request.getParameter("password"), request.getParameter("firstname"), request.getParameter("lastname"), true);
+            } catch (Exception e) {
+                errors.put("internal", e.getMessage());
+            }
         }
     }
     public void validate(HttpServletRequest request) {
