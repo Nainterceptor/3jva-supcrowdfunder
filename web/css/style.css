@@ -2,17 +2,24 @@ body {
     padding-top: 60px;
 }
 .navbar-default {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin-top: 10px;
     text-shadow: 0 1px 0 #fff;
     background-color: #f7f5fa;
     border-radius: 5px;
+    border: 1px solid #ddd;
+}
+.navbar-default ul.nav li{
+    border-bottom: 1px solid #ddd;
+}
+.navbar-default ul.nav li a:hover{
+    color: #428bca;
 }
 .thumbnail {
     margin-top: 10px;
 }
-.navbar-default {
+.thumbnail .caption h3{
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 .bo-form {
     margin-top: 30px;
@@ -24,4 +31,13 @@ body {
 }
 .page-header h2 {
     color: #fff;
+}
+ul.dropdown-menu{
+    padding: 0;
+}
+ul.dropdown-menu li a{
+    border-radius: 4px;
+}
+ul.dropdown-menu li a:hover{
+    background: rgb(240,240,240);
 }
