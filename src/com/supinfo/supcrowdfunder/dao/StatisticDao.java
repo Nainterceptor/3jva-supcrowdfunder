@@ -49,10 +49,10 @@ public class StatisticDao extends AbstractDao {
         String queryString = "SELECT new map(\n" +
                 "(SELECT COUNT(u) FROM User u  WHERE u.createdAt >= :from) as nbrUsers, \n" +
                 "(SELECT COUNT(co) FROM Contribute co WHERE co.rightNow >= :from) as nbrContributes, \n" +
-                "(SELECT COUNT(p) FROM Project p WHERE p.term >= :from) as nbrProjects, \n" +
+                "(SELECT COUNT(p) FROM Project p WHERE p.createdAt >= :from) as nbrProjects, \n" +
                 "(SELECT COUNT(ca) FROM Categorie ca) as nbrCategories, \n" +
                 "(SELECT SUM(co1.amount) FROM Contribute co1 WHERE co1.rightNow >= :from) as sumContributes, \n" +
-                "(SELECT SUM(p1.needCredits) FROM Project p1 WHERE p1.term >= :from) as sumNeeded \n" +
+                "(SELECT SUM(p1.needCredits) FROM Project p1 WHERE p1.createdAt >= :from) as sumNeeded \n" +
                 ") FROM User u";
         Query query = DaoRessource.getEm().createQuery(queryString, Map.class).setMaxResults(1).setParameter("from", from);
         Map<String, Long> result = (Map<String, Long>) query.getSingleResult();
@@ -62,10 +62,10 @@ public class StatisticDao extends AbstractDao {
         String queryString = "SELECT new map(\n" +
                 "(SELECT COUNT(u) FROM User u  WHERE u.createdAt <= :to) as nbrUsers, \n" +
                 "(SELECT COUNT(co) FROM Contribute co WHERE co.rightNow <= :to) as nbrContributes, \n" +
-                "(SELECT COUNT(p) FROM Project p WHERE p.term <= :to) as nbrProjects, \n" +
+                "(SELECT COUNT(p) FROM Project p WHERE p.createdAt <= :to) as nbrProjects, \n" +
                 "(SELECT COUNT(ca) FROM Categorie ca) as nbrCategories, \n" +
                 "(SELECT SUM(co1.amount) FROM Contribute co1 WHERE co1.rightNow <= :to) as sumContributes, \n" +
-                "(SELECT SUM(p1.needCredits) FROM Project p1 WHERE p1.term <= :to) as sumNeeded \n" +
+                "(SELECT SUM(p1.needCredits) FROM Project p1 WHERE p1.createdAt <= :to) as sumNeeded \n" +
                 ") FROM User u";
         Query query = DaoRessource.getEm().createQuery(queryString, Map.class).setMaxResults(1).setParameter("to", to);
         Map<String, Long> result = (Map<String, Long>) query.getSingleResult();
@@ -75,10 +75,10 @@ public class StatisticDao extends AbstractDao {
         String queryString = "SELECT new map(\n" +
                 "(SELECT COUNT(u) FROM User u  WHERE u.createdAt <= :to AND u.createdAt >= :from) as nbrUsers, \n" +
                 "(SELECT COUNT(co) FROM Contribute co WHERE co.rightNow <= :to AND co.rightNow >= :from) as nbrContributes, \n" +
-                "(SELECT COUNT(p) FROM Project p WHERE p.term <= :to AND p.term >= :from) as nbrProjects, \n" +
+                "(SELECT COUNT(p) FROM Project p WHERE p.createdAt <= :to AND p.createdAt >= :from) as nbrProjects, \n" +
                 "(SELECT COUNT(ca) FROM Categorie ca) as nbrCategories, \n" +
                 "(SELECT SUM(co1.amount) FROM Contribute co1 WHERE co1.rightNow <= :to AND co1.rightNow >= :from) as sumContributes, \n" +
-                "(SELECT SUM(p1.needCredits) FROM Project p1 WHERE p1.term <= :to AND p1.term >= :from) as sumNeeded \n" +
+                "(SELECT SUM(p1.needCredits) FROM Project p1 WHERE p1.createdAt <= :to AND p1.createdAt >= :from) as sumNeeded \n" +
                 ") FROM User u";
         Query query = DaoRessource.getEm().createQuery(queryString, Map.class)
                 .setMaxResults(1)

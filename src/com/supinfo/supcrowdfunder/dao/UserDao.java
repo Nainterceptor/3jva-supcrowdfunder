@@ -22,6 +22,11 @@ public class UserDao extends AbstractDao {
 
         return users;
     }
+    public static void persist(User oneUser) {
+        if (oneUser.getId() == null || oneUser.getId() == 0)
+            oneUser.setCreatedAt(new Timestamp(System.currentTimeMillis()));
+        AbstractDao.persist(oneUser);
+    }
     public static void insertOne(String email, String password, String firstname, String lastname) throws Exception {
 
         String salt = SecurityHelper.generateSalt();
@@ -33,7 +38,6 @@ public class UserDao extends AbstractDao {
                     .setEmail(email)
                     .setPassword(hashedPassword)
                     .setSalt(salt);
-            oneUser.setCreatedAt(new Timestamp(System.currentTimeMillis()));
             persist(oneUser);
         } catch (Exception e) {
             throw new Exception("Internal : Can't register user");

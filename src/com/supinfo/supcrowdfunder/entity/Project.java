@@ -25,6 +25,7 @@ public class Project {
     protected Timestamp term;
     private Categorie categories;
     private List<Contribute> contributes;
+    protected Timestamp createdAt;
 
     public String shortDescribe(){
         return (TextHelper.truncateAfterWords(50,details)+" ...");
@@ -116,5 +117,14 @@ public class Project {
     public Project setUser(User user) {
         this.user = user;
         return this;
+    }
+
+    @Column(name = "createdAt", nullable = false)
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
     }
 }

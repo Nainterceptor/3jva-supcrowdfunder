@@ -1,8 +1,5 @@
 package com.supinfo.supcrowdfunder.util;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
  * Created with IntelliJ IDEA.
  * User: Robin

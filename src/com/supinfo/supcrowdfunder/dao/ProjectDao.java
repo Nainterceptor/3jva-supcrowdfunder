@@ -22,6 +22,11 @@ public class ProjectDao extends AbstractDao {
 
         return projects;
     }
+    public static void persist(Project oneProject) {
+        if (oneProject.getId() == null || oneProject.getId() == 0)
+            oneProject.setCreatedAt(new Timestamp(System.currentTimeMillis()));
+        AbstractDao.persist(oneProject);
+    }
     public static List<Project> getAll(Long category) {
         EntityManager em = DaoRessource.getEm();
         Query query = em.createQuery("SELECT p FROM Project p WHERE p.categories = :category")
@@ -35,14 +40,6 @@ public class ProjectDao extends AbstractDao {
         return DaoRessource.getEm().find(Project.class, id);
     }
 
-    public static void insertOne(Project oneProject) {
-        EntityManager em = DaoRessource.getEm();
-        em.getTransaction().begin();
-        em.merge(oneProject);
-        em.getTransaction().commit();
-        em.clear();
-    }
-
     public static void insertOne(String name, String details, Categorie categories, Long needCredits, Timestamp term, Long userId) throws Exception {
         User user = UserDao.findOne(userId);
         try {
@@ -53,7 +50,7 @@ public class ProjectDao extends AbstractDao {
                     .setNeedCredits(needCredits)
                     .setTerm(term)
                     .setUser(user);
-            insertOne(oneProject);
+            persist(oneProject);
         } catch (Exception e) {
             throw new Exception("Internal : Can't create project");
         }

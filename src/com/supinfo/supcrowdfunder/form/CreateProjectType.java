@@ -43,7 +43,7 @@ public class CreateProjectType extends AddProjectType{
                 .setTerm(Convertion.conversionDate(request.getParameter("term")))
                 .setUser(user);
         try {
-            ProjectDao.insertOne(oneProject);
+            ProjectDao.persist(oneProject);
         } catch (Exception e) {
             errors.put("internal", e.getMessage());
             result = false;
