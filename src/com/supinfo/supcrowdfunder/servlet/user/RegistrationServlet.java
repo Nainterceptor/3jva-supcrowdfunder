@@ -23,9 +23,10 @@ public class RegistrationServlet extends HttpServlet {
         form.validate(request);
         FlashBag flashbag = (FlashBag) request.getAttribute("flashbag");
         if (form.getResult()) {
-            if (!UserDao.hasUser())
+            Boolean becomeAdmin = !UserDao.hasUser();
+            if (becomeAdmin)
                 flashbag.addFlash("info", "flash.registration.info");
-            form.persist(request);
+            form.persist(request, becomeAdmin);
             flashbag.addFlash("success", "flash.registration.success");
             //Log et redirect
             request.getSession().setAttribute("email", request.getParameter("email").toLowerCase());
