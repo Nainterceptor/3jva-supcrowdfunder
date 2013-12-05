@@ -38,33 +38,40 @@
         </tr>
         </tbody>
     </table>
-    <h2 class="form">Participer au projet</h2>
-    <form class="form-horizontal" action="<%=request.getContextPath()%>/me/contribute" method="get">
-        </br>
-        <div class="form-group <c:if test="${result != null}">${empty errors['amount'] ? 'has-success' : 'has-error'}</c:if>">
-            <label for="amount" class="col-md-2 text-left control-label "><fmt:message key="form.contribute.amount" /></label>
-            <div class="col-md-2">
-                <input type="text"
-                       class="form-control"
-                       id="amount"
-                       name="amount"
-                       required="required"
-                       placeholder="<fmt:message key="form.contribute.amount.placeholder" />"
-                       value="<c:out value="${param.amount}"/>"
-                       maxlength="255">
-            </div>
-            <c:if test="${errors['amount'] != null}">
-                <span class="help-block"><fmt:message key="${errors['amount']}" /></span>
-            </c:if>
-            <input type="hidden"
-                   class="form-control"
-                   id="projectId"
-                   name="projectId"
-                   required="required"
-                   value="<c:out value="${project.id}" />">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="form">Participer au projet</h3>
         </div>
-            <button class="btn btn-lg btn-primary" type="submit"><fmt:message key="submit" /></button>
-    </form>
+        <div class="panel-body">
+
+            <form class="form-horizontal" action="<%=request.getContextPath()%>/me/contribute" method="get">
+                </br>
+                <div class="form-group <c:if test="${result != null}">${empty errors['amount'] ? 'has-success' : 'has-error'}</c:if>">
+                    <label for="amount" class="col-md-2 text-left control-label "><fmt:message key="form.contribute.amount" /></label>
+                    <div class="col-md-2">
+                        <input type="text"
+                               class="form-control"
+                               id="amount"
+                               name="amount"
+                               required="required"
+                               placeholder="<fmt:message key="form.contribute.amount.placeholder" />"
+                               value="<c:out value="${param.amount}"/>"
+                               maxlength="255">
+                    </div>
+                    <c:if test="${errors['amount'] != null}">
+                        <span class="help-block"><fmt:message key="${errors['amount']}" /></span>
+                    </c:if>
+                    <input type="hidden"
+                           class="form-control"
+                           id="projectId"
+                           name="projectId"
+                           required="required"
+                           value="<c:out value="${project.id}" />">
+                </div>
+                <button class="btn btn-lg btn-primary" type="submit"><fmt:message key="submit" /></button>
+        </div>
+        </form>
+    </div>
 </div>
 
 <%@ include file="/WEB-INF/includes/footer.jsp"%>
