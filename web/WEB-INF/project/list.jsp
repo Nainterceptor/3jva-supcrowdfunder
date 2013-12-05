@@ -47,7 +47,7 @@
                                          role="progressbar"
                                          aria-valuenow="<c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>"
                                          aria-valuemin="0" aria-valuemax="100" style="width: <c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>%">
-                                        <c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>% Complete
+                                        <c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>% <fmt:message key="page.list.project.progressbar" />
                                     </div>
                                 </div>
                             </c:if>
@@ -58,14 +58,14 @@
                                          aria-valuemin="0"
                                          aria-valuemax="<c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>"
                                          style="width: <c:out value="${10000/func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>%">
-                                        <c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>% Complete
+                                        <c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>% <fmt:message key="page.list.project.progressbar" />
                                     </div>
                                     <div class="progress-bar progress-bar-info"
                                          role="progressbar"
                                          aria-valuenow="<c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)-100}"/>"
                                          aria-valuemin="0"
                                          aria-valuemax="<c:out value="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits)}"/>"
-                                         style="width: <c:out value="${100-(10000/func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits))}"/>%"/>
+                                         style="width: <c:out value="${100-(10000/func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits))}"/>%">
                                     </div>
                                 </div>
                             </c:if>

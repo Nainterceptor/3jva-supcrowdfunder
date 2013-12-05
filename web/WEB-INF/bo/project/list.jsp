@@ -2,6 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/includes/headerBO.jsp"%>
 <%@taglib uri="/WEB-INF/tags/functions.tld" prefix="func" %>
+
 <div class="container">
     <h1><fmt:message key="bo.page.project.list.title" /></h1>
     <table class="table table-striped">
@@ -20,7 +21,7 @@
         <tbody>
         <c:if test="${projects.isEmpty()}">
             <tr>
-                <td colspan="5"><fmt:message key="bo.page.project.list.table.empty" /></td>
+                <td colspan="8"><fmt:message key="bo.page.project.list.table.empty" /></td>
             </tr>
         </c:if>
         <c:forEach items="${projects}" var="p">

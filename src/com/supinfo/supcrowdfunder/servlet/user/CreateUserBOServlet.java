@@ -27,13 +27,14 @@ public class CreateUserBOServlet extends HttpServlet {
         if (form.getResult()) {
             form.persist(user);
             flashbag.addFlash("success", "bo.flash.user.edit.success");
+            response.sendRedirect("/bo/user");
         } else {
-            request.setAttribute("errors", form.getErrors() );
+            request.setAttribute("errors", form.getErrors());
             request.setAttribute("result", form.getResult());
             flashbag.addFlash("danger", "bo.flash.user.edit.error");
+            request.setAttribute("user", user);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/bo/user/edit.jsp").forward(request, response);
         }
-        request.setAttribute("user", user);
-        this.getServletContext().getRequestDispatcher("/WEB-INF/bo/user/edit.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

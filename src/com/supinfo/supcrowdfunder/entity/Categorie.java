@@ -1,5 +1,7 @@
 package com.supinfo.supcrowdfunder.entity;
 
+import com.supinfo.supcrowdfunder.implementable.IEntity;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,7 +14,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "categorie")
-public class Categorie {
+public class Categorie implements IEntity {
 
     protected Long id;
     protected String name;
@@ -23,7 +25,7 @@ public class Categorie {
         return this;
     }
 
-    @OneToMany(mappedBy="categories")
+    @OneToMany(mappedBy = "categories")
     public List<Project> getProject() {
         return project;
     }
@@ -34,12 +36,12 @@ public class Categorie {
 
     @Id
     @GeneratedValue
-    @Column (name = "id")
+    @Column(name = "id")
     public Long getId() {
         return id;
     }
 
-    @Column (name = "name", nullable = false)
+    @Column(name = "name", nullable = false)
     public String getName() {
         return name;
     }

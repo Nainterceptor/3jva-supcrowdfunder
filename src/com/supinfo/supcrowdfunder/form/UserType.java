@@ -21,7 +21,8 @@ public class UserType extends AbstractType {
             result = false;
         }
     }
-    public User fill(User user, HttpServletRequest request) {
+
+    public User fill(User user, HttpServletRequest request, Boolean ignoreAdmin) {
         String password = request.getParameter("password");
         if (password != null && password.length() > 0) {
             String salt = SecurityHelper.generateSalt();
@@ -52,10 +53,17 @@ public class UserType extends AbstractType {
         Boolean sex = Boolean.parseBoolean(request.getParameter("sex"));
         user.setSex(sex);
 
-        Boolean admin = Boolean.parseBoolean(request.getParameter("admin"));
-        user.setAdmin(admin);
+        if (!ignoreAdmin) {
+            Boolean admin = Boolean.parseBoolean(request.getParameter("admin"));
+            user.setAdmin(admin);
+        }
         return user;
     }
+
+    public User fill(User user, HttpServletRequest request) {
+        return fill(user, request, false);
+    }
+
     public void validate(HttpServletRequest request) {
         try {
             UserValidator.email(request.getParameter("email"));

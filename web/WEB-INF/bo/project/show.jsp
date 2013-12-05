@@ -14,7 +14,7 @@
         <tbody>
         <tr>
             <th><fmt:message key="db.id" /></th>
-            <td><c:out value="${project.name}" /></td>
+            <td><c:out value="${project.id}" /></td>
         </tr>
         <tr>
             <th><fmt:message key="db.project.name" /></th>

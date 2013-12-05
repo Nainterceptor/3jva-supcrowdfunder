@@ -12,24 +12,24 @@ import java.util.Date;
  */
 public class Convertion {
 
-    public static Timestamp conversionDate (String date){
+    public static Timestamp conversionDate(String date) {
         String dateformat;
         Date hours = new Date(System.currentTimeMillis());
-        dateformat=date+" "+hours.toString().substring(hours.toString().indexOf(":")-2,hours.toString().lastIndexOf(":")+3);
+        dateformat = date + " " + hours.toString().substring(hours.toString().indexOf(":") - 2, hours.toString().lastIndexOf(":") + 3);
         return Timestamp.valueOf(dateformat);
 
     }
 
-    public static String conversionDateString (Timestamp date){
-        return date.toString().substring(8,10)+date.toString().substring(4,8)+date.toString().substring(0,4);
+    public static String conversionDateString(Timestamp date) {
+        return date.toString().substring(8, 10) + date.toString().substring(4, 8) + date.toString().substring(0, 4);
     }
 
-    public static String dateString (Timestamp date){
-        return date.toString().substring(0,10);
+    public static String dateString(Timestamp date) {
+        return date.toString().substring(0, 10);
     }
 
 
-    public static String dateDefault (){
-        return new Timestamp(System.currentTimeMillis()+5184000000L).toString().substring(0,10);
+    public static String dateDefault() {
+        return new Timestamp(System.currentTimeMillis() + 5184000000L).toString().substring(0, 10);
     }
 }

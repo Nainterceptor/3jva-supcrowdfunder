@@ -14,6 +14,7 @@ import java.util.Map;
 public class IndexBoType extends AbstractType {
     public Timestamp from;
     public Timestamp to;
+
     public Map<String, Long> chooseMethodDao() {
         Map<String, Long> stats;
         if (this.from != null && this.to != null)
@@ -26,6 +27,7 @@ public class IndexBoType extends AbstractType {
             stats = StatisticDao.findGlobalStats();
         return stats;
     }
+
     public void validate(HttpServletRequest request) {
         String from = request.getParameter("from");
         String to = request.getParameter("to");

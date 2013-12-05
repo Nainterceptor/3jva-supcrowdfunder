@@ -28,7 +28,7 @@ public class CreateProjectBOServlet extends HttpServlet {
             form.persist(request);
             flashbag.addFlash("success", "bo.flash.project.edit.success");
         } else {
-            request.setAttribute("errors", form.getErrors() );
+            request.setAttribute("errors", form.getErrors());
             request.setAttribute("result", form.getResult());
 
             flashbag.addFlash("danger", "bo.flash.project.edit.error");

@@ -2,6 +2,7 @@ SupCrowdFunder
 ==============
 
 Intellectual Property of :
+
 * Alexandre VAAST
 * Gaël DEMETTE
 * Robain Lebert

@@ -17,10 +17,12 @@ public final class DaoRessource {
         emf = Persistence.createEntityManagerFactory("PU");
         em = emf.createEntityManager();
     }
+
     public static void destroy() {
         em.close();
         emf.close();
     }
+
     public static EntityManager getEm() {
         if (em == null)
             init();

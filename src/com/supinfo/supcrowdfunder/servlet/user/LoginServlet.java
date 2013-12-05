@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect(redirectTo);
 
         } else {
-            request.setAttribute("errors", form.getErrors() );
+            request.setAttribute("errors", form.getErrors());
             request.setAttribute("result", form.getResult());
             flashbag.addFlash("danger", "flash.login.error");
             this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);

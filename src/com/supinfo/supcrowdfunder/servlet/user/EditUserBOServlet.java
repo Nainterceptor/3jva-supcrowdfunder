@@ -37,7 +37,7 @@ public class EditUserBOServlet extends HttpServlet {
                 form.persist(user);
                 flashbag.addFlash("success", "bo.flash.user.edit.success");
             } else {
-                request.setAttribute("errors", form.getErrors() );
+                request.setAttribute("errors", form.getErrors());
                 request.setAttribute("result", form.getResult());
                 flashbag.addFlash("danger", "bo.flash.user.edit.error");
             }

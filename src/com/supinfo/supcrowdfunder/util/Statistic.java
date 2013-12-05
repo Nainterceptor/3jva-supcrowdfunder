@@ -8,7 +8,7 @@ package com.supinfo.supcrowdfunder.util;
  * To change this template use File | Settings | File Templates.
  */
 public class Statistic {
-    public static Short percentage (Long num, Long den){
-        return (short) ((num*100)/den);
+    public static Short percentage(Long num, Long den) {
+        return (short) ((num * 100) / den);
     }
 }

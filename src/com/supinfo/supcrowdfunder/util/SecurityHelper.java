@@ -21,6 +21,7 @@ public class SecurityHelper {
         String salt = Base64.encode(saltByte);
         return salt;
     }
+
     public static String hashPassword(String clearPassword, String salt) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         String password = clearPassword + salt;
         byte[] passwordBytes = password.getBytes();
@@ -28,13 +29,13 @@ public class SecurityHelper {
         hashBytes = MessageDigest.getInstance("SHA-1").digest(passwordBytes);
 
         StringBuffer hashString = new StringBuffer();
-        for ( int i = 0; i < hashBytes.length; ++i ) {
+        for (int i = 0; i < hashBytes.length; ++i) {
             String hex = Integer.toHexString(hashBytes[i]);
-            if ( hex.length() == 1 ) {
+            if (hex.length() == 1) {
                 hashString.append('0');
-                hashString.append(hex.charAt(hex.length()-1));
+                hashString.append(hex.charAt(hex.length() - 1));
             } else {
-                hashString.append(hex.substring(hex.length()-2));
+                hashString.append(hex.substring(hex.length() - 2));
             }
         }
         return hashString.toString();

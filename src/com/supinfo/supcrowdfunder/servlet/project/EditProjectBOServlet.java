@@ -37,11 +37,11 @@ public class EditProjectBOServlet extends HttpServlet {
             request.setAttribute("categories", CategorieDao.getAll());
             request.setAttribute("project", project);
             if (form.getResult()) {
-                form.merge(request);
+                form.merge(project, request);
                 flashbag.addFlash("success", "bo.flash.project.edit.success");
                 response.sendRedirect("/bo/project");
             } else {
-                request.setAttribute("errors", form.getErrors() );
+                request.setAttribute("errors", form.getErrors());
                 request.setAttribute("result", form.getResult());
                 flashbag.addFlash("danger", "bo.flash.project.edit.error");
                 this.getServletContext().getRequestDispatcher("/WEB-INF/bo/project/edit.jsp").forward(request, response);
@@ -58,8 +58,7 @@ public class EditProjectBOServlet extends HttpServlet {
         if (project == null) {
             flashbag.addFlash("warning", "bo.page.project.notExist");
             response.sendRedirect("/bo/project");
-        }
-        else {
+        } else {
             request.setAttribute("project", project);
             request.setAttribute("categories", CategorieDao.getAll());
             this.getServletContext().getRequestDispatcher("/WEB-INF/bo/project/edit.jsp").forward(request, response);

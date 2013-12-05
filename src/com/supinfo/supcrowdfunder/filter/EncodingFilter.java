@@ -16,9 +16,10 @@ public class EncodingFilter implements Filter {
                          FilterChain filterChain)
             throws IOException, ServletException {
         req.setCharacterEncoding(encoding);
-        resp.setContentType("text/html;charset="+encoding);
+        resp.setContentType("text/html;charset=" + encoding);
         filterChain.doFilter(req, resp);
     }
 
-    public void destroy() {}
+    public void destroy() {
+    }
 }

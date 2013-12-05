@@ -1,5 +1,6 @@
 package com.supinfo.supcrowdfunder.entity;
 
+import com.supinfo.supcrowdfunder.implementable.IEntity;
 import com.supinfo.supcrowdfunder.util.TextHelper;
 import org.hibernate.annotations.Type;
 
@@ -16,7 +17,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "project")
-public class Project {
+public class Project implements IEntity {
 
     protected Long id;
     protected String name;
@@ -28,15 +29,15 @@ public class Project {
     private List<Contribute> contributes;
     protected Timestamp createdAt;
 
-    public String shortDescribe(){
+    public String shortDescribe() {
         return this.shortDescribe(50);
     }
 
-    public String shortDescribe(int n){
-        return (TextHelper.truncateAfterWords(n,details));
+    public String shortDescribe(int n) {
+        return (TextHelper.truncateAfterWords(n, details));
     }
 
-    @OneToMany(mappedBy="project")
+    @OneToMany(mappedBy = "project")
     public List<Contribute> getContributes() {
         return contributes;
     }
@@ -51,8 +52,8 @@ public class Project {
         return this;
     }
 
-    @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=Categorie.class )
-    @JoinColumn(name="categorie_id")
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity = Categorie.class)
+    @JoinColumn(name = "categorie_id")
     public Categorie getCategories() {
         return categories;
     }
@@ -80,7 +81,7 @@ public class Project {
     }
 
     @Column(name = "details", nullable = false)
-    @Type(type="text")
+    @Type(type = "text")
     public String getDetails() {
         return details;
     }
@@ -110,8 +111,8 @@ public class Project {
         return this;
     }
 
-    @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=User.class )
-    @JoinColumn(name="userId", nullable = false)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity = User.class)
+    @JoinColumn(name = "userId", nullable = false)
     public User getUser() {
         return user;
     }

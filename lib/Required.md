@@ -1,13 +1,16 @@
-antlr-2.7.7.jar
-dom4j-1.6.1.jar
-hibernate-commons-annotations-4.0.2.Final.jar
-hibernate-core-4.2.7.SP1.jar
-hibernate-entitymanager-4.2.7.SP1.jar
-hibernate-jpa-2.0-api-1.0.1.Final.jar
-javassist-3.18.1-GA.jar
-javax.persistence.jar
-jboss-logging-3.1.0.GA.jar
-jboss-transaction-api_1.1_spec-1.0.1.Final.jar
-jstl-1.2.jar
-jta-1.1.jar
-mysql-connector-java-5.1.26-bin.jar
+Libs required
+======================
+
+* antlr-2.7.7.jar
+* dom4j-1.6.1.jar
+* hibernate-commons-annotations-4.0.2.Final.jar
+* hibernate-core-4.2.7.SP1.jar
+* hibernate-entitymanager-4.2.7.SP1.jar
+* hibernate-jpa-2.0-api-1.0.1.Final.jar
+* javassist-3.18.1-GA.jar
+* javax.persistence.jar
+* jboss-logging-3.1.0.GA.jar
+* jboss-transaction-api_1.1_spec-1.0.1.Final.jar
+* jstl-1.2.jar
+* jta-1.1.jar
+* mysql-connector-java-5.1.26-bin.jar

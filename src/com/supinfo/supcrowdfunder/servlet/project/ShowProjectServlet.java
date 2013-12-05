@@ -29,7 +29,7 @@ public class ShowProjectServlet extends HttpServlet {
         Long id = request.getParameter("id") != null ? Long.parseLong(request.getParameter("id")) : null;
         Project project = null;
         Long actualCredit = null;
-        if (id != null && id > 0){
+        if (id != null && id > 0) {
             project = ProjectDao.findProjectById(id);
             actualCredit = StatisticDao.sumContributes(id);
             request.setAttribute("actualCredits", actualCredit);

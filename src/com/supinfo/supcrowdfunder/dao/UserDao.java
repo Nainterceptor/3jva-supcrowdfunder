@@ -22,14 +22,17 @@ public class UserDao extends AbstractDao {
 
         return users;
     }
+
     public static void persist(User oneUser) {
         if (oneUser.getId() == null || oneUser.getId() == 0)
             oneUser.setCreatedAt(new Timestamp(System.currentTimeMillis()));
         AbstractDao.persist(oneUser);
     }
+
     public static void insertOne(String email, String password, String firstname, String lastname) throws Exception {
         insertOne(email, password, firstname, lastname, false);
     }
+
     public static void insertOne(String email, String password, String firstname, String lastname, Boolean admin) throws Exception {
 
         String salt = SecurityHelper.generateSalt();
@@ -47,17 +50,20 @@ public class UserDao extends AbstractDao {
             throw new Exception("Internal : Can't register user");
         }
     }
+
     public static boolean isMailExist(String email) {
         Query query = DaoRessource.getEm().createQuery("SELECT COUNT(u) as count FROM User u WHERE u.email = :email", Long.class)
-            .setParameter("email", email);
+                .setParameter("email", email);
         long result = (Long) query.getSingleResult();
         return result > 0;
     }
-    public static boolean hasUser(){
+
+    public static boolean hasUser() {
         Query query = DaoRessource.getEm().createQuery("SELECT COUNT(u.id) FROM User u", Long.class);
         long result = (Long) query.getSingleResult();
         return result > 0;
     }
+
     public static User findUserByMail(String email) {
 
         Query query = DaoRessource.getEm().createQuery("SELECT u FROM User u WHERE u.email = :email")
@@ -70,9 +76,11 @@ public class UserDao extends AbstractDao {
         }
         return result;
     }
+
     public static User findOne(Long id) {
         return DaoRessource.getEm().find(User.class, id);
     }
+
     public static void removeOne(Long id) {
         EntityManager em = DaoRessource.getEm();
         em.getTransaction().begin();

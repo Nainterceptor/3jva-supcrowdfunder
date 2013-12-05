@@ -38,7 +38,7 @@ public class EditCategorieBOServlet extends HttpServlet {
                 form.persistEdit(categorie);
                 flashbag.addFlash("success", "flash.addCategorie.success");
             } else {
-                request.setAttribute("errors", form.getErrors() );
+                request.setAttribute("errors", form.getErrors());
                 request.setAttribute("result", form.getResult());
                 flashbag.addFlash("danger", "flash.addCategorie.error");
             }

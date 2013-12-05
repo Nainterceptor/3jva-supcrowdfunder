@@ -32,7 +32,7 @@ public class RegistrationServlet extends HttpServlet {
             request.getSession().setAttribute("email", request.getParameter("email").toLowerCase());
             response.sendRedirect("/");
         } else {
-            request.setAttribute("errors", form.getErrors() );
+            request.setAttribute("errors", form.getErrors());
             request.setAttribute("result", form.getResult());
             flashbag.addFlash("danger", "flash.registration.error");
             this.getServletContext().getRequestDispatcher("/WEB-INF/registration.jsp").forward(request, response);

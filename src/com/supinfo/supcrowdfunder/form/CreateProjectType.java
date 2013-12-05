@@ -3,6 +3,7 @@ package com.supinfo.supcrowdfunder.form;
 import com.supinfo.supcrowdfunder.dao.CategorieDao;
 import com.supinfo.supcrowdfunder.dao.ProjectDao;
 import com.supinfo.supcrowdfunder.dao.UserDao;
+import com.supinfo.supcrowdfunder.entity.Categorie;
 import com.supinfo.supcrowdfunder.entity.Project;
 import com.supinfo.supcrowdfunder.entity.User;
 import com.supinfo.supcrowdfunder.util.Convertion;
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  * Time: 17:04
  * To change this template use File | Settings | File Templates.
  */
-public class CreateProjectType extends AddProjectType{
+public class CreateProjectType extends AddProjectType {
     public void persist(HttpServletRequest request) {
 
         try {
@@ -32,18 +33,18 @@ public class CreateProjectType extends AddProjectType{
         }
     }
 
-    public void merge(HttpServletRequest request){
-        User user = UserDao.findOne(Long.parseLong((request.getParameter("userId"))));;
-        Project oneProject = new Project()
-                .setId(Long.parseLong(request.getParameter("id")))
+    public void merge(Project project, HttpServletRequest request) {
+        User user = UserDao.findOne(Long.parseLong((request.getParameter("userId"))));
+        Categorie category = CategorieDao.findOne(Long.parseLong(request.getParameter("categories")));
+        project
                 .setName(request.getParameter("name"))
                 .setDetails(request.getParameter("details"))
-                .setCategories(CategorieDao.findOne(Long.parseLong(request.getParameter("categories"))))
+                .setCategories(category)
                 .setNeedCredits(Long.parseLong(request.getParameter("needCredits")))
                 .setTerm(Convertion.conversionDate(request.getParameter("term")))
                 .setUser(user);
         try {
-            ProjectDao.persist(oneProject);
+            ProjectDao.persist(project);
         } catch (Exception e) {
             errors.put("internal", e.getMessage());
             result = false;

@@ -1,5 +1,6 @@
 package com.supinfo.supcrowdfunder.entity;
 
+import com.supinfo.supcrowdfunder.implementable.IEntity;
 import com.supinfo.supcrowdfunder.implementable.IUser;
 import com.supinfo.supcrowdfunder.util.SecurityHelper;
 
@@ -14,7 +15,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "user")
-public class User implements IUser {
+public class User implements IUser, IEntity {
 
     protected Long id;
     protected String email;
@@ -32,7 +33,6 @@ public class User implements IUser {
     protected Timestamp createdAt;
 
 
-
     public boolean isEqualPassword(String password) {
         boolean isEqual;
         try {
@@ -42,7 +42,8 @@ public class User implements IUser {
         }
         return isEqual;
     }
-    @OneToMany(mappedBy="user")
+
+    @OneToMany(mappedBy = "user")
     public List<Contribute> getContributes() {
         return contributes;
     }
@@ -52,7 +53,7 @@ public class User implements IUser {
         return this;
     }
 
-    @OneToMany(mappedBy="user")
+    @OneToMany(mappedBy = "user")
     public List<Project> getProjects() {
         return projects;
     }

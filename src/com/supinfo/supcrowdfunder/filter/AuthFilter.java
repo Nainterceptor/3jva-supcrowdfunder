@@ -16,7 +16,8 @@ import java.io.IOException;
  * Time: 12:37
  */
 public class AuthFilter implements Filter {
-    public void destroy() {}
+    public void destroy() {
+    }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         HttpServletRequest request = (HttpServletRequest) req;
@@ -43,6 +44,7 @@ public class AuthFilter implements Filter {
         chain.doFilter(req, resp);
     }
 
-    public void init(FilterConfig config) throws ServletException {}
+    public void init(FilterConfig config) throws ServletException {
+    }
 
 }

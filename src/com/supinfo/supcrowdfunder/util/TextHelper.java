@@ -15,8 +15,8 @@ public class TextHelper {
             return "";
         else if (n >= s.length())
             return s;
-        else if (s.indexOf(" ",n) != -1)
-            return (s.substring(0,s.indexOf(" ",n))+"...");
-        return (s.substring(0,n)+"...");
+        else if (s.indexOf(" ", n) != -1)
+            return (s.substring(0, s.indexOf(" ", n)) + "...");
+        return (s.substring(0, n) + "...");
     }
 }

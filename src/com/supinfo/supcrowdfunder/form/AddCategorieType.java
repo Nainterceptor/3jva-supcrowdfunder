@@ -21,6 +21,7 @@ public class AddCategorieType extends AbstractType {
             errors.put("internal", e.getMessage());
         }
     }
+
     public void persistEdit(Categorie categorie) {
         try {
             CategorieDao.persist(categorie);
@@ -28,11 +29,13 @@ public class AddCategorieType extends AbstractType {
             errors.put("internal", e.getMessage());
         }
     }
+
     public Categorie fill(Categorie categorie, HttpServletRequest request) {
         String name = request.getParameter("name");
         categorie.setName(name);
         return categorie;
     }
+
     public void validate(HttpServletRequest request) {
         try {
             CategorieValidator.name(request.getParameter("name"));

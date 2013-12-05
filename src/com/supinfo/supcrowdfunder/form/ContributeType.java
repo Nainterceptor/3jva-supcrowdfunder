@@ -24,7 +24,6 @@ public class ContributeType extends AbstractType {
     }
 
 
-
     public void validate(HttpServletRequest request) {
 
         try {

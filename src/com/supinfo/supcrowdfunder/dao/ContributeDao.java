@@ -10,7 +10,6 @@ import java.sql.Timestamp;
 import java.util.List;
 
 
-
 public class ContributeDao extends AbstractDao {
     public static List<Contribute> getAll() {
 

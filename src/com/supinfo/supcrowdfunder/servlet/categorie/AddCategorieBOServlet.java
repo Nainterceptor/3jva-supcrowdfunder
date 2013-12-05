@@ -29,7 +29,7 @@ public class AddCategorieBOServlet extends HttpServlet {
             //redirect
             response.sendRedirect("/bo/categorie");
         } else {
-            request.setAttribute("errors", form.getErrors() );
+            request.setAttribute("errors", form.getErrors());
             request.setAttribute("result", form.getResult());
             flashbag.addFlash("danger", "flash.addCategorie.error");
             this.getServletContext().getRequestDispatcher("/WEB-INF/bo/categorie/addCategorie.jsp").forward(request, response);

@@ -39,7 +39,7 @@ public class EditContributeBOServlet extends HttpServlet {
                 flashbag.addFlash("success", "bo.flash.contribute.edit.success");
                 response.sendRedirect("/bo/contribute");
             } else {
-                request.setAttribute("errors", form.getErrors() );
+                request.setAttribute("errors", form.getErrors());
                 request.setAttribute("result", form.getResult());
                 flashbag.addFlash("danger", "bo.flash.contribute.edit.error");
                 this.getServletContext().getRequestDispatcher("/WEB-INF/bo/contribute/edit.jsp").forward(request, response);
@@ -57,8 +57,7 @@ public class EditContributeBOServlet extends HttpServlet {
         if (contribute == null) {
             flashbag.addFlash("warning", "bo.page.contribute.notExist");
             response.sendRedirect("/bo/contribute");
-        }
-        else {
+        } else {
             request.setAttribute("contribute", contribute);
             this.getServletContext().getRequestDispatcher("/WEB-INF/bo/contribute/edit.jsp").forward(request, response);
         }

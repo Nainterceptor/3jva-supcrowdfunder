@@ -26,7 +26,7 @@ public class AddProjectServlet extends HttpServlet {
         form.validate(request);
         request.setAttribute("categories", CategorieDao.getAll());
         FlashBag flashbag = (FlashBag) request.getAttribute("flashbag");
-        if(form.getResult()) {
+        if (form.getResult()) {
             form.persist(request);
             flashbag.addFlash("success", "flash.project.success");
         } else {

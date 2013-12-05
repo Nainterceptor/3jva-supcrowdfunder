@@ -27,7 +27,7 @@ public class IndexBOServlet extends HttpServlet {
         if (form.getResult()) {
             statsGlobal = form.chooseMethodDao();
         } else {
-            request.setAttribute("errors", form.getErrors() );
+            request.setAttribute("errors", form.getErrors());
             request.setAttribute("result", form.getResult());
             flashbag.addFlash("danger", "bo.flash.index.search.error");
             statsGlobal = StatisticDao.findGlobalStats();

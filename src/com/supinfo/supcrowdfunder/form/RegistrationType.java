@@ -15,6 +15,7 @@ public class RegistrationType extends AbstractType {
     public void persist(HttpServletRequest request) {
         persist(request, false);
     }
+
     public void persist(HttpServletRequest request, Boolean admin) {
         try {
             UserDao.insertOne(
@@ -28,6 +29,7 @@ public class RegistrationType extends AbstractType {
             errors.put("internal", e.getMessage());
         }
     }
+
     public void validate(HttpServletRequest request) {
         try {
             UserValidator.password(request.getParameter("password"));

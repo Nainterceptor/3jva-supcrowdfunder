@@ -13,17 +13,19 @@ import java.util.List;
  */
 
 public class CategorieDao extends AbstractDao {
-    public static List<Categorie> getAll(){
+    public static List<Categorie> getAll() {
 
         Query query = DaoRessource.getEm().createQuery("SELECT c FROM Categorie c");
         List<Categorie> categories = query.getResultList();
         return categories;
     }
+
     public static Categorie findOne(Long id) {
 
         Categorie result = DaoRessource.getEm().find(Categorie.class, id);
         return result;
     }
+
     public static void insertOne(String name) throws Exception {
 
         try {
@@ -34,6 +36,7 @@ public class CategorieDao extends AbstractDao {
             throw new Exception("Internal : Can't register categorie");
         }
     }
+
     public static boolean isNameExist(String name) {
         Query query = DaoRessource.getEm().createQuery("SELECT COUNT(c) as count FROM Categorie c WHERE c.name = :name", Long.class)
                 .setParameter("name", name);
@@ -41,6 +44,7 @@ public class CategorieDao extends AbstractDao {
 
         return result > 0;
     }
+
     public static void removeOne(Long id) {
         EntityManager em = DaoRessource.getEm();
         em.getTransaction().begin();

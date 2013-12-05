@@ -30,6 +30,7 @@ public class CreateContributeType extends ContributeType {
             errors.put("internal", e.getMessage());
         }
     }
+
     public void merge(HttpServletRequest request) {
         Project project = ProjectDao.findProjectById(Long.parseLong(request.getParameter("projectId")));
         User user = UserDao.findOne(Long.parseLong((request.getParameter("userId"))));
@@ -46,6 +47,7 @@ public class CreateContributeType extends ContributeType {
             result = false;
         }
     }
+
     public void validate(HttpServletRequest request) {
 
         try {
@@ -72,7 +74,7 @@ public class CreateContributeType extends ContributeType {
         } catch (NumberFormatException e) {
             errors.put("projectId", "validator.contribute.projectId.empty");
         } catch (Exception e) {
-        errors.put("projectId", e.getMessage());
+            errors.put("projectId", e.getMessage());
         }
 
         try {

@@ -16,7 +16,7 @@ import java.sql.Timestamp;
 
 public class ContributeValidator {
     public static void amount(Long amount) throws Exception {
-         if (amount == null || amount <= 0)
+        if (amount == null || amount <= 0)
             throw new Exception("validator.contribute.amount.empty");
     }
 

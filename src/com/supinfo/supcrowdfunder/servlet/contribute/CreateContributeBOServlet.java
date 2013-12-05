@@ -27,7 +27,7 @@ public class CreateContributeBOServlet extends HttpServlet {
             form.persist(request);
             flashbag.addFlash("success", "bo.flash.contribute.edit.success");
         } else {
-            request.setAttribute("errors", form.getErrors() );
+            request.setAttribute("errors", form.getErrors());
             request.setAttribute("result", form.getResult());
             flashbag.addFlash("danger", "bo.flash.contribute.edit.error");
         }

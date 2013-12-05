@@ -23,12 +23,12 @@ public class EditMyUserServlet extends HttpServlet {
         FlashBag flashbag = (FlashBag) request.getAttribute("flashbag");
         EditMyUserType form = new EditMyUserType();
         form.validate(request);
-        user = form.fill(user, request);
+        user = form.fill(user, request, true);
         if (form.getResult()) {
             form.persist(user);
             flashbag.addFlash("success", "bo.flash.user.edit.success");
         } else {
-            request.setAttribute("errors", form.getErrors() );
+            request.setAttribute("errors", form.getErrors());
             request.setAttribute("result", form.getResult());
             flashbag.addFlash("danger", "bo.flash.user.edit.error");
         }

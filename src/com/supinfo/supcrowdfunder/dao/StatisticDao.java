@@ -11,25 +11,24 @@ import java.util.Map;
  */
 public class StatisticDao extends AbstractDao {
 
-    public static Short percentage (Long num, Long den){
+    public static Short percentage(Long num, Long den) {
         Short percentage;
         try {
-            percentage = (short) ((num*100)/den);
+            percentage = (short) ((num * 100) / den);
         } catch (Exception e) {
             percentage = 0;
         }
-        return percentage ;
+        return percentage;
     }
 
-    public static Long sumContributes(Long projectId){
+    public static Long sumContributes(Long projectId) {
         Query query = DaoRessource.getEm().createQuery("SELECT SUM(c.amount) FROM Contribute c WHERE c.project.id = :projectId", Long.class)
                 .setParameter("projectId", projectId);
         Long contributes = (Long) query.getSingleResult();
         if (contributes == null)
-            contributes=0L;
+            contributes = 0L;
         return contributes;
     }
-
 
 
     public static Map<String, Long> findGlobalStats() {
@@ -45,6 +44,7 @@ public class StatisticDao extends AbstractDao {
         Map<String, Long> result = (Map<String, Long>) query.getSingleResult();
         return result;
     }
+
     public static Map<String, Long> findGlobalStatsFrom(Timestamp from) {
         String queryString = "SELECT new map(\n" +
                 "(SELECT COUNT(u) FROM User u  WHERE u.createdAt >= :from) as nbrUsers, \n" +
@@ -58,6 +58,7 @@ public class StatisticDao extends AbstractDao {
         Map<String, Long> result = (Map<String, Long>) query.getSingleResult();
         return result;
     }
+
     public static Map<String, Long> findGlobalStatsTo(Timestamp to) {
         String queryString = "SELECT new map(\n" +
                 "(SELECT COUNT(u) FROM User u  WHERE u.createdAt <= :to) as nbrUsers, \n" +
@@ -71,6 +72,7 @@ public class StatisticDao extends AbstractDao {
         Map<String, Long> result = (Map<String, Long>) query.getSingleResult();
         return result;
     }
+
     public static Map<String, Long> findGlobalStatsFromTo(Timestamp from, Timestamp to) {
         String queryString = "SELECT new map(\n" +
                 "(SELECT COUNT(u) FROM User u  WHERE u.createdAt <= :to AND u.createdAt >= :from) as nbrUsers, \n" +

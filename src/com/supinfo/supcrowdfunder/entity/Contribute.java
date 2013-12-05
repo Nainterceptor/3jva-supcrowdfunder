@@ -1,6 +1,8 @@
 package com.supinfo.supcrowdfunder.entity;
 
 
+import com.supinfo.supcrowdfunder.implementable.IEntity;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
@@ -14,7 +16,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name = "contribute")
-public class Contribute {
+public class Contribute implements IEntity {
 
     protected Long id;
     protected Long amount;
@@ -22,18 +24,19 @@ public class Contribute {
     protected Timestamp rightNow;
     protected Project project;
 
-    @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=User.class )
-    @JoinColumn(name="userId", nullable = false)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity = User.class)
+    @JoinColumn(name = "userId", nullable = false)
     public User getUser() {
         return user;
     }
+
     public Contribute setUser(User user) {
         this.user = user;
         return this;
     }
 
-    @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=Project.class )
-    @JoinColumn(name="projectId", nullable = false)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity = Project.class)
+    @JoinColumn(name = "projectId", nullable = false)
     public Project getProject() {
         return project;
     }
@@ -65,9 +68,6 @@ public class Contribute {
         this.amount = amount;
         return this;
     }
-
-
-
 
 
     @Column(name = "rightNow", nullable = false)

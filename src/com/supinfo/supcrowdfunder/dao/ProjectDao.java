@@ -22,11 +22,13 @@ public class ProjectDao extends AbstractDao {
 
         return projects;
     }
+
     public static void persist(Project oneProject) {
         if (oneProject.getId() == null || oneProject.getId() == 0)
             oneProject.setCreatedAt(new Timestamp(System.currentTimeMillis()));
         AbstractDao.persist(oneProject);
     }
+
     public static List<Project> getAll(Long category) {
         EntityManager em = DaoRessource.getEm();
         Query query = em.createQuery("SELECT p FROM Project p WHERE p.categories = :category")
@@ -36,7 +38,7 @@ public class ProjectDao extends AbstractDao {
         return projects;
     }
 
-    public static Project findProjectById(Long id ) {
+    public static Project findProjectById(Long id) {
         return DaoRessource.getEm().find(Project.class, id);
     }
 
@@ -55,6 +57,7 @@ public class ProjectDao extends AbstractDao {
             throw new Exception("Internal : Can't create project");
         }
     }
+
     public static void removeOne(Long id) {
         EntityManager em = DaoRessource.getEm();
         em.getTransaction().begin();
