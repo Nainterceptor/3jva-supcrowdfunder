@@ -30,6 +30,10 @@
                     <th><fmt:message key="db.project.term" /></th>
                     <td><c:out value="${func:dateToStringVue(project.term)}" /></td>
                 </tr>
+                <tr>
+                    <th><fmt:message key="db.project.creator" /></th>
+                    <td><c:out value="${project.user.firstname} ${project.user.lastname}" /></td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -101,6 +105,6 @@
         </div>
     </c:if>
     </div>
-    <p><c:out value="${project.details}" /></p>
+    <p class="newLine"><c:out value="${project.details}" /></p>
 </div>
 <%@ include file="/WEB-INF/includes/footer.jsp"%>
