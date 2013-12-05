@@ -38,7 +38,7 @@
                 <div class="thumbnail">
                     <div class="caption">
                         <h3><c:out value="${p.name}"/></h3>
-                        <p><c:out value="${p.shortDescribe()}"/></p>
+                        <p class="minHeight"><c:out value="${p.shortDescribe(80)}"/></p>
                         <p><b><fmt:message key="page.list.project.cash" /></b> <c:out value="${p.needCredits}"/><fmt:message key="page.list.project.symbolMoney" /></p>
                         <p>
                             <c:if test="${func:calculatePercentage(func:calculateSumContibutes(p.id), p.needCredits) < 100}">

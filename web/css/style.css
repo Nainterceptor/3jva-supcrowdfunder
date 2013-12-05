@@ -44,3 +44,6 @@ ul.dropdown-menu li a{
 ul.dropdown-menu li a:hover{
     background: rgb(240,240,240);
 }
+.minHeight{
+    min-height: 40px;
+}

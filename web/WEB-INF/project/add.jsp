@@ -58,12 +58,12 @@
             <div class="col-md-8">
                 <textarea
                        class="form-control"
-                       rows="5"
+                       rows="12"
                        id="details"
                        name="details"
                        required="required"
                        placeholder="<fmt:message key="form.project.details.placeholder" />"
-                       maxlength="255"><c:out value="${param.details}"/></textarea>
+                       maxlength="5000"><c:out value="${param.details}"/></textarea>
             </div>
             <c:if test="${errors['details'] != null}">
                 <span class="help-block"><fmt:message key="${errors['details']}" /></span>
@@ -96,7 +96,12 @@
                 <span class="help-block"><fmt:message key="${errors['term']}" /></span>
             </c:if>
         </div>
-        <button class="btn btn-lg btn-primary" type="submit"><fmt:message key="submit" /></button>
+        <div class="form-group">
+            <span class="col-md-3"></span>
+            <div class="col-md-3">
+                <button class="btn btn-lg btn-primary" type="submit"><fmt:message key="submit" /></button>
+            </div>
+        </div>
     </form>
 </div>
 <%@ include file="/WEB-INF/includes/footer.jsp"%>
