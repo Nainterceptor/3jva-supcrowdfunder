@@ -6,7 +6,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <fmt:setBundle basename="com.supinfo.supcrowdfunder.lang.Msg" />
-<fmt:setLocale value="fr" scope="session"/>
 <!doctype html>
 <html>
 <head>
@@ -27,24 +26,27 @@
                         <li>
                             <a href="<%=request.getContextPath()%>/project"><fmt:message key="fo.menu.projects" /></a>
                         </li>
-                        <li>
-                            <a href="<%=request.getContextPath()%>/me/edit"><fmt:message key="fo.menu.profil" /></a>
-                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Langages <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="menu.languages" /> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Français</a></li>
-                                <li><a href="#">English</a></li>
-                                <li><a href="#">Spain</a></li>
-                                <li><a href="#">Deutsch</a></li>
+                                <li><a href="?lang=fr"><fmt:message key="menu.languages.fr" /></a></li>
+                                <li><a href="?lang=en"><fmt:message key="menu.languages.en" /></a></li>
                             </ul>
                         </li>
                         <c:choose>
                             <c:when test="${sessionScope.email != null}">
-                                <li>
-                                    <a href="<%=request.getContextPath()%>/me/logout"><fmt:message key="menu.logout" /></a>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="menu.account" /> <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="<%=request.getContextPath()%>/me/edit"><fmt:message key="menu.profil" /></a>
+                                        </li>
+                                        <li>
+                                            <a href="<%=request.getContextPath()%>/me/logout"><fmt:message key="menu.logout" /></a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </c:when>
                             <c:otherwise>

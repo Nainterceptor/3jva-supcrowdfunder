@@ -17,7 +17,7 @@
 </c:if>
 <div class="container">
     <div class="col-md-2">
-       <a class="btn btn-primary" href="<%=request.getContextPath()%>/me/project/add">Add a project</a>
+       <a class="btn btn-primary" href="<%=request.getContextPath()%>/me/project/add"><fmt:message key="page.list.project.add" /></a>
        <div class="navbar-default">
             <ul class="nav">
                 <li>
@@ -70,7 +70,7 @@
                                 </div>
                             </c:if>
                         </p>
-                        <p><a href="<%=request.getContextPath()%>/project/show?id=<c:out value="${p.id}" />" class="btn btn-primary">See</a></p>
+                        <p><a href="<%=request.getContextPath()%>/project/show?id=<c:out value="${p.id}" />" class="btn btn-primary"><fmt:message key="page.list.project.see" /></a></p>
                     </div>
                 </div>
             </div>
