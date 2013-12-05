@@ -1,6 +1,7 @@
 package com.supinfo.supcrowdfunder.entity;
 
 import com.supinfo.supcrowdfunder.util.TextHelper;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -79,6 +80,7 @@ public class Project {
     }
 
     @Column(name = "details", nullable = false)
+    @Type(type="text")
     public String getDetails() {
         return details;
     }
