@@ -29,8 +29,12 @@ public class DeleteProjectBOServlet extends HttpServlet {
         if (project == null) {
             flashbag.addFlash("warning", "bo.page.project.notExist");
         } else {
-            ((FlashBag) request.getAttribute("flashbag")).addFlash("warning", "bo.flash.project.delete.success");
-            ProjectDao.removeOne(id);
+            try {
+                 ProjectDao.removeOne(id);
+                ((FlashBag) request.getAttribute("flashbag")).addFlash("warning", "bo.flash.project.delete.success");
+            } catch (Exception e){
+                ((FlashBag) request.getAttribute("flashbag")).addFlash("danger", "bo.flash.project.delete.error");
+            }
         }
         response.sendRedirect("/bo/project");
     }

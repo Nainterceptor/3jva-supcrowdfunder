@@ -26,8 +26,12 @@ public class DeleteUserBOServlet extends HttpServlet {
         if (user == null) {
             ((FlashBag) request.getAttribute("flashbag")).addFlash("warning", "bo.page.user.notExist");
         } else {
-            ((FlashBag) request.getAttribute("flashbag")).addFlash("warning", "bo.flash.user.delete.success");
-            UserDao.removeOne(id);
+            try {
+                UserDao.removeOne(id);
+                ((FlashBag) request.getAttribute("flashbag")).addFlash("warning", "bo.flash.user.delete.success");
+            } catch (Exception e){
+                ((FlashBag) request.getAttribute("flashbag")).addFlash("danger", "bo.flash.user.delete.error");
+            }
         }
         response.sendRedirect("/bo/user");
     }

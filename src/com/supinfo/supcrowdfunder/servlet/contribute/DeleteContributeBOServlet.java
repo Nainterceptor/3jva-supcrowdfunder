@@ -29,8 +29,12 @@ public class DeleteContributeBOServlet extends HttpServlet {
         if (contribute == null) {
             flashbag.addFlash("warning", "bo.page.contribute.notExist");
         } else {
-            ((FlashBag) request.getAttribute("flashbag")).addFlash("warning", "bo.flash.contribute.delete.success");
-            ContributeDao.removeOne(id);
+            try {
+                ContributeDao.removeOne(id);
+                ((FlashBag) request.getAttribute("flashbag")).addFlash("warning", "bo.flash.contribute.delete.success");
+            } catch (Exception e){
+                ((FlashBag) request.getAttribute("flashbag")).addFlash("danger", "bo.flash.contribute.delete.error");
+            }
         }
         response.sendRedirect("/bo/contribute");
     }

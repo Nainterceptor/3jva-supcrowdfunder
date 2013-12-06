@@ -28,8 +28,12 @@ public class DeleteCategorieBOServlet extends HttpServlet {
         if (categorie == null) {
             ((FlashBag) request.getAttribute("flashbag")).addFlash("warning", "bo.page.categorie.notExist");
         } else {
-            ((FlashBag) request.getAttribute("flashbag")).addFlash("warning", "bo.flash.categorie.delete.success");
-            CategorieDao.removeOne(id);
+            try{
+                CategorieDao.removeOne(id);
+                ((FlashBag) request.getAttribute("flashbag")).addFlash("warning", "bo.flash.categorie.delete.success");
+            } catch (Exception e){
+                ((FlashBag) request.getAttribute("flashbag")).addFlash("danger", "bo.flash.categorie.delete.error");
+            }
         }
         response.sendRedirect("/bo/categorie");
     }
