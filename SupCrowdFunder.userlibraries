@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="lib">
+    <archive path="/Users/nainterceptor/IdeaProjects/SupCrowdFunder/lib/jta-1.1.jar" />
+    <archive path="/Users/nainterceptor/IdeaProjects/SupCrowdFunder/lib/jstl-1.2.jar" />
+    <archive path="/Users/nainterceptor/IdeaProjects/SupCrowdFunder/lib/antlr-2.7.7.jar" />
+    <archive path="/Users/nainterceptor/IdeaProjects/SupCrowdFunder/lib/dom4j-1.6.1.jar" />
+    <archive path="/Users/nainterceptor/IdeaProjects/SupCrowdFunder/lib/javax.persistence.jar" />
+    <archive path="/Users/nainterceptor/IdeaProjects/SupCrowdFunder/lib/javassist-3.18.1-GA.jar" />
+    <archive path="/Users/nainterceptor/IdeaProjects/SupCrowdFunder/lib/jboss-logging-3.1.0.GA.jar" />
+    <archive path="/Users/nainterceptor/IdeaProjects/SupCrowdFunder/lib/hibernate-core-4.2.7.SP1.jar" />
+    <archive path="/Users/nainterceptor/IdeaProjects/SupCrowdFunder/lib/mysql-connector-java-5.1.26-bin.jar" />
+    <archive path="/Users/nainterceptor/IdeaProjects/SupCrowdFunder/lib/hibernate-entitymanager-4.2.7.SP1.jar" />
+    <archive path="/Users/nainterceptor/IdeaProjects/SupCrowdFunder/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar" />
+    <archive path="/Users/nainterceptor/IdeaProjects/SupCrowdFunder/lib/hibernate-commons-annotations-4.0.2.Final.jar" />
+    <archive path="/Users/nainterceptor/IdeaProjects/SupCrowdFunder/lib/jboss-transaction-api_1.1_spec-1.0.1.Final.jar" />
+  </library>
+</eclipse-userlibraries>
+
