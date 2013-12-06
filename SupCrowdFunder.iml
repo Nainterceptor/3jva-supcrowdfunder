@@ -17,9 +17,21 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="NewPersistenceUnit" value="42bc81a9-9e4e-44af-bc01-f032cd381fcc" />
-          <factory-entry name="PU" value="1ee36828-22f6-4b39-827a-8a469160d0f1" />
+          <factory-entry name="PU" value="ce714393-a28c-49a3-9b35-da0ad753d245" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
+      </configuration>
+    </facet>
+    <facet type="Osmorc" name="OSGi">
+      <configuration manifestGenerationMode="OsmorcControlled" manifestLocation="SupCrowdFunder.iml" jarfileLocation="SupCrowdFunder.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="" bundleVersion="1.0.0" ignoreFilePattern="" useProjectDefaultManifestFileLocation="true" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
+        <additionalProperties />
+        <additionalJARContents />
+      </configuration>
+    </facet>
+    <facet type="hibernate" name="Hibernate">
+      <configuration>
+        <datasource-map />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
       </configuration>
     </facet>
   </component>
@@ -30,6 +42,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>

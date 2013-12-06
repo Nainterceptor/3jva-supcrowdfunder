@@ -19,7 +19,7 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h1 class="form">Création d'un nouveau projet</h1>
+            <h1 class="form"><fmt:message key="form.project.title" /></h1>
         </div>
         <div class="panel-body">
             <form class="form-horizontal" action="<%=request.getContextPath()%>/me/project/add" method="post">

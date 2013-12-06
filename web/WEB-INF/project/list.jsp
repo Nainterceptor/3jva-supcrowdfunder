@@ -21,7 +21,7 @@
        <div class="navbar-default">
             <ul class="nav">
                 <li>
-                    <a href="<%=request.getContextPath()%>/project">Tous</a>
+                    <a href="<%=request.getContextPath()%>/project"><fmt:message key="page.list.project.Add" /></a>
                 </li>
             <c:forEach items="${categories}" var="c">
                 <li>
