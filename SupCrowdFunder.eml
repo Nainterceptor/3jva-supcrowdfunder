@@ -3,6 +3,45 @@
 	<output-test url="file://$MODULE_DIR$/out/test/SupCrowdFunder"/>
 	<exclude-output/>
 	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="antlr-2.7.7.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/antlr-2.7.7.jar!/"/>
+	</lib>
+	<lib name="dom4j-1.6.1.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/dom4j-1.6.1.jar!/"/>
+	</lib>
+	<lib name="hibernate-commons-annotations-4.0.2.Final.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/hibernate-commons-annotations-4.0.2.Final.jar!/"/>
+	</lib>
+	<lib name="hibernate-core-4.2.7.SP1.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/hibernate-core-4.2.7.SP1.jar!/"/>
+	</lib>
+	<lib name="hibernate-entitymanager-4.2.7.SP1.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/hibernate-entitymanager-4.2.7.SP1.jar!/"/>
+	</lib>
+	<lib name="hibernate-jpa-2.0-api-1.0.1.Final.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar!/"/>
+	</lib>
+	<lib name="javassist-3.18.1-GA.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/javassist-3.18.1-GA.jar!/"/>
+	</lib>
+	<lib name="javax.persistence.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/javax.persistence.jar!/"/>
+	</lib>
+	<lib name="jboss-logging-3.1.0.GA.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/jboss-logging-3.1.0.GA.jar!/"/>
+	</lib>
+	<lib name="jboss-transaction-api_1.1_spec-1.0.1.Final.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/jboss-transaction-api_1.1_spec-1.0.1.Final.jar!/"/>
+	</lib>
+	<lib name="jstl-1.2.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/jstl-1.2.jar!/"/>
+	</lib>
+	<lib name="jta-1.1.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/jta-1.1.jar!/"/>
+	</lib>
+	<lib name="mysql-connector-java-5.1.26-bin.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.26-bin.jar!/"/>
+	</lib>
 	<levels>
 		<level name="lib" value="project"/>
 	</levels>
