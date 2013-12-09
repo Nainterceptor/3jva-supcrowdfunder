@@ -5,7 +5,7 @@ Intellectual Property of :
 
 * Alexandre VAAST
 * Gaël DEMETTE
-* Robain Lebert
+* Robin Lebert
 * Romain LETREMY
 
 Quick install
