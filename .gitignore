@@ -11,8 +11,8 @@ out/
 ##################
 # External libs  #
 ##################
-lib/*
-!lib/Required.md
+web/WEB-INF/lib/*
+!web/WEB-INF/lib/Required.md
 
 ############
 # Mac OS X #

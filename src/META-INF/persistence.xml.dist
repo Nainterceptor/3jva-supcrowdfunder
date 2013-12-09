@@ -3,6 +3,10 @@
 
     <persistence-unit name="PU">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>com.supinfo.supcrowdfunder.entity.Categorie</class>
+        <class>com.supinfo.supcrowdfunder.entity.Contribute</class>
+        <class>com.supinfo.supcrowdfunder.entity.Project</class> 
+        <class>com.supinfo.supcrowdfunder.entity.User</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost/supcrowdfunder"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
