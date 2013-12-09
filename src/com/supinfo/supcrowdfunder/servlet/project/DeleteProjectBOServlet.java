@@ -36,6 +36,6 @@ public class DeleteProjectBOServlet extends HttpServlet {
                 ((FlashBag) request.getAttribute("flashbag")).addFlash("danger", "bo.flash.project.delete.error");
             }
         }
-        response.sendRedirect("/bo/project");
+        response.sendRedirect(request.getContextPath()+"/bo/project");
     }
 }

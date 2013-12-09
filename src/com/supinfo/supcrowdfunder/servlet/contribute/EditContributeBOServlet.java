@@ -29,7 +29,7 @@ public class EditContributeBOServlet extends HttpServlet {
             contribute = ContributeDao.findOne(id);
         if (contribute == null) {
             flashbag.addFlash("warning", "bo.page.contribute.notExist");
-            response.sendRedirect("/bo/contribute");
+            response.sendRedirect(request.getContextPath()+"/bo/contribute");
         } else {
             request.setAttribute("contribute", contribute);
             CreateContributeType form = new CreateContributeType();
@@ -37,7 +37,7 @@ public class EditContributeBOServlet extends HttpServlet {
             if (form.getResult()) {
                 form.merge(request);
                 flashbag.addFlash("success", "bo.flash.contribute.edit.success");
-                response.sendRedirect("/bo/contribute");
+                response.sendRedirect(request.getContextPath()+"/bo/contribute");
             } else {
                 request.setAttribute("errors", form.getErrors());
                 request.setAttribute("result", form.getResult());
@@ -56,7 +56,7 @@ public class EditContributeBOServlet extends HttpServlet {
             contribute = ContributeDao.findOne(id);
         if (contribute == null) {
             flashbag.addFlash("warning", "bo.page.contribute.notExist");
-            response.sendRedirect("/bo/contribute");
+            response.sendRedirect(request.getContextPath()+"/bo/contribute");
         } else {
             request.setAttribute("contribute", contribute);
             this.getServletContext().getRequestDispatcher("/WEB-INF/bo/contribute/edit.jsp").forward(request, response);

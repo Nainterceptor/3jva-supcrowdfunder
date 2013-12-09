@@ -27,7 +27,7 @@ public class CreateUserBOServlet extends HttpServlet {
         if (form.getResult()) {
             form.persist(user);
             flashbag.addFlash("success", "bo.flash.user.edit.success");
-            response.sendRedirect("/bo/user");
+            response.sendRedirect(request.getContextPath()+"/bo/user");
         } else {
             request.setAttribute("errors", form.getErrors());
             request.setAttribute("result", form.getResult());

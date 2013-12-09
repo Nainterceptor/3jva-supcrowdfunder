@@ -27,7 +27,7 @@ public class AddCategorieBOServlet extends HttpServlet {
             form.persist(request);
             flashbag.addFlash("success", "flash.addCategorie.success");
             //redirect
-            response.sendRedirect("/bo/categorie");
+            response.sendRedirect(request.getContextPath()+"/bo/categorie");
         } else {
             request.setAttribute("errors", form.getErrors());
             request.setAttribute("result", form.getResult());

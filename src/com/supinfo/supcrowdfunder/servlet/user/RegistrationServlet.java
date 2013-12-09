@@ -30,7 +30,7 @@ public class RegistrationServlet extends HttpServlet {
             flashbag.addFlash("success", "flash.registration.success");
             //Log et redirect
             request.getSession().setAttribute("email", request.getParameter("email").toLowerCase());
-            response.sendRedirect("/");
+            response.sendRedirect(request.getContextPath()+"/");
         } else {
             request.setAttribute("errors", form.getErrors());
             request.setAttribute("result", form.getResult());

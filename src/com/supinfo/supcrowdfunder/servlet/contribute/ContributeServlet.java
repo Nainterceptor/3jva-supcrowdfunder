@@ -26,7 +26,7 @@ public class ContributeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         FlashBag flashbag = (FlashBag) request.getAttribute("flashbag");
         if (request.getParameter("projectId") == null) {
-            response.sendRedirect("/project");
+            response.sendRedirect(request.getContextPath()+"/project");
             flashbag.addFlash("danger", "flash.contribute.projectId.fail");
         } else {
             ContributeType form = new ContributeType();

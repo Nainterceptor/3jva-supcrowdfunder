@@ -25,7 +25,7 @@ public class ShowUserServlet extends HttpServlet {
             user = UserDao.findOne(id);
         if (user == null) {
             ((FlashBag) request.getAttribute("flashbag")).addFlash("warning", "bo.page.user.notExist");
-            response.sendRedirect("/");
+            response.sendRedirect(request.getContextPath()+"/");
         } else {
             request.setAttribute("user", user);
             this.getServletContext().getRequestDispatcher("/WEB-INF/user/show.jsp").forward(request, response);

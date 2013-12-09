@@ -30,7 +30,7 @@ public class EditProjectBOServlet extends HttpServlet {
             project = ProjectDao.findProjectById(id);
         if (project == null) {
             flashbag.addFlash("warning", "bo.page.project.notExist");
-            response.sendRedirect("/bo/project");
+            response.sendRedirect(request.getContextPath()+"/bo/project");
         } else {
             CreateProjectType form = new CreateProjectType();
             form.validate(request);
@@ -39,7 +39,7 @@ public class EditProjectBOServlet extends HttpServlet {
             if (form.getResult()) {
                 form.merge(project, request);
                 flashbag.addFlash("success", "bo.flash.project.edit.success");
-                response.sendRedirect("/bo/project");
+                response.sendRedirect(request.getContextPath()+"/bo/project");
             } else {
                 request.setAttribute("errors", form.getErrors());
                 request.setAttribute("result", form.getResult());
@@ -57,7 +57,7 @@ public class EditProjectBOServlet extends HttpServlet {
             project = ProjectDao.findProjectById(id);
         if (project == null) {
             flashbag.addFlash("warning", "bo.page.project.notExist");
-            response.sendRedirect("/bo/project");
+            response.sendRedirect(request.getContextPath()+"/bo/project");
         } else {
             request.setAttribute("project", project);
             request.setAttribute("categories", CategorieDao.getAll());

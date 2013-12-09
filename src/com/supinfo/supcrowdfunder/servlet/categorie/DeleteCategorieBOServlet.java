@@ -35,6 +35,6 @@ public class DeleteCategorieBOServlet extends HttpServlet {
                 ((FlashBag) request.getAttribute("flashbag")).addFlash("danger", "bo.flash.categorie.delete.error");
             }
         }
-        response.sendRedirect("/bo/categorie");
+        response.sendRedirect(request.getContextPath()+"/bo/categorie");
     }
 }

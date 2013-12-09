@@ -33,6 +33,6 @@ public class DeleteUserBOServlet extends HttpServlet {
                 ((FlashBag) request.getAttribute("flashbag")).addFlash("danger", "bo.flash.user.delete.error");
             }
         }
-        response.sendRedirect("/bo/user");
+        response.sendRedirect(request.getContextPath()+"/bo/user");
     }
 }

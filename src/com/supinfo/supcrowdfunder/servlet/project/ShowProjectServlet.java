@@ -36,7 +36,7 @@ public class ShowProjectServlet extends HttpServlet {
         }
         if (project == null) {
             ((FlashBag) request.getAttribute("flashbag")).addFlash("warning", "show.page.project.notExist");
-            response.sendRedirect("/project");
+            response.sendRedirect(request.getContextPath()+"/project");
         } else {
             request.setAttribute("project", project);
             this.getServletContext().getRequestDispatcher("/WEB-INF/project/show.jsp").forward(request, response);

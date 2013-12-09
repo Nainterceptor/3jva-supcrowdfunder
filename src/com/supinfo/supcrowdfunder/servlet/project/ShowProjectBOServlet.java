@@ -29,7 +29,7 @@ public class ShowProjectBOServlet extends HttpServlet {
             project = ProjectDao.findProjectById(id);
         if (project == null) {
             ((FlashBag) request.getAttribute("flashbag")).addFlash("warning", "bo.page.project.notExist");
-            response.sendRedirect("/bo/project");
+            response.sendRedirect(request.getContextPath()+"/bo/project");
         } else {
             request.setAttribute("project", project);
             this.getServletContext().getRequestDispatcher("/WEB-INF/bo/project/show.jsp").forward(request, response);

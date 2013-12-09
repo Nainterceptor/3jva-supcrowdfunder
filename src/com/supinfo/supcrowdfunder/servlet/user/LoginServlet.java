@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("email", request.getParameter("email"));
             String redirectTo = request.getParameter("originURL");
             if (redirectTo == null && redirectTo.trim().length() == 0)
-                response.sendRedirect("/");
+                response.sendRedirect(request.getContextPath()+"/");
             else
                 response.sendRedirect(redirectTo);
 

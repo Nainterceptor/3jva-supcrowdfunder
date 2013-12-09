@@ -27,7 +27,7 @@ public class ShowContributeBOServlet extends HttpServlet {
             contribute = ContributeDao.findOne(id);
         if (contribute == null) {
             ((FlashBag) request.getAttribute("flashbag")).addFlash("warning", "bo.page.contribute.notExist");
-            response.sendRedirect("/bo/contribute");
+            response.sendRedirect(request.getContextPath()+"/bo/contribute");
         } else {
             request.setAttribute("contribute", contribute);
             this.getServletContext().getRequestDispatcher("/WEB-INF/bo/contribute/show.jsp").forward(request, response);

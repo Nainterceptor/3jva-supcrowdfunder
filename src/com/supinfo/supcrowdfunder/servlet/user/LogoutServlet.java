@@ -19,6 +19,6 @@ public class LogoutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getSession().removeAttribute("email");
         ((FlashBag) request.getAttribute("flashbag")).addFlash("success", "flash.logout.success");
-        response.sendRedirect("/");
+        response.sendRedirect(request.getContextPath()+"/");
     }
 }

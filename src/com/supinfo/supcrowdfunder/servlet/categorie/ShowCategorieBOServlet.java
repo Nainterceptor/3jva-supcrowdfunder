@@ -27,7 +27,7 @@ public class ShowCategorieBOServlet extends HttpServlet {
             categorie = CategorieDao.findOne(id);
         if (categorie == null) {
             ((FlashBag) request.getAttribute("flashbag")).addFlash("warning", "bo.page.categorie.notExist");
-            response.sendRedirect("/bo/categorie");
+            response.sendRedirect(request.getContextPath()+"/bo/categorie");
         } else {
             request.setAttribute("categorie", categorie);
             this.getServletContext().getRequestDispatcher("/WEB-INF/bo/categorie/show.jsp").forward(request, response);

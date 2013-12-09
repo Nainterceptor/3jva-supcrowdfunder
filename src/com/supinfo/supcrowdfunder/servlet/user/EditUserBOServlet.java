@@ -27,7 +27,7 @@ public class EditUserBOServlet extends HttpServlet {
             user = UserDao.findOne(id);
         if (user == null) {
             flashbag.addFlash("warning", "bo.page.user.notExist");
-            response.sendRedirect("/bo/user");
+            response.sendRedirect(request.getContextPath()+"/bo/user");
         } else {
             UserType form = new UserType();
             form.validate(request);
@@ -53,7 +53,7 @@ public class EditUserBOServlet extends HttpServlet {
             user = UserDao.findOne(id);
         if (user == null) {
             ((FlashBag) request.getAttribute("flashbag")).addFlash("warning", "bo.page.user.notExist");
-            response.sendRedirect("/bo/user");
+            response.sendRedirect(request.getContextPath()+"/bo/user");
         } else {
             request.setAttribute("user", user);
             this.getServletContext().getRequestDispatcher("/WEB-INF/bo/user/edit.jsp").forward(request, response);
