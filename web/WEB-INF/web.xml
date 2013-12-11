@@ -59,4 +59,17 @@
         <filter-name>BoFilter</filter-name>
         <url-pattern>/bo/*</url-pattern>
     </filter-mapping>
+    <servlet>
+        <servlet-name>com.supinfo.supcrowdfunder.rest.SupCrowdfunderApplication</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>com.supinfo.supcrowdfunder.rest.SupCrowdfunderApplication</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>com.supinfo.supcrowdfunder.rest.SupCrowdfunderApplication</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
 </web-app>

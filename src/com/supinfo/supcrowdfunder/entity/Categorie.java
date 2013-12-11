@@ -3,6 +3,8 @@ package com.supinfo.supcrowdfunder.entity;
 import com.supinfo.supcrowdfunder.implementable.IEntity;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.List;
 
 /**
@@ -14,6 +16,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "categorie")
+@XmlRootElement()
 public class Categorie implements IEntity {
 
     protected Long id;
@@ -26,6 +29,7 @@ public class Categorie implements IEntity {
     }
 
     @OneToMany(mappedBy = "categories")
+    @XmlTransient
     public List<Project> getProject() {
         return project;
     }
