@@ -17,11 +17,11 @@ import java.util.List;
  */
 @Path("/category")
 public class CategoryResource {
-    @GET @Path("/all") @Produces(MediaType.APPLICATION_XML)
+    @GET @Path("/all") @Produces(MediaType.APPLICATION_JSON)
     public List<Categorie> getCategories() {
         return CategorieDao.getAll();
     }
-    @GET @Path("/{id}") @Produces(MediaType.APPLICATION_XML)
+    @GET @Path("/{id}") @Produces(MediaType.APPLICATION_JSON)
     public Categorie getCategory(@PathParam("id") Long id) {
         return CategorieDao.findOne(id);
     }
