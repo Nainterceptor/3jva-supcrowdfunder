@@ -10,6 +10,7 @@ public class SupCrowdfunderApplication extends Application {
     public Set<Class<?>> getClasses() {
         final Set<Class<?>> classes = new HashSet<>();
         classes.add(CategoryResource.class);
+        classes.add(ProjectResource.class);
         return classes;
     }
 }

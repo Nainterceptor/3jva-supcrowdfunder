@@ -5,6 +5,7 @@ import com.supinfo.supcrowdfunder.implementable.IUser;
 import com.supinfo.supcrowdfunder.util.SecurityHelper;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -44,6 +45,7 @@ public class User implements IUser, IEntity {
     }
 
     @OneToMany(mappedBy = "user")
+    @XmlTransient
     public List<Contribute> getContributes() {
         return contributes;
     }
@@ -54,6 +56,7 @@ public class User implements IUser, IEntity {
     }
 
     @OneToMany(mappedBy = "user")
+    @XmlTransient
     public List<Project> getProjects() {
         return projects;
     }

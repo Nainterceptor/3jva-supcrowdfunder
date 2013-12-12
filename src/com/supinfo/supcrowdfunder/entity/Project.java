@@ -5,6 +5,8 @@ import com.supinfo.supcrowdfunder.util.TextHelper;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -17,6 +19,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "project")
+@XmlRootElement()
 public class Project implements IEntity {
 
     protected Long id;
@@ -38,6 +41,7 @@ public class Project implements IEntity {
     }
 
     @OneToMany(mappedBy = "project")
+    @XmlTransient
     public List<Contribute> getContributes() {
         return contributes;
     }
