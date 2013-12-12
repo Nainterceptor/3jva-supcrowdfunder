@@ -11,6 +11,7 @@ public class SupCrowdfunderApplication extends Application {
         final Set<Class<?>> classes = new HashSet<>();
         classes.add(CategoryResource.class);
         classes.add(ProjectResource.class);
+        classes.add(UserResource.class);
         return classes;
     }
 }
