@@ -24,9 +24,17 @@ public class ContributeDao extends AbstractDao {
     }
 
     public static void insertOne(Long amount, Long userId, Timestamp rightNow, Long projectId) throws Exception {
+        User user = UserDao.findOne(userId);
+        ContributeDao.insertOne(amount, user, rightNow, projectId);
+    }
+
+    public static void insertOne(Long amount, User user, Long projectId) throws Exception {
+        Timestamp rightNow = new Timestamp(System.currentTimeMillis());
+        ContributeDao.insertOne(amount, user, rightNow, projectId);
+    }
+    public static void insertOne(Long amount, User user, Timestamp rightNow, Long projectId) throws Exception {
 
         Project project = ProjectDao.findProjectById(projectId);
-        User user = UserDao.findOne(userId);
         try {
             Contribute oneContribute = new Contribute()
                     .setAmount(amount)
