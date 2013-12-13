@@ -42,13 +42,22 @@ public class ProjectDao extends AbstractDao {
         return DaoRessource.getEm().find(Project.class, id);
     }
 
-    public static void insertOne(String name, String details, Categorie categories, Long needCredits, Timestamp term, Long userId) throws Exception {
+    public static void insertOne(String name, String details, Categorie category, Long needCredits, Timestamp term, Long userId) throws Exception {
         User user = UserDao.findOne(userId);
+        ProjectDao.insertOne(name, details, category, needCredits, term, user);
+    }
+
+    public static void insertOne(String name, String details, Long categoryId, Long needCredits, Timestamp term, User user) throws Exception {
+        Categorie category = CategorieDao.findOne(categoryId);
+        ProjectDao.insertOne(name, details, category, needCredits, term, user);
+    }
+
+    public static void insertOne(String name, String details, Categorie category, Long needCredits, Timestamp term, User user) throws Exception {
         try {
             Project oneProject = new Project()
                     .setName(name)
                     .setDetails(details)
-                    .setCategories(categories)
+                    .setCategories(category)
                     .setNeedCredits(needCredits)
                     .setTerm(term)
                     .setUser(user);
