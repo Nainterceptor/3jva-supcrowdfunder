@@ -29,4 +29,28 @@ public class UserResource {
         }
         return json;
     }
+
+    @POST @Path("/register") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Map register(
+            @FormParam("email") final String email,
+            @FormParam("password") final String password,
+            @FormParam("confirmPassword") final String confirmPassword,
+            @FormParam("firstname") final String firstname,
+            @FormParam("lastname") final String lastname
+    ) {
+        //Never admin on registration, please register the first user on the website
+        Map<String, Object> json = new HashMap<>();
+        try {
+            UserValidator.emailRegistration(email);
+            UserValidator.password(password);
+            UserValidator.confirmpassword(password, confirmPassword);
+            UserValidator.firstname(firstname);
+            UserValidator.lastname(lastname);
+            UserDao.insertOne(email, password, firstname, lastname);
+            json.put("error", false);
+        } catch (Exception e) {
+            json.put("error", e.getMessage());
+        }
+        return json;
+    }
 }
