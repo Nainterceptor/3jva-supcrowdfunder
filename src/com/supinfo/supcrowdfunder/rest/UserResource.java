@@ -8,17 +8,19 @@ import com.supinfo.supcrowdfunder.validator.UserValidator;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 /**
  * Author: Gaël Demette
  * Date: 11/12/13
  * Time: 14:00
  */
-@Path("/user")
+@Path("/{locale}/user")
 public class UserResource {
     @POST @Path("/checkuser") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Map checkUser(@FormParam("email") final String email, @FormParam("password") final String password) {
+    public Map checkUser(@FormParam("email") final String email, @FormParam("password") final String password, @PathParam("locale") final String locale) {
         Map<String, Object> json = new HashMap<>();
         try {
             User currentUser = UserDao.findUserByMail(email);
@@ -26,7 +28,10 @@ public class UserResource {
             UserValidator.passwordLogin(password, currentUser);
             json.put("user", currentUser);
         } catch (Exception e) {
-            json.put("error", e.getMessage());
+            String error = ResourceBundle
+                    .getBundle("com.supinfo.supcrowdfunder.lang.Msg", Locale.forLanguageTag(locale))
+                    .getString(e.getMessage());
+            json.put("error", error);
         }
         return json;
     }
@@ -37,7 +42,8 @@ public class UserResource {
             @FormParam("password") final String password,
             @FormParam("confirmPassword") final String confirmPassword,
             @FormParam("firstname") final String firstname,
-            @FormParam("lastname") final String lastname
+            @FormParam("lastname") final String lastname,
+            @PathParam("locale") final String locale
     ) {
         //Never admin on registration, please register the first user on the website
         Map<String, Object> json = new HashMap<>();
@@ -50,7 +56,10 @@ public class UserResource {
             UserDao.insertOne(email, password, firstname, lastname);
             json.put("error", false);
         } catch (Exception e) {
-            json.put("error", e.getMessage());
+            String error = ResourceBundle
+                    .getBundle("com.supinfo.supcrowdfunder.lang.Msg", Locale.forLanguageTag(locale))
+                    .getString(e.getMessage());
+            json.put("error", error);
         }
         return json;
     }
@@ -67,7 +76,8 @@ public class UserResource {
             @FormParam("address") final String address,
             @FormParam("zipCode") final String zipCode,
             @FormParam("city") final String city,
-            @FormParam("sex") final Boolean sex
+            @FormParam("sex") final Boolean sex,
+            @PathParam("locale") final String locale
     ) {
         Map<String, Object> json = new HashMap<>();
         try {
@@ -97,7 +107,10 @@ public class UserResource {
             UserDao.persist(currentUser);
             json.put("error", false);
         } catch (Exception e) {
-            json.put("error", e.getMessage());
+            String error = ResourceBundle
+                    .getBundle("com.supinfo.supcrowdfunder.lang.Msg", Locale.forLanguageTag(locale))
+                    .getString(e.getMessage());
+            json.put("error", error);
         }
         return json;
     }
