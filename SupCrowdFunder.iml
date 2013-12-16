@@ -17,7 +17,7 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="NewPersistenceUnit" value="42bc81a9-9e4e-44af-bc01-f032cd381fcc" />
-          <factory-entry name="PU" value="1ee36828-22f6-4b39-827a-8a469160d0f1" />
+          <factory-entry name="PU" value="ff4a8dd1-1969-45f6-bc85-089a99c3e16b" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
       </configuration>
@@ -31,6 +31,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6 (2)" level="project" />
   </component>
 </module>
 
