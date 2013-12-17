@@ -13,9 +13,7 @@ import com.supinfo.supcrowdfunder.validator.UserValidator;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.sql.Timestamp;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Author: Gaël Demette
@@ -44,8 +42,13 @@ public class ProjectResource {
         return StatisticDao.sumContributes(id);
     }
 
-    @POST @Path("/{id}/contribute") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Map contribute(@FormParam("email") final String email, @FormParam("password") final String password, @PathParam("id") Long id, @FormParam("amount") final Long amount) {
+    @POST @Path("/{locale}/{id}/contribute") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Map contribute(
+            @FormParam("email") final String email,
+            @FormParam("password") final String password,
+            @PathParam("id") Long id,
+            @FormParam("amount") final Long amount,
+            @PathParam("locale") final String locale) {
         Map<String, Object> json = new HashMap<>();
         try {
             User currentUser = UserDao.findUserByMail(email);
@@ -56,12 +59,15 @@ public class ProjectResource {
             ContributeDao.insertOne(amount, currentUser, id);
             json.put("newSum", StatisticDao.sumContributes(id));
         } catch (Exception e) {
-            json.put("error", e.getMessage());
+            String error = ResourceBundle
+                    .getBundle("com.supinfo.supcrowdfunder.lang.Msg", Locale.forLanguageTag(locale))
+                    .getString(e.getMessage());
+            json.put("error", error);
         }
         return json;
     }
 
-    @POST @Path("/create") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @POST @Path("/{locale}/create") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Map create(
         @FormParam("email") final String email,
         @FormParam("password") final String password,
@@ -69,7 +75,8 @@ public class ProjectResource {
         @FormParam("details") final String details,
         @FormParam("category") final Long categoryId,
         @FormParam("needCredits") final Long needCredits,
-        @FormParam("term") final String termString
+        @FormParam("term") final String termString,
+        @PathParam("locale") final String locale
     ) {
         Map<String, Object> json = new HashMap<>();
         try {
@@ -85,7 +92,10 @@ public class ProjectResource {
             ProjectDao.insertOne(name, details, category, needCredits, term, currentUser);
             json.put("error", false);
         } catch (Exception e) {
-            json.put("error", e.getMessage());
+            String error = ResourceBundle
+                    .getBundle("com.supinfo.supcrowdfunder.lang.Msg", Locale.forLanguageTag(locale))
+                    .getString(e.getMessage());
+            json.put("error", error);
         }
         return json;
     }
