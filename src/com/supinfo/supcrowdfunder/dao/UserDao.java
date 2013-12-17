@@ -44,7 +44,11 @@ public class UserDao extends AbstractDao {
                     .setEmail(email)
                     .setPassword(hashedPassword)
                     .setSalt(salt)
-                    .setAdmin(admin);
+                    .setAdmin(admin)
+                    .setSex(true)
+                    .setAddress("")
+                    .setZipCode("")
+                    .setCity("");
             persist(oneUser);
         } catch (Exception e) {
             throw new Exception("Internal : Can't register user");
